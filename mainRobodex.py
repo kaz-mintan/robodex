@@ -4,7 +4,7 @@
 #mainRobodex.py
 
 import robotHumanData
-import robotActionRulebasels
+import robotActionRulebase
 import executeRobotAction
 
 #ロボットアクションの実行と、人間のリアクションの取得

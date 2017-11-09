@@ -3,13 +3,15 @@
 #上記コメントアウトなのに意味あるの？
 #main.py
 
+import config.py
 import robo_human_data
 import robot_action_rulebase
 import exe_robo_action
+import recog_utterance
 
 #ロボットアクションの実行と、人間のリアクションの取得
 def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
-    ret = robotHumanData.RobotHumanData()   #インスタンスretを宣言RobotHumanDataモジュールの、robotHumanData型。
+    ret = robo_human_data.RobotHumanData()   #インスタンスretを宣言RobotHumanDataモジュールの、robotHumanData型。
 #    ここで、OKAOVision認識データをリストに記憶するスレッドを起動する。
     execute_robot_action(robot_action)
     ret.setRobotAction(robot_action)
@@ -19,7 +21,7 @@ def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
 #OKAOVision停止の方法どうするか
     okao_list = StopOkaoVisionThread()    #OKAOVision停止の想定。
     ret.setOkaoVisionList(okao_list)
-    ret.sethogehoge...
+#    ret.sethogehoge...
     return ret
 
 #robotHumanData.pyでモジュールを用意する必要あり。RobotHumanDataクラス
@@ -32,23 +34,36 @@ def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
 #recognize_utterance()関数（返り値あり）を用意する必要あり
 #認識したコメントを返す
 
+#以下概形のみ
+def decide_action(robot_human_series_data):
+
+#    robot_action = "noaction"
+    robot_action = (0,0,0)  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+
+    #SW_DIALOGUE_SYSでの切り替え
+    if 0 == SW_DIALOGUE_SYS:
+        #robot_action_rulebaseでhogehogeする
+        robot_human_data_newest = robot_human_series_data[0]
+        tmp_human_comment = robot_human_data_newest.getHumanComment()
 
 
+    elif 1 == SW_DIALOGUE_SYS:
+        #TATシステムでhogehogeする
+    else:
+        pass
 
-def main_robodex():
+    return robot_action
 
-    #最大で保存しておく、ロボットと人間の一連のやり取りデータの数
-    RESERVE_NUM_ROBOT_HUMAN_DATA = 10
 
-    #対話システムの選択スイッチ、まずは手動切り替えにする。
-    #0:ルールベースシステム　1:TAT学習システム
-    SW_DIALOGUE_SYS = 0
+def main():
 
     robot_human_series_data = []
-    #...
+    robot_action = (0,0,0)  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+
     try:
-        while end_flag == False:    #end_flagの設定どこでやるの？
-            if robot_action != "noaction":
+        while end_flag == False:    #end_flagの設定どうしようかな
+#            if robot_action != "noaction":
+            if robot_action != (0,0,0):
                 #ロボットと人間の一連のやり取りデータを取得する。
                 robot_human_data_tmp = execute_action_and_get_human_reaction(robot_action)
                 #上で取得したロボットと人間の一連のやり取りデータをdata_listに追加する。
@@ -57,13 +72,15 @@ def main_robodex():
                 if len(robot_human_series_data) > RESERVE_NUM_ROBOT_HUMAN_DATA:
                 robot_human_series_data.popleft()
                 #上で取得した、ロボットと人間の一連のやり取りデータを引数にして、robot_actionを返り値にする。
-                robot_action = decide_action(SW_DIALOGUE_SYS, robot_human_series_data)
+                robot_action = decide_action(robot_human_series_data)
+
+        #ここで、end処理する。
+        print("ここでend処理する")
 
     except KeyboardInterrupt:
         pass
         print("Interrupted")
 
-#robot_action関数を用意しておく必要あり。
 #data_listを元に、robot_actionを決める。
 #robot_actionは、予め外部にテーブルを用意して選択肢から選択する。
 #選択肢の要素は、モータの駆動角度、駆動速度、LEDの光らせ方
@@ -93,3 +110,4 @@ def main_robodex():
 #prev info名前変える
 
 #ファイルの分割は、どういう単位ですれば良いのだろう？
+#main内で、複数関数書いてよい？

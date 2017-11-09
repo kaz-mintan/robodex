@@ -6,7 +6,8 @@ import requests
 import json
 import os
 import subprocess
-import commands
+#commandsは、python3ではsubprocessに内包された
+#import commands
 
 
 def execute_robot_action(robot_action):
@@ -22,4 +23,3 @@ def execute_robot_action(robot_action):
 
     else:
         pass
-    

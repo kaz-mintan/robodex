@@ -3,7 +3,7 @@
 #上記コメントアウトなのに意味あるの？
 #main.py
 
-import config.py
+import config
 import robo_human_data
 import robot_action_rulebase
 import exe_robo_action

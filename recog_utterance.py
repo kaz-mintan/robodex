@@ -7,8 +7,12 @@ import json
 import os
 import time
 import subprocess
-import commands
-import config.py
+#commandsは、python3ではsubprocessに内包された
+import config
+
+#下記、config.pyへの記載ではダメなのかな？
+VOICE_REC_PATH = '/home/pi/robodex/human_comment.wav'
+GOOGLE_APIKEY = 'AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0'
 
 def current_milli_time():
     return int(round(time.time() * 1000))
@@ -43,7 +47,7 @@ def recognize_utterance():
 
     print('recognizing...6')
 
-    print 'results:', reply
+    print('results:', reply)
 
     objs = reply.split(os.linesep)
     for obj in objs:
@@ -64,15 +68,15 @@ def recognize_utterance():
 
     t0 = current_milli_time()
     message = recognize().encode('utf-8')
-    print 'recognized:' + str(current_milli_time() - t0) + 'ms'
+    print('recognized:' + str(current_milli_time() - t0) + 'ms')
 
     if (message == '#CONN_ERR'):
-        print 'internet not available'
+        print('internet not available')
         message = ''
     elif (message == '#ERROR'):
-        print 'voice recognizing failed'
+        print('voice recognizing failed')
         message = ''
     else:
-        print 'your words:' + message
+        print('your words:' + message)
 
 recognize_utterance()

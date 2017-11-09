@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 #上記、シェバングと呼ぶ？python3では指定しなくてもデフォルトでutf-8らしい。
-#コメントアウトなのに意味あるんだ？
-#mainRobodex.py
+#上記コメントアウトなのに意味あるの？
+#main.py
 
-import robotHumanData
-import robotActionRulebase
-import executeRobotAction
+import robo_human_data
+import robot_action_rulebase
+import exe_robo_action
 
 #ロボットアクションの実行と、人間のリアクションの取得
 def execute_action_and_get_human_reaction(robot_action):    #関数宣言。

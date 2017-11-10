@@ -8,8 +8,11 @@ class RobotHumanData:
 	def __init__(self):
 		robot_comment = ""
 		robot_motion = 0
+		robot_led = 0
 		human_comment = ""
-		time_stamp = 0
+		time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく
+		day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
+		wheather = 0	#天気と数値との関連付けは、取得先の設定を参考にする
 		okao_list = 0
 #OKAOのデータの取り込みどうしよう？
 
@@ -19,23 +22,41 @@ class RobotHumanData:
 	def getRobotMotion(self):
 		return self.robot_motion
 
+	def getRobotLed(self):
+		return self.robot_led
+
 	def getHumanComment(self):
 		return self.human_comment
 
 	def getTimeStamp(self):
 		return self.time_stamp
 
+	def getDayOfWeek(self):
+		return self.day_of_week
+
+	def getWheather(self):
+		return self.wheather
+
 	def setRobtComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
 
 	def setRobotMotion(self,RMotion):
-		self.robot_motion = Motion
+		self.robot_motion = RMotion
+
+	def setRobotLed(self,RLed):
+		self.robot_led = RLed
 
 	def setHumanComment(self,HComment):
 		self.human_comment = HComment
 
 	def setTimeStamp(self):
 		self.time_stamp = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+
+#	def setDayOfWeek(self):
+#		self.day_of_week = 
+
+#	def setWheather(self):
+#		self.wheather = 
 
 	def getOkaoVisionList(self,OKAOlist):
 		self.okao_list = OKAOlist

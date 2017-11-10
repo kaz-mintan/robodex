@@ -7,7 +7,7 @@ class RobotHumanData:
 
 	def __init__(self):
 		robot_comment = ""
-		robot_action = 0
+		robot_motion = 0
 		human_comment = ""
 		time_stamp = 0
 		okao_list = 0
@@ -16,8 +16,8 @@ class RobotHumanData:
 	def getRobotComment(self):	#getRobotComment()メソッド
 		return self.robot_comment
 
-	def getRobotAction(self):
-		return self.robot_action
+	def getRobotMotion(self):
+		return self.robot_motion
 
 	def getHumanComment(self):
 		return self.human_comment
@@ -28,8 +28,8 @@ class RobotHumanData:
 	def setRobtComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
 
-	def setRobotAction(self,RAction):
-		self.robot_action = RAction
+	def setRobotMotion(self,RMotion):
+		self.robot_motion = Motion
 
 	def setHumanComment(self,HComment):
 		self.human_comment = HComment

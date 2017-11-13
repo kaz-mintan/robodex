@@ -11,16 +11,16 @@ import subprocess
 import config
 
 #下記、config.pyへの記載ではダメなのかな？
-VOICE_REC_PATH = '/home/pi/robodex/human_comment.wav'
-GOOGLE_APIKEY = 'AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0'
+#VOICE_REC_PATH = '/home/pi/robodex/human_comment.wav'
+#GOOGLE_APIKEY = 'AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0'
 
 def current_milli_time():
     return int(round(time.time() * 1000))
 
-def recognize_utterance():
+def execute_recognition():
 
     print('recognizing...')
-    f = open(VOICE_REC_PATH, 'rb')
+    f = open(config.VOICE_REC_PATH, 'rb')
     print('recognizing...1')
     voice = f.read()
     print('recognizing...2')
@@ -28,7 +28,7 @@ def recognize_utterance():
     print('recognizing...3')
 
     url = 'https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&'\
-        'lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=' + GOOGLE_APIKEY
+        'lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=' + config.GOOGLE_APIKEY
 
     print('recognizing...4')
     hds = {'Content-type': 'audio/l16; rate=16000;'}
@@ -63,11 +63,13 @@ def recognize_utterance():
     print('recognizing...7')
 
 #上までは1回やればいい？
+def recognize_utterance():
+    #下記ディレクトリ指定は、本来configファイルで行う。
     cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 3"
     subprocess.call( cmd.strip().split(" ")  )
 
     t0 = current_milli_time()
-    message = recognize().encode('utf-8')
+    message = execute_recognition().encode('utf-8')
     print('recognized:' + str(current_milli_time() - t0) + 'ms')
 
     if (message == '#CONN_ERR'):
@@ -78,5 +80,3 @@ def recognize_utterance():
         message = ''
     else:
         print('your words:' + message)
-
-recognize_utterance()

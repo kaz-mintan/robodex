@@ -10,6 +10,10 @@ def decide_action_rulebase(robot_human_series_data)
     robot_human_data_newest = robot_human_series_data[0]
     tmp_human_comment = robot_human_data_newest.getHumanComment()
 
+    
+テーブルを2つ参照する必要がある？
+
+
 #コメント表、アクション表からどう取得するかを考える必要あり。
 
     return robot_action

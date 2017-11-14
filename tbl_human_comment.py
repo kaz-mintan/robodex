@@ -17,31 +17,8 @@
 #1,tsukareta,疲れた,ツカレタ
 #2,yoi,いい,よい,良い
 
-dict = {
-
+dict_human_term = {
     "こんにちは":("こんにちは",),
     "疲れた":("疲れた","つかれた"),
     "良い":("いい","よい","良い")
-
 }
-
-pic_term_list = []
-
-msg = "良いけど疲れた。"
-
-for key in dict:
-
-    list = dict[key]
-
-    for number in range(len(list)):
-#        print (list[number])
-        if msg.find(list[number]) > -1:
-#        if True == list[number] in msg:　これだとうまくいかない
-#            print(msg.find(list[number]))
-            pic_term_list.append(key)
-            break
-        else:
-            pass
-
-for number in range(len(pic_term_list)):
-    print (pic_term_list[number])

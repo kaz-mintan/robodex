@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 #上記、シェバングと呼ぶ？python3では指定しなくてもデフォルトでutf-8らしい。
 #上記コメントアウトなのに意味あるの？
@@ -29,40 +30,24 @@ def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
 #    ret.sethogehoge...
     return ret
 
-#robotHumanData.pyでモジュールを用意する必要あり。RobotHumanDataクラス
-#    ret.setRobotAction(robot_action)
-#    ret.setOkaoVisionList(okao_list)
-#    ret.sethogehoge...
-
-#execute_robot_action(robot_action)関数を用意する必要あり
-
-#recognize_utterance()関数（返り値あり）を用意する必要あり
-#認識したコメントを返す
-
-#以下概形のみ
 def decide_action(robot_human_series_data):
+#    print(type(robot_human_series_data[0]))
 
-#    robot_action = "noaction"
-    robot_action = (0,0,0)  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+    #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+    robot_action = [0,0,0]#0,0,0は応答なし
 
     #SW_DIALOGUE_SYSでの切り替え
-    if 0 == SW_DIALOGUE_SYS:
-        robot_action = decide_action_rulebase(robot_human_series_data)
-
-    elif 1 == SW_DIALOGUE_SYS:
-        robot_action = decide_action_TATsys(robot_human_series_data)
-
+    if 0 == config.SW_DIALOGUE_SYS:
+        robot_action = decide_action_rulebase.decide_action_rulebase(robot_human_series_data)
+    elif 1 == config.SW_DIALOGUE_SYS:
+        robot_action = decide_action_TATsys.decide_action_TATsys(robot_human_series_data)
     else:
         pass
-
     return robot_action
 
-
 def main():
-
     robot_human_series_data = []
     robot_action = (0,0,0)  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
-
     try:
         while end_flag == False:    #end_flagの設定どうしようかな
 #            if robot_action != "noaction":
@@ -76,10 +61,8 @@ def main():
                     robot_human_series_data.popleft()
                 #上で取得した、ロボットと人間の一連のやり取りデータを引数にして、robot_actionを返り値にする。
                 robot_action = decide_action(robot_human_series_data)
-
         #ここで、end処理する。
         print("ここでend処理する")
-
     except KeyboardInterrupt:
         pass
         print("Interrupted")
@@ -87,10 +70,6 @@ def main():
 #robot_human_series_dataを元に、robot_actionを決める。
 #robot_actionは、予め外部にテーブルを用意して選択肢から選択する。
 #選択肢の要素は、モータの駆動角度、駆動速度、LEDの光らせ方
-
-
-
-
 
 
 #以下、メモ
@@ -114,5 +93,16 @@ def main():
 
 #ファイルの分割は、どういう単位ですれば良いのだろう？
 #main内で、複数関数書いてよい？
-robot_action = (0,0,0)
-a = execute_action_and_get_human_reaction(robot_action)
+
+#robot_action = (0,0,0)
+#a = execute_action_and_get_human_reaction(robot_action)
+
+
+#decide_action---確認用---
+#h_comment = "良いけど疲れた。"
+#tmp_robo_h_s_data = []
+#tmp = robo_human_data.RobotHumanData()
+#tmp.setHumanComment(h_comment)
+#tmp_robo_h_s_data.append(tmp)
+#ret = decide_action(tmp_robo_h_s_data)
+#print (ret)

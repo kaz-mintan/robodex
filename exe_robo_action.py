@@ -16,9 +16,9 @@ def execute_robot_action(robot_action):
     #上3つ、とりあえず順番に動かすようにしているが、並行して動かせるようにしないといけない。
 
     if robot_action == (0,0,0):
-        return
+        pass
 
-    elif 0 =! robot_action[0]:#コメントアクションを行う。
+    elif 0 != robot_action[0]:#コメントアクションを行う。
 
         #テーブルファイルから取得するクラスを呼ぶ
         #speak_message = テーブルファイルから取得したメッセージ
@@ -26,11 +26,15 @@ def execute_robot_action(robot_action):
         #speak_message = '何か伺いましょうか？'
         check = subprocess.getoutput('curl "https://api.voicetext.jp/v1/tts" -s -u 563fw3j9tnberqyq: -d speed=100 -d speaker=hikari -d "text=%s" | aplay 2> /dev/null '% speak_message)
 
-    elif 0 =! robot_action[1]:#モーションを行う。
+    elif 0 != robot_action[1]:#モーションを行う。
         #テーブルファイルから取得するクラスを呼ぶ
-
-    elif 0 =! robot_action[2]:#LEDアクションを行う。
+        pass
+    elif 0 != robot_action[2]:#LEDアクションを行う。
         #テーブルファイルから取得するクラスを呼ぶ
-
+        pass
     else:
         pass
+
+#---execute_robot_action確認用---
+#robot_action = [0,0,0]
+#execute_robot_action(robot_action)

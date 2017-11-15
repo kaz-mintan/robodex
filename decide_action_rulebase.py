@@ -4,15 +4,18 @@
 
 import tbl_human_comment
 import tbl_robo_comment
+import config
+
+import robo_human_data
 
 def pic_human_term(human_comment):
 
-pic_term_list = []
-    human_comment = "良いけど疲れた。"
+    pic_term_list = []
 
-    for key in dict_human_term:
+    #dict_human_termは、一旦取り込んだ方がいいか？
+    for key in tbl_human_comment.dict_human_term:
 
-        list = dict_human_term[key]
+        list = tbl_human_comment.dict_human_term[key]
 
         for number in range(len(list)):
 #            print (list[number])
@@ -24,8 +27,9 @@ pic_term_list = []
             else:
                 pass
 
-            for number in range(len(pic_term_list)):
-                print (pic_term_list[number])
+    if (1 == config.DEBUG_PRINT):
+        for number in range(len(pic_term_list)):
+            print ("pic_human_term関数内のpic_term_list" + pic_term_list[number])
 
     return pic_term_list
 
@@ -36,16 +40,26 @@ def dialogue_algorithm_rulebase(pic_human_term):
 #tbl_robo_commentの中で記載しているlistを辞書型にすれば、意味のあるkeyを持たせる事ができるが、
 #他のファイルでは、通し番号で管理しているので、併用が難しい。
 
-    if (True == "良い" in pic_human_term) and (True == "疲れた" in pic_human_term):
+    if (1 == config.DEBUG_PRINT):
+        print(pic_human_term)
+
+    robot_comment = 0
+
+    if  (True == ("良い" in pic_human_term)) and (True == ("疲れた" in pic_human_term)):
         robot_comment = 4
+
+    else:
+        pass
+
     return robot_comment
 
 
-def decide_action_rulebase(robot_human_series_data)
+def decide_action_rulebase(robot_human_series_data):
 
     robot_action = [0,0,0]#ロボットのコメント、モーション、LEDの、それぞれのテーブルのID
 
-    #rulebaseシステムでhogehogeする
+#    robot_human_data_newest = robo_human_data.RobotHumanData()
+
     robot_human_data_newest = robot_human_series_data[0]
     tmp_human_comment = robot_human_data_newest.getHumanComment()
 
@@ -58,3 +72,22 @@ def decide_action_rulebase(robot_human_series_data)
 #コメント表、アクション表からどう取得するかを考える必要あり。
 
     return robot_action
+
+#以下、関数別debug用
+
+#---dialogue_algorithm_rulebase確認用---
+#tmp_term = "良いけど疲れた"
+#print(dialogue_algorithm_rulebase(tmp_term))
+
+#---pic_human_term確認用---
+#h_comment = "良いけど疲れた。"
+#print(pic_human_term(h_comment))
+
+#---decide_action_rulebase確認用---
+#h_comment = "良いけど疲れた。"
+#tmp_robo_h_s_data = []
+#tmp = robo_human_data.RobotHumanData()
+#tmp.setHumanComment(h_comment)
+#tmp_robo_h_s_data.append(tmp)
+#ret = decide_action_rulebase(tmp_robo_h_s_data)
+#print (ret)

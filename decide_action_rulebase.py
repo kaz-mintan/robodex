@@ -10,7 +10,10 @@ import robo_human_data
 
 def pic_human_term(human_comment):
 
+#    human_comment = "あいうえお"
+
     pic_term_list = []
+    if 1 == config.DEBUG_PRINT: print(human_comment)
 
     #dict_human_termは、一旦取り込んだ方がいいか？
     for key in tbl_human_comment.dict_human_term:
@@ -21,7 +24,7 @@ def pic_human_term(human_comment):
 #            print (list[number])
             if human_comment.find(list[number]) > -1:
 #               if True == list[number] in human_comment:　これだとうまくいかない
-#                print(msg.find(list[number]))
+#               print(msg.find(list[number]))
                 pic_term_list.append(key)
                 break
             else:
@@ -43,15 +46,16 @@ def dialogue_algorithm_rulebase(pic_human_term):
     if (1 == config.DEBUG_PRINT):
         print(pic_human_term)
 
-    robot_comment = 0
+    robot_comment_no = 0
 
     if  (True == ("良い" in pic_human_term)) and (True == ("疲れた" in pic_human_term)):
-        robot_comment = 4
-
+        robot_comment_no = 4
+    elif(True == ("こんにちは" in pic_human_term)):
+        robot_comment_no = 1
     else:
         pass
 
-    return robot_comment
+    return robot_comment_no
 
 
 def decide_action_rulebase(robot_human_series_data):
@@ -65,9 +69,9 @@ def decide_action_rulebase(robot_human_series_data):
 
     pic_term_list = pic_human_term(tmp_human_comment)
 
-    robot_comment = dialogue_algorithm_rulebase(pic_term_list)
+    robot_comment_no = dialogue_algorithm_rulebase(pic_term_list)
 
-    robot_action = [robot_comment,0,0]
+    robot_action = [robot_comment_no,0,0]
 
 #コメント表、アクション表からどう取得するかを考える必要あり。
 

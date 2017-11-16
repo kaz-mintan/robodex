@@ -15,15 +15,23 @@ import recog_utterance
 def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
     ret = robo_human_data.RobotHumanData()   #インスタンスretを宣言RobotHumanDataモジュールの、robotHumanData型。
 #ここで、OKAOVision認識データをリストに記憶するスレッドを起動する。
-    execute_robot_action(robot_action)
+    exe_robo_action.execute_robot_action(robot_action)
     #下記、要素ごとに代入しているが、これでいいのか？
     #また、ロボットコメントなどの実データを入れる意味はあるのか？
     ret.setRobotComment(robot_action[0])
     ret.setRobotMotion(robot_action[1])
     ret.setRobotLed(robot_action[2])
 #utteranceは発声の意
-    recognized_comment = recognize_utterance()  #ひとまとまりのセリフを認識するまで戻らない関数という想定。
+    recognized_comment = recog_utterance.recognize_utterance()  #ひとまとまりのセリフを認識するまで戻らない関数という想定。
     ret.setHumanComment(recognized_comment)
+
+    if 1 == config.DEBUG_PRINT:
+        print("recognized comment = ")
+        print(recognized_comment)
+        tmp_human_comment = ret.getHumanComment()
+        print("1 ret human_comment = ")
+        print(tmp_human_comment)
+
 #OKAOVision停止の方法どうするか
     #okao_list = StopOkaoVisionThread()    #OKAOVision停止の想定。
     #ret.setOkaoVisionList(okao_list)
@@ -47,20 +55,37 @@ def decide_action(robot_human_series_data):
 
 def main():
     robot_human_series_data = []
-    robot_action = (0,0,0)  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+    robot_action = [1,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+
+    end_flag = False
+    if 1 == config.DEBUG_PRINT: print(end_flag)
+
     try:
         while end_flag == False:    #end_flagの設定どうしようかな
 #            if robot_action != "noaction":
             if robot_action != (0,0,0):
+                if 1 == config.DEBUG_PRINT: print("end_flag != False")
                 #ロボットと人間の一連のやり取りデータを取得する。
                 robot_human_data_tmp = execute_action_and_get_human_reaction(robot_action)
+
+                if 1 == config.DEBUG_PRINT:
+                    tmp_human_comment = robot_human_data_tmp.getHumanComment()
+                    print("human_comment = ")
+                    print(tmp_human_comment)
+
                 #上で取得したロボットと人間の一連のやり取りデータをrobot_human_series_dataに追加する。
-                robot_human_series_data.append(robot_human_data_tmp)
+                robot_human_series_data.insert(0,robot_human_data_tmp)
                 #ロボットと人間の一連のやり取りデータの保存上限をNUMで設定しておき、それより多くなった場合は古いものから消していく。
-                if len(robot_human_series_data) > RESERVE_NUM_ROBOT_HUMAN_DATA:
-                    robot_human_series_data.popleft()
+                if len(robot_human_series_data) > config.RESERVE_NUM_ROBOT_HUMAN_DATA:
+                    robot_human_series_data.pop()
                 #上で取得した、ロボットと人間の一連のやり取りデータを引数にして、robot_actionを返り値にする。
                 robot_action = decide_action(robot_human_series_data)
+                if 1 == config.DEBUG_PRINT:
+                    print("robot_action[0]")
+                    print(robot_action[0])
+
+                if 1 == config.DEBUG_MODE0: end_flag = True
+
         #ここで、end処理する。
         print("ここでend処理する")
     except KeyboardInterrupt:
@@ -106,3 +131,5 @@ def main():
 #tmp_robo_h_s_data.append(tmp)
 #ret = decide_action(tmp_robo_h_s_data)
 #print (ret)
+
+main()

@@ -37,7 +37,7 @@ class RobotHumanData:
 	def getWheather(self):
 		return self.wheather
 
-	def setRobtComment(self,RComment):	#setRobotComment()メソッド
+	def setRobotComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
 
 	def setRobotMotion(self,RMotion):

@@ -14,38 +14,34 @@ import config
 #VOICE_REC_PATH = '/home/pi/robodex/human_comment.wav'
 #GOOGLE_APIKEY = 'AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0'
 
-def current_milli_time():
-    return int(round(time.time() * 1000))
-
 def execute_recognition():
-
-    print('recognizing...')
+    if 1 == config.DEBUG_PRINT:print('recognizing...')
     f = open(config.VOICE_REC_PATH, 'rb')
-    print('recognizing...1')
+    if 1 == config.DEBUG_PRINT:print('recognizing...1')
     voice = f.read()
-    print('recognizing...2')
+    if 1 == config.DEBUG_PRINT:print('recognizing...2')
     f.close()
-    print('recognizing...3')
+    if 1 == config.DEBUG_PRINT:print('recognizing...3')
 
     url = 'https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&'\
         'lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=' + config.GOOGLE_APIKEY
 
-    print('recognizing...4')
+    if 1 == config.DEBUG_PRINT:print('recognizing...4')
     hds = {'Content-type': 'audio/l16; rate=16000;'}
 
-    print('recognizing...5')
+    if 1 == config.DEBUG_PRINT:print('recognizing...5')
     try:
-        print('recognizing...51')
+        if 1 == config.DEBUG_PRINT:print('recognizing...51')
         reply = requests.post(url, data=voice, headers=hds).text
-        print (reply)
+#        print (reply)
     except IOError:
-        print('recognizing...52')
+        if 1 == config.DEBUG_PRINT:print('recognizing...52')
         return '#CONN_ERR'
     except:
-        print('recognizing...53')
+        if 1 == config.DEBUG_PRINT:print('recognizing...53')
         return '#ERROR'
 
-    print('recognizing...6')
+    if 1 == config.DEBUG_PRINT:print('recognizing...6')
 
     print('results:', reply)
 
@@ -59,8 +55,10 @@ def execute_recognition():
             continue
         return alternatives[0]['alternative'][0]['transcript']
     return ""
-
     print('recognizing...7')
+
+def current_milli_time():
+    return int(round(time.time() * 1000))
 
 #上までは1回やればいい？
 def recognize_utterance():
@@ -69,7 +67,9 @@ def recognize_utterance():
     subprocess.call( cmd.strip().split(" ")  )
 
     t0 = current_milli_time()
-    message = execute_recognition().encode('utf-8')
+#    message = execute_recognition().encode('utf-8')#python2
+    message = execute_recognition()
+
     print('recognized:' + str(current_milli_time() - t0) + 'ms')
 
     if (message == '#CONN_ERR'):
@@ -79,4 +79,13 @@ def recognize_utterance():
         print('voice recognizing failed')
         message = ''
     else:
+#        print('your words:' + str(message))
         print('your words:' + message)
+
+    if 1 == config.DEBUG_PRINT:
+        print("message = ")
+        print(message)
+        print("str message = ")
+        print(str(message))
+
+    return message

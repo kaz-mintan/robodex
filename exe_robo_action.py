@@ -10,6 +10,7 @@ import get_robo_actdata_comment
 import get_robo_actdata_motion
 import get_robo_actdata_led
 import tbl_robo_comment
+import config
 
 def execute_robot_action(robot_action):
     #robot_actionを通し番号として、テーブルに書かれた動作をする。
@@ -26,7 +27,7 @@ def execute_robot_action(robot_action):
 
         speak_message = tbl_robo_comment.list_robot_term[robot_action[0]][1]
 #        speak_message = '何か伺いましょうか？'
-        check = subprocess.getoutput('curl "https://api.voicetext.jp/v1/tts" -s -u 563fw3j9tnberqyq: -d speed=100 -d speaker=hikari -d "text=%s" | aplay 2> /dev/null '% speak_message)
+        check = subprocess.getoutput(config.VOICE_TEXT_SETTING % speak_message)
 
     elif 0 != robot_action[1]:#モーションを行う。
         #テーブルファイルから取得するクラスを呼ぶ

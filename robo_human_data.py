@@ -1,6 +1,9 @@
 #robotHumanData.py
+import config
 
 from datetime import datetime
+from datetime import date
+import get_weather
 
 class RobotHumanData:
 	'''OkaoVision情報、ロボアクション、ロボコメント、人コメント'''
@@ -50,13 +53,15 @@ class RobotHumanData:
 		self.human_comment = HComment
 
 	def setTimeStamp(self):
-		self.time_stamp = datetime.now().strftime("%Y/%m/%d %H:%M:%S")
+		self.time_stamp = datetime.now()
+		if 1 == config.DEBUG_PRINT:print(self.time_stamp.strftime("%Y/%m/%d %H:%M:%S"))
 
-#	def setDayOfWeek(self):
-#		self.day_of_week =
+	def setDayOfWeek(self):
+		self.today = datetime.today()
+		self.day_of_week = self.today.isoweekday()
 
-#	def setWheather(self):
-#		self.wheather =
+	def setWheather(self):
+		self.wheather =
 
 	def getOkaoVisionList(self,OKAOlist):
 		self.okao_list = OKAOlist

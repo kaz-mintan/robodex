@@ -15,7 +15,9 @@ class RobotHumanData:
 		human_comment = ""
 		time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく。
 		day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
-		wheather = 0	#天気と数値との関連付けは、取得先の設定を参考にする。
+		weather_data = {}
+		weather_today = []#天気と数値との関連付けは、取得先の設定を参考にする。
+#		weather_today = 0
 		okao_list = 0	#human_idも含む、または、別でhuman_idを作る。
 #OKAOのデータの取り込みどうしよう？
 
@@ -38,7 +40,10 @@ class RobotHumanData:
 		return self.day_of_week
 
 	def getWheather(self):
-		return self.wheather
+		return self.wheather_data
+
+	def getWheatherSimpleToday(self):
+		return self.wheather_today
 
 	def setRobotComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
@@ -61,7 +66,26 @@ class RobotHumanData:
 		self.day_of_week = self.today.isoweekday()
 
 	def setWheather(self):
-		self.wheather =
+		self.weather_data = get_weather.get_weather()
+		self.today_weather_term = self.weather_data['forecasts'][0]['telop']#今日の天気
+
+#この初期化がないと、エラーがでる。なぜか？
+#AttributeError: 'RobotHumanData' object has no attribute 'weather_today'
+		self.weather_today = [0,0,0,0]
+
+#		print(self.robot_motion)
+#		print(self.weather_today)
+
+#		if "晴" in self.today_weather_term:
+#			self.weather_today = 1
+		if "晴" in self.today_weather_term:
+			self.weather_today[0] = 1
+		if "曇" in self.today_weather_term:
+			self.weather_today[1] = 1
+		if "雨" in self.today_weather_term:
+			self.weather_today[2] = 1
+		if "雪" in self.today_weather_term:
+			self.weather_today[3] = 1
 
 	def getOkaoVisionList(self,OKAOlist):
 		self.okao_list = OKAOlist

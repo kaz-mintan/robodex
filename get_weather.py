@@ -3,90 +3,53 @@
 
 import requests
 import json
+import config
 
 def get_weather():
+
+	today_wheather = [0,0,0,0]#"晴"、"曇"、"雨"、"雪"という単語がそれぞれが含まれる場合は1を立てる。
+
 	url = 'http://weather.livedoor.com/forecast/webservice/json/v1'
 #	payload = {'city': '280010'} # Kobe
 	payload = {'city': '130010'} # Tokyo
 	data = requests.get(url, params = payload).json()
 
-	print(data['title'])
-	for weather in data['forecasts']:
-		print(weather['dateLabel'] + ':' + weather['telop'])
+	if 1 == config.DEBUG_PRINT:
+		print(data)
+		print(data['title'])
+		for weather in data['forecasts']:
+			print(weather['dateLabel'] + ':' + weather['telop'])
+		print (type(data))
 
 	return data
 
+#get_weather()
 
-晴れ、曇り、雨、雪
-が含まれるかどうかで、[]配列内0,1を4つ用意する
+#	today_wheather_term = tmp['forecasts'][0]['telop']#今日の天気
+#
+#	if "晴" in today_wheather_term:
+#		today_wheather[0] = 1
+#	if "曇" in today_wheather_term:
+#		today_wheather[1] = 1
+#	if "雨" in today_wheather_term:
+#		today_wheather[2] = 1
+#	if "雪" in today_wheather_term:
+#		today_wheather[3] = 1
+#
+#	return today_wheather
 
 
-[
-    "晴れ",
-    "晴時々曇",
-    "晴一時雨",
-    "晴時々雨",
-    "晴一時雪",
-    "晴時々雪",
-    "晴一時雷雨",
-    "晴時々雷雨",
-    "晴一時雨か雪",
-    "晴一時雪か雨",
-    "晴時々雨か雪",
-    "晴時々雪か雨",
-    "晴のち曇",
-    "晴のち一時雨",
-    "晴のち雨",
-    "晴のち一時雪",
-    "晴のち雪",
-    "晴のち雨か雪",
-    "晴のち雪か雨",
-    "晴のち雷雨",
-    "曇り",
-    "曇時々晴",
-    "曇一時雨",
-    "曇時々雨",
-    "曇一時雪",
-    "曇時々雪",
-    "曇一時雷雨",
-    "曇時々雨雷",
-    "曇時々雪雷",
-    "曇一時雨か雪",
-    "曇一時雪か雨",
-    "曇時々雨か雪",
-    "曇時々雪か雨",
-    "曇のち晴",
-    "曇のち一時雨",
-    "曇のち雨",
-    "曇のち一時雪",
-    "曇のち雪",
-    "曇のち雨か雪",
-    "曇のち雪か雨",
-    "曇のち雨か雷雨",
-    "雨",
-    "雨時々晴",
-    "雨時々曇",
-    "雨一時雪",
-    "雨か雪",
-    "雷雨",
-    "雨のち晴",
-    "雨のち曇",
-    "雨のち雪",
-    "雨か雪のち晴",
-    "雨か雪のち曇",
-    "大雨",
-    "暴風雨",
-    "雪",
-    "雪時々晴",
-    "雪時々曇",
-    "雪一時雨",
-    "雪か雨",
-    "雷雪",
-    "雪のち晴",
-    "雪のち曇",
-    "雪のち雨",
-    "雪か雨のち晴",
-    "雪か雨のち曇",
-    "大雪",
-    "暴風雪",
-];
+#晴、曇、雨、雪
+#が含まれるかどうかで、[]配列内0,1を4つ用意する
+
+#ライブドア天気の天気アイコンの凡例より
+#晴				晴れ時々曇り		晴れ時々雨
+#晴れ時々雪		晴れのち曇り		晴れのち雨
+#晴れのち雪		曇り				曇り時々晴れ
+#曇り時々雨		曇り時々雪			曇りのち晴れ
+#曇りのち雨		曇りのち雪			雨
+#雨時々晴れ		雨時々止む(曇り)		雨時々雪
+#雨のち晴れ		雨のち曇り			雨のち雪
+#雨で暴風を伴う	雪				雪時々晴れ
+#雪時々止む(曇り)	雪時々雨		雪のち晴れ
+#雪のち曇り		雪のち雨		暴風雪

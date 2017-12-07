@@ -76,6 +76,10 @@ def main():
                 #上で取得したロボットと人間の一連のやり取りデータをrobot_human_series_dataに追加する。
                 robot_human_series_data.insert(0,robot_human_data_tmp)
                 #ロボットと人間の一連のやり取りデータの保存上限をNUMで設定しておき、それより多くなった場合は古いものから消していく。
+
+                if 1 == config.DEBUG_PRINT:
+                    print(len(robot_human_series_data))
+
                 if len(robot_human_series_data) > config.RESERVE_NUM_ROBOT_HUMAN_DATA:
                     robot_human_series_data.pop()
                 #上で取得した、ロボットと人間の一連のやり取りデータを引数にして、robot_actionを返り値にする。

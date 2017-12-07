@@ -9,16 +9,16 @@ class RobotHumanData:
 	'''OkaoVision情報、ロボアクション、ロボコメント、人コメント'''
 
 	def __init__(self):
-		robot_comment = ""
-		robot_motion = []
-		robot_led = []
-		human_comment = ""
-		time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく。
-		day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
-		weather_data = {}
-		weather_today = []#天気と数値との関連付けは、取得先の設定を参考にする。
-#		weather_today = 0
-		okao_list = 0	#human_idも含む、または、別でhuman_idを作る。
+		self.robot_comment = ""
+		self.robot_motion = []#中身を入れた方がいいのか？
+		self.robot_led = []#中身を入れた方がいいのか？
+		self.human_comment = ""
+		self.time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく。
+		self.day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
+		self.weather_data = {}
+		self.weather_today = [0,0,0,0]#天気と数値との関連付けは、取得先の設定を参考にする。
+		self.okao_list = 0	#human_idも含む、または、別でhuman_idを作る。
+
 #OKAOのデータの取り込みどうしよう？
 
 	def getRobotComment(self):	#getRobotComment()メソッド
@@ -69,15 +69,6 @@ class RobotHumanData:
 		self.weather_data = get_weather.get_weather()
 		self.today_weather_term = self.weather_data['forecasts'][0]['telop']#今日の天気
 
-#この初期化がないと、エラーがでる。なぜか？
-#AttributeError: 'RobotHumanData' object has no attribute 'weather_today'
-		self.weather_today = [0,0,0,0]
-
-#		print(self.robot_motion)
-#		print(self.weather_today)
-
-#		if "晴" in self.today_weather_term:
-#			self.weather_today = 1
 		if "晴" in self.today_weather_term:
 			self.weather_today[0] = 1
 		if "曇" in self.today_weather_term:
@@ -86,6 +77,9 @@ class RobotHumanData:
 			self.weather_today[2] = 1
 		if "雪" in self.today_weather_term:
 			self.weather_today[3] = 1
+
+#		print(self.today_weather_term)
+#		print(self.weather_today)
 
 	def getOkaoVisionList(self,OKAOlist):
 		self.okao_list = OKAOlist

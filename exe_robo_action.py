@@ -25,6 +25,9 @@ def execute_robot_action(robot_action):
         #テーブルファイルから取得するクラスを呼ぶ
         #speak_message = テーブルファイルから取得したメッセージ
 
+        if(50 == robot_motion[0]):
+            
+
         speak_message = tbl_robo_comment.list_robot_term[robot_action[0]][1]
 #        speak_message = '何か伺いましょうか？'
         check = subprocess.getoutput(config.VOICE_TEXT_SETTING % speak_message)

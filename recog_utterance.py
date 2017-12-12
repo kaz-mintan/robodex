@@ -89,3 +89,6 @@ def recognize_utterance():
         print(str(message))
 
     return message
+
+#debug用
+recognize_utterance()

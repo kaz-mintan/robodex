@@ -55,7 +55,7 @@ def decide_action(robot_human_series_data):
 
 def main():
     robot_human_series_data = []
-    robot_action = [1,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+    robot_action = [0,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
 
     end_flag = False
     if 1 == config.DEBUG_PRINT: print(end_flag)

@@ -65,6 +65,18 @@ def dialogue_algorithm_rulebase(pic_human_term):
 #        robot_comment_no = 8
 #    elif(True == ("今日" in pic_human_term)) and (True == ("天気" in pic_human_term)):
 #        robot_comment_no = 30
+#    if  (True == ("良い" in pic_human_term)) and (True == ("疲れた" in pic_human_term)):
+#        robot_comment_no = 4
+#    elif(True == ("こんにちは" in pic_human_term)):
+#        robot_comment_no = random.choice([6,10,11,12,13,14,15,1003,1004,1010,1011])
+#        robot_comment_no = random.choice([6,10,11,12,13,14,15])
+#    elif(True == ("お疲れ様" in pic_human_term)):
+#        robot_comment_no = random.choice([19,20,21,1005,1006,1007])
+#        robot_comment_no = random.choice([19,20,21])
+#    elif(True == ("私は" in pic_human_term)) and (True == ("と言います" in pic_human_term)):
+#        robot_comment_no = 8
+#    elif(True == ("今日" in pic_human_term)) and (True == ("天気" in pic_human_term)):
+#        robot_comment_no = 30
 
     else:
         pass
@@ -85,9 +97,19 @@ def decide_action_rulebase(robot_human_series_data):
 
     robot_comment_no = dialogue_algorithm_rulebase(pic_term_list)
 
-    robot_action = [robot_comment_no,0,0]
+    robot_motion_no=random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
+#    robot_motion_no =　random.randrange(1,4)
+#    robot_motion_no=3
+
+    robot_led_no=random.randrange(1,config.NUM_OF_CHOICES_LED+1)
+#    robot_led_no =　random.randrange(1,4)
+#    robot_led_no=3
+
+    robot_action = [robot_comment_no,robot_motion_no,robot_led_no]
 
 #コメント表、アクション表からどう取得するかを考える必要あり。
+
+    robot_comment_no = 0
 
     return robot_action
 

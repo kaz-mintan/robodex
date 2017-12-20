@@ -90,4 +90,5 @@ def recognize_utterance():
 
     return message
 
-recognize_utterance()
+#debug用
+#recognize_utterance()

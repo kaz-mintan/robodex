@@ -34,6 +34,20 @@ blue_center_pin = 17
 green_center_pin = 23
 red_center_pin = 24
 
+servo_pin = 18#raspPi 12pin
+
+green_right_pin = 16#raspPi 36pin
+blue_right_pin = 20#raspPi 38pin
+red_right_pin = 21#raspPi 40pin
+
+green_left_pin = 25#raspPi 22pin
+blue_left_pin = 8#raspPi 24pin
+red_left_pin = 7#raspPi 26pin
+
+#blue_center_pin = 17
+#green_center_pin = 23
+#red_center_pin = 24
+
 CYCLE = 20         # Unit : ms
 SERVO_MIN = 0.5    # Unit : ms
 SERVO_MAX = 2.4    # Unit : ms
@@ -49,6 +63,7 @@ pi.pinMode( red_right_pin, pi.OUTPUT )
 pi.pinMode( blue_left_pin, pi.OUTPUT )
 pi.pinMode( green_left_pin, pi.OUTPUT )
 pi.pinMode( red_left_pin, pi.OUTPUT )
+
 pi.pinMode( blue_center_pin, pi.OUTPUT )
 pi.pinMode( green_center_pin, pi.OUTPUT )
 pi.pinMode( red_center_pin, pi.OUTPUT )
@@ -59,6 +74,7 @@ pi.softPwmCreate( red_right_pin, 0, 100)
 pi.softPwmCreate( blue_left_pin, 0, 100)
 pi.softPwmCreate( green_left_pin, 0, 100)
 pi.softPwmCreate( red_left_pin, 0, 100)
+
 pi.softPwmCreate( blue_center_pin, 0, 100)
 pi.softPwmCreate( green_center_pin, 0, 100)
 pi.softPwmCreate( red_center_pin, 0, 100)
@@ -74,9 +90,11 @@ def execute_robot_action(robot_action):
     #上3つ、とりあえず順番に動かすようにしているが、並行して動かせるようにしないといけない。
 
     if robot_action == (0,0,0):
+        return
+    else:
         pass
 
-    elif 0 != robot_action[0]:#コメントアクションを行う。
+    if 0 != robot_action[0]:#コメントアクションを行う。
 
         #テーブルファイルから取得するクラスを呼ぶ
         #speak_message = テーブルファイルから取得したメッセージ
@@ -88,15 +106,64 @@ def execute_robot_action(robot_action):
         speak_message = tbl_robo_comment.dict_robot_term[robot_action[0]]
 
         check = subprocess.getoutput(config.VOICE_TEXT_SETTING % speak_message)
-
-    elif 0 != robot_action[1]:#モーションを行う。
-        #テーブルファイルから取得するクラスを呼ぶ
+    else:
         pass
 
-    elif 0 != robot_action[2]:#LEDアクションを行う。
+    if 0 != robot_action[2]:#LEDアクションを行う。
         ctlLED = get_robo_actdata_led.GetRobotActionDataOfLed()
         setLED = ctlLED.getRobotLed(robot_action[2])
 
+    if 0 != robot_action[1]:#モーションを行う。
+
+        ctlSRV = get_robo_actdata_motion.GetRobotActionDataOfMotion()
+        setSRV = ctlSRV.getRobotMotion(robot_action[1])
+
+        target = int( float( SERVO_MAX_VALUE - SERVO_MIN_VALUE ) / 180.0 * float( setSRV[1]  + 90 ) ) + SERVO_MIN_VALUE
+    #    print(target)
+        pi.pwmWrite( servo_pin, target )
+        time.sleep(setSRV[2]*6 / 1000)
+
+        target = int( float( SERVO_MAX_VALUE - SERVO_MIN_VALUE ) / 180.0 * float( setSRV[3]  + 90 ) ) + SERVO_MIN_VALUE
+    #    print(target)
+        pi.pwmWrite( servo_pin, target )
+        time.sleep(setSRV[4]*6 / 1000)
+
+        target = int( float( SERVO_MAX_VALUE - SERVO_MIN_VALUE ) / 180.0 * float( setSRV[5]  + 90 ) ) + SERVO_MIN_VALUE
+    #    print(target)
+        pi.pwmWrite( servo_pin, target )
+        time.sleep(setSRV[6]*6 / 1000)
+    else:
+        pass
+
+    if 0 != robot_action[2]:#LEDアクションを行う。
+        ctlLED = get_robo_actdata_led.GetRobotActionDataOfLed()
+        setLED = ctlLED.getRobotLed(robot_action[2])
+
+        if(0 != (len(setLED)-1)%7):
+            print("robot_action[2]="+robot_action[2])
+            print("テーブルの要素数に誤りあり。")
+
+        else:
+            pass
+        led_rep_maxnum = int((len(setLED)-1)/7)
+
+        for led_rep_num in range(led_rep_maxnum):
+            offset = led_rep_num * 7
+            print('times:'+str(led_rep_num), 'offset:'+str(offset))
+            pi.softPwmWrite( red_right_pin,  setLED[2+offset] )
+            pi.softPwmWrite( green_right_pin, setLED[3+offset] )
+            pi.softPwmWrite( blue_right_pin, setLED[4+offset] )
+            pi.softPwmWrite( red_left_pin,  setLED[5+offset] )
+            pi.softPwmWrite( green_left_pin, setLED[6+offset] )
+            pi.softPwmWrite( blue_left_pin, setLED[7+offset] )
+            time.sleep(setLED[1+offset] / 1000)
+
+        pi.softPwmWrite( red_right_pin,  0 )
+        pi.softPwmWrite( green_right_pin, 0 )
+        pi.softPwmWrite( blue_right_pin, 0 )
+        pi.softPwmWrite( red_left_pin,  0 )
+        pi.softPwmWrite( green_left_pin, 0 )
+        pi.softPwmWrite( blue_left_pin, 0 )
 
     else:
         pass

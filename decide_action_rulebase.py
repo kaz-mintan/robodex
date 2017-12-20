@@ -49,18 +49,22 @@ def dialogue_algorithm_rulebase(pic_human_term):
 
     robot_comment_no = 0
 
-    if  (True == ("良い" in pic_human_term)) and (True == ("疲れた" in pic_human_term)):
-        robot_comment_no = 4
-    elif(True == ("こんにちは" in pic_human_term)):
-        robot_comment_no = random.choice([6,10,11,12,13,14,15,1003,1004,1010,1011])
+#    if  (True == ("良い" in pic_human_term)) and (True == ("疲れた" in pic_human_term)):
+#        robot_comment_no = 4
+    if(True == ("こんにちは" in pic_human_term)):
+        robot_comment_no = random.choice([1,2,3,4,5,6,7])
+    elif(True == ("おはよう" in pic_human_term)):
+        robot_comment_no = random.choice([11,12,13,14,15,16,17])
+    elif(True == ("さようなら" in pic_human_term)):
+        robot_comment_no = random.choice([21])
     elif(True == ("お疲れ様" in pic_human_term)):
-        robot_comment_no = random.choice([19,20,21,1005,1006,1007])
+        robot_comment_no = random.choice([31,32,33])
     elif(True == ("私は" in pic_human_term)) and (True == ("と言います" in pic_human_term)):
-        robot_comment_no = 7
-    elif(True == ("年齢" in pic_human_term)) and (True == ("当て" in pic_human_term)):
-        robot_comment_no = 8
-    elif(True == ("今日" in pic_human_term)) and (True == ("天気" in pic_human_term)):
-        robot_comment_no = 50
+        robot_comment_no = random.choice([41])
+#    elif(True == ("年齢" in pic_human_term)) and (True == ("当て" in pic_human_term)):
+#        robot_comment_no = 8
+#    elif(True == ("今日" in pic_human_term)) and (True == ("天気" in pic_human_term)):
+#        robot_comment_no = 30
 
     else:
         pass

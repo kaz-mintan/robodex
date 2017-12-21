@@ -41,6 +41,8 @@ def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
 def decide_action(robot_human_series_data):
 #    print(type(robot_human_series_data[0]))
 
+    print("decide_actionが呼べてます！！！")
+
     #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
     robot_action = [0,0,0]#0,0,0は応答なし
 
@@ -55,7 +57,8 @@ def decide_action(robot_human_series_data):
 
 def main():
     robot_human_series_data = []
-    robot_action = [0,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+    robot_action = [10001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+#    execute_action_and_get_human_reaction(robot_action)
 
     end_flag = False
     if 1 == config.DEBUG_PRINT: print(end_flag)

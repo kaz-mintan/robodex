@@ -169,5 +169,5 @@ def execute_robot_action(robot_action):
         pass
 
 #---execute_robot_action確認用---
-robot_action = [1,0,0]
-execute_robot_action(robot_action)
+#robot_action = [1,0,0]
+#execute_robot_action(robot_action)

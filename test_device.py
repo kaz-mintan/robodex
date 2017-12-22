@@ -18,20 +18,6 @@ left_eye_red_pin = 25#raspPi 22pin
 left_eye_green_pin = 8#raspPi 24pin
 left_eye_blue_pin = 7#raspPi 26pin
 
-'''
-right_eye_green_pin = 16#raspPi 36pin
-right_eye_blue_pin = 20#raspPi 38pin
-right_eye_red_pin = 21#raspPi 40pin
-
-left_eye_green_pin = 25#raspPi 22pin
-left_eye_blue_pin = 8#raspPi 24pin
-left_eye_red_pin = 7#raspPi 26pin
-'''
-
-#blue_center_pin = 17
-#green_center_pin = 23
-#red_center_pin = 24
-
 CYCLE = 20         # Unit : ms
 SERVO_MIN = 0.5    # Unit : ms
 SERVO_MAX = 2.4    # Unit : ms
@@ -60,7 +46,7 @@ pi.pwmSetMode( pi.GPIO.PWM_MODE_MS )
 pi.pwmSetRange( RANGE )
 pi.pwmSetClock( clock )
 
-robot_action = [0,0,7]
+robot_action = [1,1,7]
 
 if 0 != robot_action[2]:#LEDアクションを行う。
     ctlLED = get_robo_actdata_led.GetRobotActionDataOfLed()
@@ -122,7 +108,7 @@ if 0 != robot_action[2]:#LEDアクションを行う。
 else:
     pass
 
-'''
+
 libokao.okao_init(0,9600)
 
 libokao.okao_exec()
@@ -146,4 +132,3 @@ print(libokao.okao_getAge())
 print(libokao.okao_getGender())
 
 libokao.okao_close()
-'''

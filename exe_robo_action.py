@@ -20,33 +20,15 @@ import get_robo_actdata_led
 import tbl_robo_comment
 import config
 
-servo_pin = 18
-
-blue_right_pin = 16
-green_right_pin = 20
-red_right_pin = 21
-
-blue_left_pin = 25
-green_left_pin = 8
-red_left_pin = 7
-
-blue_center_pin = 17
-green_center_pin = 23
-red_center_pin = 24
-
 servo_pin = 18#raspPi 12pin
 
-green_right_pin = 16#raspPi 36pin
-blue_right_pin = 20#raspPi 38pin
-red_right_pin = 21#raspPi 40pin
+right_eye_red_pin = 16#raspPi 36pin
+right_eye_green_pin = 20#raspPi 38pin
+right_eye_blue_pin = 21#raspPi 40pin
 
-green_left_pin = 25#raspPi 22pin
-blue_left_pin = 8#raspPi 24pin
-red_left_pin = 7#raspPi 26pin
-
-#blue_center_pin = 17
-#green_center_pin = 23
-#red_center_pin = 24
+left_eye_red_pin = 25#raspPi 22pin
+left_eye_green_pin = 8#raspPi 24pin
+left_eye_blue_pin = 7#raspPi 26pin
 
 CYCLE = 20         # Unit : ms
 SERVO_MIN = 0.5    # Unit : ms
@@ -57,27 +39,19 @@ SERVO_MIN_VALUE = int( SERVO_MIN * RANGE / CYCLE )
 SERVO_MAX_VALUE = int( SERVO_MAX * RANGE / CYCLE )
 
 pi.wiringPiSetupGpio()
-pi.pinMode( blue_right_pin, pi.OUTPUT )
-pi.pinMode( green_right_pin, pi.OUTPUT )
-pi.pinMode( red_right_pin, pi.OUTPUT )
-pi.pinMode( blue_left_pin, pi.OUTPUT )
-pi.pinMode( green_left_pin, pi.OUTPUT )
-pi.pinMode( red_left_pin, pi.OUTPUT )
+pi.pinMode( right_eye_red_pin, pi.OUTPUT )
+pi.pinMode( right_eye_green_pin, pi.OUTPUT )
+pi.pinMode( right_eye_blue_pin, pi.OUTPUT )
+pi.pinMode( left_eye_red_pin, pi.OUTPUT )
+pi.pinMode( left_eye_green_pin, pi.OUTPUT )
+pi.pinMode( left_eye_blue_pin, pi.OUTPUT )
 
-pi.pinMode( blue_center_pin, pi.OUTPUT )
-pi.pinMode( green_center_pin, pi.OUTPUT )
-pi.pinMode( red_center_pin, pi.OUTPUT )
-
-pi.softPwmCreate( blue_right_pin, 0, 100)
-pi.softPwmCreate( green_right_pin, 0, 100)
-pi.softPwmCreate( red_right_pin, 0, 100)
-pi.softPwmCreate( blue_left_pin, 0, 100)
-pi.softPwmCreate( green_left_pin, 0, 100)
-pi.softPwmCreate( red_left_pin, 0, 100)
-
-pi.softPwmCreate( blue_center_pin, 0, 100)
-pi.softPwmCreate( green_center_pin, 0, 100)
-pi.softPwmCreate( red_center_pin, 0, 100)
+pi.softPwmCreate( right_eye_red_pin, 0, 100)
+pi.softPwmCreate( right_eye_green_pin, 0, 100)
+pi.softPwmCreate( right_eye_blue_pin, 0, 100)
+pi.softPwmCreate( left_eye_red_pin, 0, 100)
+pi.softPwmCreate( left_eye_green_pin, 0, 100)
+pi.softPwmCreate( left_eye_blue_pin, 0, 100)
 
 pi.pinMode( servo_pin, pi.GPIO.PWM_OUTPUT )
 pi.pwmSetMode( pi.GPIO.PWM_MODE_MS )
@@ -150,24 +124,24 @@ def execute_robot_action(robot_action):
         for led_rep_num in range(led_rep_maxnum):
             offset = led_rep_num * 7
             print('times:'+str(led_rep_num), 'offset:'+str(offset))
-            pi.softPwmWrite( red_right_pin,  setLED[2+offset] )
-            pi.softPwmWrite( green_right_pin, setLED[3+offset] )
-            pi.softPwmWrite( blue_right_pin, setLED[4+offset] )
-            pi.softPwmWrite( red_left_pin,  setLED[5+offset] )
-            pi.softPwmWrite( green_left_pin, setLED[6+offset] )
-            pi.softPwmWrite( blue_left_pin, setLED[7+offset] )
+            pi.softPwmWrite( right_eye_red_pin,  setLED[2+offset] )
+            pi.softPwmWrite( right_eye_green_pin, setLED[3+offset] )
+            pi.softPwmWrite( right_eye_blue_pin, setLED[4+offset] )
+            pi.softPwmWrite( left_eye_red_pin,  setLED[5+offset] )
+            pi.softPwmWrite( left_eye_green_pin, setLED[6+offset] )
+            pi.softPwmWrite( left_eye_blue_pin, setLED[7+offset] )
             time.sleep(setLED[1+offset] / 1000)
 
-        pi.softPwmWrite( red_right_pin,  0 )
-        pi.softPwmWrite( green_right_pin, 0 )
-        pi.softPwmWrite( blue_right_pin, 0 )
-        pi.softPwmWrite( red_left_pin,  0 )
-        pi.softPwmWrite( green_left_pin, 0 )
-        pi.softPwmWrite( blue_left_pin, 0 )
+        pi.softPwmWrite( right_eye_red_pin,  0 )
+        pi.softPwmWrite( right_eye_green_pin, 0 )
+        pi.softPwmWrite( right_eye_blue_pin, 0 )
+        pi.softPwmWrite( left_eye_red_pin,  0 )
+        pi.softPwmWrite( left_eye_green_pin, 0 )
+        pi.softPwmWrite( left_eye_blue_pin, 0 )
 
     else:
         pass
 
 #---execute_robot_action確認用---
-#robot_action = [1,0,0]
+#robot_action = [0,0,1]
 #execute_robot_action(robot_action)

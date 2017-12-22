@@ -10,6 +10,9 @@ import subprocess
 #commandsは、python3ではsubprocessに内包された
 import config
 
+import exe_robo_action as pin
+import wiringpi as pi
+
 #下記、config.pyへの記載ではダメなのかな？
 #VOICE_REC_PATH = '/home/pi/robodex/human_comment.wav'
 #GOOGLE_APIKEY = 'AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0'
@@ -63,8 +66,15 @@ def current_milli_time():
 #上までは1回やればいい？
 def recognize_utterance():
     #下記ディレクトリ指定は、本来configファイルで行う。
-    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 2"
+
+    pi.softPwmWrite( pin.right_eye_green_pin, 100)
+    pi.softPwmWrite( pin.left_eye_green_pin, 100)
+
+    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 2.5"
     subprocess.call( cmd.strip().split(" ")  )
+
+    pi.softPwmWrite( pin.right_eye_green_pin, 0)
+    pi.softPwmWrite( pin.left_eye_green_pin, 0)
 
     t0 = current_milli_time()
 #    message = execute_recognition().encode('utf-8')#python2

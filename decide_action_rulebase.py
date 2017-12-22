@@ -172,11 +172,11 @@ def decide_action_rulebase(robot_human_series_data):
 
     robot_motion_no=random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
 #    robot_motion_no =　random.randrange(1,4)
-#    robot_motion_no=3
+    robot_motion_no=0
 
     robot_led_no=random.randrange(1,config.NUM_OF_CHOICES_LED+1)
 #    robot_led_no =　random.randrange(1,4)
-#    robot_led_no=3
+    robot_led_no=0
 
 
     robot_action = [robot_comment_no,robot_motion_no,robot_led_no]

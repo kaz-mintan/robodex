@@ -63,7 +63,7 @@ def current_milli_time():
 #上までは1回やればいい？
 def recognize_utterance():
     #下記ディレクトリ指定は、本来configファイルで行う。
-    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 3"
+    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 2"
     subprocess.call( cmd.strip().split(" ")  )
 
     t0 = current_milli_time()

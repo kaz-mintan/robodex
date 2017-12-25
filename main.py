@@ -1,4 +1,5 @@
 
+
 # -*- coding: utf-8 -*-
 #上記、シェバングと呼ぶ？python3では指定しなくてもデフォルトでutf-8らしい。
 #上記コメントアウトなのに意味あるの？
@@ -10,6 +11,8 @@ import decide_action_rulebase
 import decide_action_TATsys
 import exe_robo_action
 import recog_utterance
+
+import libokao
 
 #ロボットアクションの実行と、人間のリアクションの取得
 def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
@@ -57,8 +60,14 @@ def decide_action(robot_human_series_data):
 
 def main():
     robot_human_series_data = []
-    robot_action = [10001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+
+#    robot_action = [10001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+
+    robot_action = [20001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+
 #    execute_action_and_get_human_reaction(robot_action)
+
+    libokao.okao_init(0,9600)
 
     end_flag = False
     if 1 == config.DEBUG_PRINT: print(end_flag)

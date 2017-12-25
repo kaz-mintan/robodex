@@ -9,6 +9,8 @@ import config
 import robo_human_data
 import random
 
+import libokao
+
 def pic_human_term(human_comment):
 
 #    human_comment = "あいうえお"
@@ -87,6 +89,77 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
         robot_comment_no = 10203#10202:"なーんだ、近いんですね。",
         print("10001です。！！！！！！")
 
+    elif ((20001 == robot_human_data_newest.getRobotComment()) or (20002 == robot_human_data_newest.getRobotComment())):#20001:"私の鼻に何かついてませんか？よーく見てくれませんか？",
+
+        print("20001です。！！！！！！")
+
+        libokao.okao_exec()
+
+        okao_Neutral = libokao.okao_getNeutral()
+        okao_Happiness = libokao.okao_getHappiness()
+        okao_Surprise = libokao.okao_getSurprise()
+        okao_Anger = libokao.okao_getAnger()
+        okao_Sadness = libokao.okao_getSadness()
+
+        okao_Age = libokao.okao_getAge()
+        okao_Gender = libokao.okao_getGender()
+
+        print(okao_Neutral)
+        print(okao_Happiness)
+        print(okao_Surprise)
+        print(okao_Anger)
+        print(okao_Sadness)
+
+        print(okao_Age)
+        print(okao_Gender)
+
+#        print(libokao.okao_getNeutral())
+#        print(libokao.okao_getHappiness())
+#        print(libokao.okao_getSurprise())
+#        print(libokao.okao_getAnger())
+#        print(libokao.okao_getSadness())
+
+#        print(libokao.okao_getAge())
+#        print(libokao.okao_getGender())
+
+        if(0 == okao_Gender):#読み取り不能
+            robot_comment_no = 20002#20002:"もう一回、私の鼻をよーく見て下さい",
+
+        elif(1 == okao_Gender):#男性
+            if(okao_Age <= 35):
+                robot_comment_no = 20120#男性ハタチ
+            elif(35 < okao_Age <= 40):
+                robot_comment_no = 20125#男性二十五歳
+            elif(40 < okao_Age <= 45):
+                robot_comment_no = 20130#男性三十歳
+            elif(45 < okao_Age <= 50):
+                robot_comment_no = 20135#男性三十五歳
+            elif(50 < okao_Age <= 55):
+                robot_comment_no = 20140#男性四十歳
+            elif(55 < okao_Age):
+                robot_comment_no = 20145#男性四十五歳
+            else:
+                print("男性、年齢文法エラー")
+
+        elif(2 == okao_Gender):#女性
+            if(okao_Age <= 35):
+                robot_comment_no = 20220#女性ハタチ
+            elif(35 < okao_Age <= 40):
+                robot_comment_no = 20225#女性二十五歳
+            elif(40 < okao_Age <= 45):
+                robot_comment_no = 20230#女性三十歳
+            elif(45 < okao_Age <= 50):
+                robot_comment_no = 20235#女性三十五歳
+            elif(50 < okao_Age <= 55):
+                robot_comment_no = 20240#女性四十歳
+            elif(55 < okao_Age):
+                robot_comment_no = 20245#女性四十五歳
+            else:
+                print("女性、年齢文法エラー")
+
+        else:
+            print("オカオ文法エラー")
+
 #    if  (True == ("良い" in pic_term_list)) and (True == ("疲れた" in pic_term_list)):
 #        robot_comment_no = 4
     elif(True == ("こんにちは" in pic_term_list)):
@@ -133,8 +206,12 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
     elif(True == ("人が多い" in pic_term_list)):
         robot_comment_no = random.choice([205,206])
 
-#    elif(True == ("年齢" in pic_term_list)) and (True == ("当て" in pic_term_list)):
-#        robot_comment_no = 8
+    elif(True == ("年齢" in pic_term_list)) and (True == ("当て" in pic_term_list)):
+        robot_comment_no = 20001
+    elif(True == ("いくつに見える" in pic_term_list)):
+        robot_comment_no = 20001
+
+
 #    elif(True == ("今日" in pic_term_list)) and (True == ("天気" in pic_term_list)):
 #        robot_comment_no = 30
 #    if  (True == ("良い" in pic_term_list)) and (True == ("疲れた" in pic_term_list)):

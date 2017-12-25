@@ -13,6 +13,7 @@ import exe_robo_action
 import recog_utterance
 
 import libokao
+import random
 
 #ロボットアクションの実行と、人間のリアクションの取得
 def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
@@ -61,9 +62,11 @@ def decide_action(robot_human_series_data):
 def main():
     robot_human_series_data = []
 
+    robot_action = [0,0,0]
+
 #    robot_action = [10001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
 
-    robot_action = [20001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+#    robot_action = [20001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
 
 #    execute_action_and_get_human_reaction(robot_action)
 

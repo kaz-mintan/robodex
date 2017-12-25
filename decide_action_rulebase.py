@@ -48,18 +48,125 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
 
     robot_human_data_newest = robot_human_series_data[0]
 
-    if(2 < len(robot_human_series_data)):
-        robot_human_data_before2 = robot_human_series_data[2]
-    else:
-        if(1 < len(robot_human_series_data)):
-            robot_human_data_before2 = robot_human_series_data[1]
-        else:
-            robot_human_data_before2 = robot_human_series_data[0]
+#対話履歴が不足している場合の、初期設定
+    robot_human_data_newest = robot_human_series_data[0]
+    robot_human_data_before1 = robot_human_series_data[0]
+    robot_human_data_before2 = robot_human_series_data[0]
+    robot_human_data_before3 = robot_human_series_data[0]
+    robot_human_data_before4 = robot_human_series_data[0]
+    robot_human_data_before5 = robot_human_series_data[0]
+    robot_human_data_before6 = robot_human_series_data[0]
+    robot_human_data_before7 = robot_human_series_data[0]
+    robot_human_data_before8 = robot_human_series_data[0]
+    robot_human_data_before9 = robot_human_series_data[0]
 
-    if(1 < len(robot_human_series_data)):
+#対話履歴の長さに応じて、代入
+    if(2 == len(robot_human_series_data)):
         robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[1]
+        robot_human_data_before3 = robot_human_series_data[1]
+        robot_human_data_before4 = robot_human_series_data[1]
+        robot_human_data_before5 = robot_human_series_data[1]
+        robot_human_data_before6 = robot_human_series_data[1]
+        robot_human_data_before7 = robot_human_series_data[1]
+        robot_human_data_before8 = robot_human_series_data[1]
+        robot_human_data_before9 = robot_human_series_data[1]
+    elif(3 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[2]
+        robot_human_data_before4 = robot_human_series_data[2]
+        robot_human_data_before5 = robot_human_series_data[2]
+        robot_human_data_before6 = robot_human_series_data[2]
+        robot_human_data_before7 = robot_human_series_data[2]
+        robot_human_data_before8 = robot_human_series_data[2]
+        robot_human_data_before9 = robot_human_series_data[2]
+    elif(4 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[3]
+        robot_human_data_before5 = robot_human_series_data[3]
+        robot_human_data_before6 = robot_human_series_data[3]
+        robot_human_data_before7 = robot_human_series_data[3]
+        robot_human_data_before8 = robot_human_series_data[3]
+        robot_human_data_before9 = robot_human_series_data[3]
+    elif(5 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[4]
+        robot_human_data_before5 = robot_human_series_data[4]
+        robot_human_data_before6 = robot_human_series_data[4]
+        robot_human_data_before7 = robot_human_series_data[4]
+        robot_human_data_before8 = robot_human_series_data[4]
+        robot_human_data_before9 = robot_human_series_data[4]
+    elif(6 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[4]
+        robot_human_data_before5 = robot_human_series_data[5]
+        robot_human_data_before6 = robot_human_series_data[5]
+        robot_human_data_before7 = robot_human_series_data[5]
+        robot_human_data_before8 = robot_human_series_data[5]
+        robot_human_data_before9 = robot_human_series_data[5]
+    elif(7 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[4]
+        robot_human_data_before5 = robot_human_series_data[5]
+        robot_human_data_before6 = robot_human_series_data[6]
+        robot_human_data_before7 = robot_human_series_data[6]
+        robot_human_data_before8 = robot_human_series_data[6]
+        robot_human_data_before9 = robot_human_series_data[6]
+    elif(8 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[4]
+        robot_human_data_before5 = robot_human_series_data[5]
+        robot_human_data_before6 = robot_human_series_data[6]
+        robot_human_data_before7 = robot_human_series_data[7]
+        robot_human_data_before8 = robot_human_series_data[7]
+        robot_human_data_before9 = robot_human_series_data[7]
+    elif(9 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[4]
+        robot_human_data_before5 = robot_human_series_data[5]
+        robot_human_data_before6 = robot_human_series_data[6]
+        robot_human_data_before7 = robot_human_series_data[7]
+        robot_human_data_before8 = robot_human_series_data[8]
+        robot_human_data_before9 = robot_human_series_data[8]
+    elif(10 == len(robot_human_series_data)):
+        robot_human_data_before1 = robot_human_series_data[1]
+        robot_human_data_before2 = robot_human_series_data[2]
+        robot_human_data_before3 = robot_human_series_data[3]
+        robot_human_data_before4 = robot_human_series_data[4]
+        robot_human_data_before5 = robot_human_series_data[5]
+        robot_human_data_before6 = robot_human_series_data[6]
+        robot_human_data_before7 = robot_human_series_data[7]
+        robot_human_data_before8 = robot_human_series_data[8]
+        robot_human_data_before9 = robot_human_series_data[9]
     else:
-        robot_human_data_before1 = robot_human_series_data[0]
+        print("robot_human_series_dataの長さの文法エラー")
+
+
+#    if(2 < len(robot_human_series_data)):
+#        robot_human_data_before2 = robot_human_series_data[2]
+#    else:
+#        if(1 < len(robot_human_series_data)):
+#            robot_human_data_before2 = robot_human_series_data[1]
+#        else:
+#            robot_human_data_before2 = robot_human_series_data[0]
+#
+#    if(1 < len(robot_human_series_data)):
+#        robot_human_data_before1 = robot_human_series_data[1]
+#    else:
+#        robot_human_data_before1 = robot_human_series_data[0]
 
 
     tmp_human_comment = robot_human_data_newest.getHumanComment()
@@ -90,7 +197,6 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
         print("10001です。！！！！！！")
 
     elif ((20001 == robot_human_data_newest.getRobotComment()) or (20002 == robot_human_data_newest.getRobotComment())):#20001:"私の鼻に何かついてませんか？よーく見てくれませんか？",
-
         print("20001です。！！！！！！")
 
         libokao.okao_exec()
@@ -112,15 +218,6 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
 
         print(okao_Age)
         print(okao_Gender)
-
-#        print(libokao.okao_getNeutral())
-#        print(libokao.okao_getHappiness())
-#        print(libokao.okao_getSurprise())
-#        print(libokao.okao_getAnger())
-#        print(libokao.okao_getSadness())
-
-#        print(libokao.okao_getAge())
-#        print(libokao.okao_getGender())
 
         if(0 == okao_Gender):#読み取り不能
             robot_comment_no = 20002#20002:"もう一回、私の鼻をよーく見て下さい",
@@ -160,21 +257,83 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
         else:
             print("オカオ文法エラー")
 
-#    if  (True == ("良い" in pic_term_list)) and (True == ("疲れた" in pic_term_list)):
-#        robot_comment_no = 4
-    elif(True == ("こんにちは" in pic_term_list)):
-        robot_comment_no = random.choice([1,2,3,4,5,6,7])
-    elif(True == ("おはよう" in pic_term_list)):
-        robot_comment_no = random.choice([11,12,13,14,15,16,17])
+    elif(True == ("こんにちは" in pic_term_list) or True == ("おはよう" in pic_term_list) or True == ("はじめまして" in pic_term_list) or True == ("お疲れ様" in pic_term_list)):
+        robot_comment_no = random.choice([21])
+
+        libokao.okao_exec()
+
+        okao_Neutral = libokao.okao_getNeutral()
+        okao_Happiness = libokao.okao_getHappiness()
+        okao_Surprise = libokao.okao_getSurprise()
+        okao_Anger = libokao.okao_getAnger()
+        okao_Sadness = libokao.okao_getSadness()
+
+        okao_Age = libokao.okao_getAge()
+        okao_Gender = libokao.okao_getGender()
+
+        print(okao_Neutral)
+        print(okao_Happiness)
+        print(okao_Surprise)
+        print(okao_Anger)
+        print(okao_Sadness)
+
+        print(okao_Age)
+        print(okao_Gender)
+
+        if(0 == okao_Gender):#読み取り不能
+            robot_comment_no = random.choice([30101,30102,30103,30104,30105,30106,30107,30108,30109,30110,30111,30112,30113,30114,30115,30116,30117,30118])
+
+        elif(1 == okao_Gender):#男性
+            robot_comment_no = random.choice([30101,30102,30103,30104,30105,30106,30107,30108,30109,30110,30111,30112,30113,30114,30115,30116,30117,30118])
+
+        elif(2 == okao_Gender):#女性
+            robot_comment_no = random.choice([31101,31102,31103,31104,31105,31106,31107,31108,31109])
+        else:
+            print("オカオ文法エラー")
+
+    elif ((30101 <= robot_human_data_newest.getRobotComment() <= 30118) or (31101 <= robot_human_data_newest.getRobotComment() <= 31119)):
+        robot_comment_no = random.choice([30201,30501])
+
+    elif (30201 == robot_human_data_newest.getRobotComment()):
+        robot_comment_no = random.choice([30301])
+
+    elif (30301 == robot_human_data_newest.getRobotComment()):
+        if(True == ("遠い" in pic_term_list)):
+            robot_comment_no = 30401
+        elif(True == ("近い" in pic_term_list)):
+            robot_comment_no = 30402
+        else:
+            robot_comment_no = 30403
+
+    elif (30401 <= robot_human_data_newest.getRobotComment() <=30403):
+        if (30501 == robot_human_data_before4.getRobotComment()):
+            robot_comment_no = 30701
+        else:
+            robot_comment_no = 30501
+
+    elif (30501 == robot_human_data_newest.getRobotComment()):
+        if(True == ("秘密" in pic_term_list)):
+            robot_comment_no = 30601
+        else:
+            robot_comment_no = 30602
+
+    elif (30601 <= robot_human_data_newest.getRobotComment() <=30602):
+        if (30201 == robot_human_data_before4.getRobotComment()):
+            robot_comment_no = 30701
+        else:
+            robot_comment_no = 30201
+
+#    elif(True == ("こんにちは" in pic_term_list)):
+#        robot_comment_no = random.choice([1,2,3,4,5,6,7])
+#    elif(True == ("おはよう" in pic_term_list)):
+#        robot_comment_no = random.choice([11,12,13,14,15,16,17])
     elif(True == ("さようなら" in pic_term_list)):
         robot_comment_no = random.choice([21])
-    elif(True == ("お疲れ様" in pic_term_list)):
-        robot_comment_no = random.choice([31,32,33])
+#    elif(True == ("お疲れ様" in pic_term_list)):
+#        robot_comment_no = random.choice([31,32,33])
     elif(True == ("私は" in pic_term_list)) and (True == ("と言います" in pic_term_list)):
         robot_comment_no = random.choice([41])
 
-#    elif(True == ("いくつに見える" in pic_term_list)):
-#        robot_comment_tag = 8
     elif(True == ("元気" in pic_term_list)):
         robot_comment_no = random.choice([101,102,103,104])
     elif(True == ("本当に" in pic_term_list)):

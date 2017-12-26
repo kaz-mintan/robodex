@@ -46,127 +46,14 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
 #tbl_robo_commentの中で記載しているlistを辞書型にすれば、意味のあるkeyを持たせる事ができるが、
 #他のファイルでは、通し番号で管理しているので、併用が難しい。
 
-    robot_human_data_newest = robot_human_series_data[0]
+    values = robot_human_series_data[:config.RESERVE_NUM_ROBOT_HUMAN_DATA]#下の書き方でも良いが、robot_human_series_dataの大きさがRESERVE_NUM_ROBOT_HUMAN_DATAより大きくなってしまった時（バグ）の保険のため
+#    values = series_data
 
-#対話履歴が不足している場合の、初期設定
-    robot_human_data_newest = robot_human_series_data[0]
-    robot_human_data_before1 = robot_human_series_data[0]
-    robot_human_data_before2 = robot_human_series_data[0]
-    robot_human_data_before3 = robot_human_series_data[0]
-    robot_human_data_before4 = robot_human_series_data[0]
-    robot_human_data_before5 = robot_human_series_data[0]
-    robot_human_data_before6 = robot_human_series_data[0]
-    robot_human_data_before7 = robot_human_series_data[0]
-    robot_human_data_before8 = robot_human_series_data[0]
-    robot_human_data_before9 = robot_human_series_data[0]
+    n = config.RESERVE_NUM_ROBOT_HUMAN_DATA - len(values)
+    if n:
+        values += [robot_human_series_data[-1]] * n
+    (robot_human_data_newest, robot_human_data_before1, robot_human_data_before2,robot_human_data_before3, robot_human_data_before4, robot_human_data_before5, robot_human_data_before6, robot_human_data_before7, robot_human_data_before8, robot_human_data_before9) = values
 
-#対話履歴の長さに応じて、代入
-    if(2 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[1]
-        robot_human_data_before3 = robot_human_series_data[1]
-        robot_human_data_before4 = robot_human_series_data[1]
-        robot_human_data_before5 = robot_human_series_data[1]
-        robot_human_data_before6 = robot_human_series_data[1]
-        robot_human_data_before7 = robot_human_series_data[1]
-        robot_human_data_before8 = robot_human_series_data[1]
-        robot_human_data_before9 = robot_human_series_data[1]
-    elif(3 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[2]
-        robot_human_data_before4 = robot_human_series_data[2]
-        robot_human_data_before5 = robot_human_series_data[2]
-        robot_human_data_before6 = robot_human_series_data[2]
-        robot_human_data_before7 = robot_human_series_data[2]
-        robot_human_data_before8 = robot_human_series_data[2]
-        robot_human_data_before9 = robot_human_series_data[2]
-    elif(4 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[3]
-        robot_human_data_before5 = robot_human_series_data[3]
-        robot_human_data_before6 = robot_human_series_data[3]
-        robot_human_data_before7 = robot_human_series_data[3]
-        robot_human_data_before8 = robot_human_series_data[3]
-        robot_human_data_before9 = robot_human_series_data[3]
-    elif(5 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[4]
-        robot_human_data_before5 = robot_human_series_data[4]
-        robot_human_data_before6 = robot_human_series_data[4]
-        robot_human_data_before7 = robot_human_series_data[4]
-        robot_human_data_before8 = robot_human_series_data[4]
-        robot_human_data_before9 = robot_human_series_data[4]
-    elif(6 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[4]
-        robot_human_data_before5 = robot_human_series_data[5]
-        robot_human_data_before6 = robot_human_series_data[5]
-        robot_human_data_before7 = robot_human_series_data[5]
-        robot_human_data_before8 = robot_human_series_data[5]
-        robot_human_data_before9 = robot_human_series_data[5]
-    elif(7 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[4]
-        robot_human_data_before5 = robot_human_series_data[5]
-        robot_human_data_before6 = robot_human_series_data[6]
-        robot_human_data_before7 = robot_human_series_data[6]
-        robot_human_data_before8 = robot_human_series_data[6]
-        robot_human_data_before9 = robot_human_series_data[6]
-    elif(8 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[4]
-        robot_human_data_before5 = robot_human_series_data[5]
-        robot_human_data_before6 = robot_human_series_data[6]
-        robot_human_data_before7 = robot_human_series_data[7]
-        robot_human_data_before8 = robot_human_series_data[7]
-        robot_human_data_before9 = robot_human_series_data[7]
-    elif(9 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[4]
-        robot_human_data_before5 = robot_human_series_data[5]
-        robot_human_data_before6 = robot_human_series_data[6]
-        robot_human_data_before7 = robot_human_series_data[7]
-        robot_human_data_before8 = robot_human_series_data[8]
-        robot_human_data_before9 = robot_human_series_data[8]
-    elif(10 == len(robot_human_series_data)):
-        robot_human_data_before1 = robot_human_series_data[1]
-        robot_human_data_before2 = robot_human_series_data[2]
-        robot_human_data_before3 = robot_human_series_data[3]
-        robot_human_data_before4 = robot_human_series_data[4]
-        robot_human_data_before5 = robot_human_series_data[5]
-        robot_human_data_before6 = robot_human_series_data[6]
-        robot_human_data_before7 = robot_human_series_data[7]
-        robot_human_data_before8 = robot_human_series_data[8]
-        robot_human_data_before9 = robot_human_series_data[9]
-    else:
-        print("robot_human_series_dataの長さの文法エラー")
-
-
-#    if(2 < len(robot_human_series_data)):
-#        robot_human_data_before2 = robot_human_series_data[2]
-#    else:
-#        if(1 < len(robot_human_series_data)):
-#            robot_human_data_before2 = robot_human_series_data[1]
-#        else:
-#            robot_human_data_before2 = robot_human_series_data[0]
-#
-#    if(1 < len(robot_human_series_data)):
-#        robot_human_data_before1 = robot_human_series_data[1]
-#    else:
-#        robot_human_data_before1 = robot_human_series_data[0]
 
 
     tmp_human_comment = robot_human_data_newest.getHumanComment()

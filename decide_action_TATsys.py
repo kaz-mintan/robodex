@@ -5,11 +5,15 @@ import numpy as np
 from numpy.random import *
 import itertools
 
-#import tbl_robo_comment
-#import tbl_robo_led
-#import tbl_robo_motion
+import tbl_robo_comment
+import tbl_robo_led
+import tbl_robo_motion
+import tbl_tat_comment
 
 import robo_human_data
+
+from decide_action_rulebase import pic_human_term
+#iinoka
 
 def argmax_ndim(arg_array):
     return np.unravel_index(arg_array.argmax(), arg_array.shape)
@@ -39,38 +43,70 @@ def face_predict(input_data, action_candidate):
 
     return predicted_face
 
+#convert from tat number to jbc number
+def tat2jbc_comment_num(tat_comment_num):
+    tat2jbc=tblRoboComeTAT()
+    jbc_num=tat2jbc.DATA[tat_comment_num,1]
+    return jbc_num
+
+
 def decide_action_TATsys(robot_human_series_data):
+    # initialize
     action_candidate = robo_human_data.RobotHumanData()
 
-    #TODO: get the possible range from the tbl?
-    possible_range_comment=3
-    possible_range_motion=4
-    possible_range_led=5
+    comment = tblRoboComeTAT()
+    motion = tblRobotSRV()
+    led = tblRobotLED()
 
-    possible_list=[range(possible_range_comment),
-            range(possible_range_motion),
-            range(possible_range_led)]
+    possible_range_comment=len(comment.DATA)
+    possible_range_motion=len(motion.DATA)
+    possible_range_led=len(led.DATA)
 
-    prediction=np.zeros((possible_range_comment,possible_range_motion,possible_range_led))
     reward=np.zeros((possible_range_comment,possible_range_motion,possible_range_led))
 
-    for (i, j, k) in itertools.product(range(possible_range_comment),
-            range(possible_range_motion),
-            range(possible_range_led)):
-        action_candidate.robot_comment=i
-        action_candidate.robot_motion=j
-        action_candidate.robot_led=k
+    # extract human's comment copied from rulebase.py
+    values = robot_human_series_data[:config.RESERVE_NUM_ROBOT_HUMAN_DATA]
+    n = config.RESERVE_NUM_ROBOT_HUMAN_DATA - len(values)
+    if n:
+        values += [robot_human_series_data[-1]] * n
+    (robot_human_data_newest,\
+            robot_human_data_before1,\
+            robot_human_data_before2,\
+            robot_human_data_before3,\
+            robot_human_data_before4,\
+            robot_human_data_before5,\
+            robot_human_data_before6,\
+            robot_human_data_before7,\
+            robot_human_data_before8,\
+            robot_human_data_before9) = values
 
-        reward[i,j,k]=calc_reward(face_predict(robot_human_series_data,action_candidate))
-        print(i,j,k,reward[i,j,k])
+    tmp_human_comment = robot_human_data_newest.getHumanComment()
 
-    #argmax
-    robot_action = argmax_ndim(reward)
-    #print(robot_action)
+    pic_term_list = pic_human_term(tmp_human_comment)
 
-    #TATシステムでhogehogeする
+    # start when the comment of human is konnichiwa
+    if(True == ("こんにちは" in pic_term_list) in pic_term_list):
+
+        #select argmax
+        robot_action = argmax_ndim(reward)
+        #print(robot_action)
+
+    robot_action = [robot_comment_no,robot_motion_no,robot_led_no]
 
     return robot_action
+
+def update_reward_table(str_reward_table, selected_action, robot_human_data,level=50):
+    #read reward table from csv file
+    tat_reward_table = np.loadtxt(str_reward_table,delimiter=",")
+
+    #devide arguments
+    comment, motion, led = selected_action
+
+    #update reward table
+    tat_reward_table=tat_reward_table-level*np.ones_like(tat_reward_table)
+    tat_reward_table[comment,motion,led] += level
+
+    return table
 
 if __name__ == "__main__" :
     robot_human_series_data = robo_human_data.RobotHumanData()

@@ -4,6 +4,7 @@ import config
 from datetime import datetime
 from datetime import date
 import get_weather
+import recog_okao
 
 class RobotHumanData:
 	'''OkaoVision情報、ロボアクション、ロボコメント、人コメント'''
@@ -17,7 +18,7 @@ class RobotHumanData:
 		self.day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
 		self.weather_data = {}
 		self.weather_today = [0,0,0,0]#天気と数値との関連付けは、取得先の設定を参考にする。
-		self.okao_list = 0	#human_idも含む、または、別でhuman_idを作る。
+		self.okao_data = [[]]	#human_idも含む、または、別でhuman_idを作る。idは今回は作れず。
 
 #OKAOのデータの取り込みどうしよう？
 
@@ -44,6 +45,10 @@ class RobotHumanData:
 
 	def getWheatherSimpleToday(self):
 		return self.wheather_today
+
+	def getOkaoVisionData(self):
+		return self.okao_data
+
 
 	def setRobotComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
@@ -81,6 +86,7 @@ class RobotHumanData:
 #		print(self.today_weather_term)
 #		print(self.weather_today)
 
-	def getOkaoVisionList(self,OKAOlist):
-		self.okao_list = OKAOlist
+	def setOkaoVisionData(self):
+		self.okao_data = recog_okao.okao_data
+#		print("setOkaoVisionData",self.okao_data)
 		return 0

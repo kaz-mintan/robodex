@@ -1,5 +1,3 @@
-
-
 # -*- coding: utf-8 -*-
 #上記、シェバングと呼ぶ？python3では指定しなくてもデフォルトでutf-8らしい。
 #上記コメントアウトなのに意味あるの？
@@ -11,23 +9,22 @@ import decide_action_rulebase
 import decide_action_TATsys
 import exe_robo_action
 import recog_utterance
-
 import libokao
 import random
+import concurrent.futures
+import recog_okao
 
 #ロボットアクションの実行と、人間のリアクションの取得
 def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
     ret = robo_human_data.RobotHumanData()   #インスタンスretを宣言RobotHumanDataモジュールの、robotHumanData型。
-#ここで、OKAOVision認識データをリストに記憶するスレッドを起動する。
     exe_robo_action.execute_robot_action(robot_action)
-    #下記、要素ごとに代入しているが、これでいいのか？
-    #また、ロボットコメントなどの実データを入れる意味はあるのか？
     ret.setRobotComment(robot_action[0])
     ret.setRobotMotion(robot_action[1])
     ret.setRobotLed(robot_action[2])
-#utteranceは発声の意
+
     recognized_comment = recog_utterance.recognize_utterance()  #ひとまとまりのセリフを認識するまで戻らない関数という想定。
     ret.setHumanComment(recognized_comment)
+    ret.setOkaoVisionData()#本当は、ロボットアクション後、2秒後くらいに実行したいが、sleepすると全体ループに影響してしまう。実現するためにはここも別スレッドか
 
     if 1 == config.DEBUG_PRINT:
         print("recognized comment = ")
@@ -36,14 +33,9 @@ def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
         print("1 ret human_comment = ")
         print(tmp_human_comment)
 
-#OKAOVision停止の方法どうするか
-    #okao_list = StopOkaoVisionThread()    #OKAOVision停止の想定。
-    #ret.setOkaoVisionList(okao_list)
-#    ret.sethogehoge...
     return ret
 
 def decide_action(robot_human_series_data):
-#    print(type(robot_human_series_data[0]))
 
     print("decide_actionが呼べてます！！！")
 
@@ -61,16 +53,12 @@ def decide_action(robot_human_series_data):
 
 def main():
     robot_human_series_data = []
-
     robot_action = [0,0,0]
 
 #    robot_action = [10001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
-
 #    robot_action = [20001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
 
 #    execute_action_and_get_human_reaction(robot_action)
-
-    libokao.okao_init(0,9600)
 
     end_flag = False
     if 1 == config.DEBUG_PRINT: print(end_flag)
@@ -111,44 +99,9 @@ def main():
         pass
         print("Interrupted")
 
-#robot_human_series_dataを元に、robot_actionを決める。
-#robot_actionは、予め外部にテーブルを用意して選択肢から選択する。
-#選択肢の要素は、モータの駆動角度、駆動速度、LEDの光らせ方
+if __name__ == '__main__':
+    executor = concurrent.futures.ThreadPoolExecutor(max_workers=2)
+#    executor = concurrent.futures.ProcessPoolExecutor(max_workers=2)#認識中のLED光らない
 
-
-#以下、メモ
-#アクションを返す必要が無い時はfalseを返す。
-
-#会話が一段落するまでOKAOデータは取り続け，一段落した段階でリストで送る．
-#getCurrentの時のOKAOのスレッドを立ち上げて，
-#喋った言葉を覚えておきたいのはどこか．どこで覚えておきたいか．
-
-#getCurrentDataの返すべきデータのクラスPrev_infoの変数のなかにはOKAOvision用のlistが用意してない．
-#適当に決める．
-#executeactionとget_human_reactionを分けるのではなく，一つの関数にしてしまうのも有り．
-
-#以下、メモ、情報古い？
-#get currentの中で、okaoからデータとるスレッド
-#okaoと認識
-
-#observed_data
-#execute_robot_action
-#prev info名前変える
-
-#ファイルの分割は、どういう単位ですれば良いのだろう？
-#main内で、複数関数書いてよい？
-
-#robot_action = (0,0,0)
-#a = execute_action_and_get_human_reaction(robot_action)
-
-
-#decide_action---確認用---
-#h_comment = "良いけど疲れた。"
-#tmp_robo_h_s_data = []
-#tmp = robo_human_data.RobotHumanData()
-#tmp.setHumanComment(h_comment)
-#tmp_robo_h_s_data.append(tmp)
-#ret = decide_action(tmp_robo_h_s_data)
-#print (ret)
-
-main()
+    executor.submit(recog_okao.recognize_okao)
+    executor.submit(main)

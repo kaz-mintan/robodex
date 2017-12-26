@@ -16,8 +16,8 @@ class RobotHumanData:
 		self.human_comment = ""
 		self.time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく。
 		self.day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
-		self.weather_data = {}
-		self.weather_today = [0,0,0,0]#天気と数値との関連付けは、取得先の設定を参考にする。
+		self.wheather_data = {}
+		self.wheather_today = [0,0,0,0]#天気と数値との関連付けは、取得先の設定を参考にする。
 		self.okao_data = [[]]	#human_idも含む、または、別でhuman_idを作る。idは今回は作れず。
 
 #OKAOのデータの取り込みどうしよう？

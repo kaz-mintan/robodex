@@ -49,6 +49,7 @@ def decide_action(robot_human_series_data):
         robot_action = decide_action_TATsys.decide_action_TATsys(robot_human_series_data)
     else:
         pass
+    print("decide_action内robot_acton:",robot_acton)
     return robot_action
 
 def main():
@@ -66,6 +67,7 @@ def main():
     try:
         while end_flag == False:    #end_flagの設定どうしようかな
 #            if robot_action != "noaction":
+            print("while内robot_action:",robot_action)
             if robot_action != (0,0,0):
                 if 1 == config.DEBUG_PRINT: print("end_flag != False")
                 #ロボットと人間の一連のやり取りデータを取得する。

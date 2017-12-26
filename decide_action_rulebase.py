@@ -281,6 +281,8 @@ def decide_action_rulebase(robot_human_series_data):
 #    robot_human_data_newest = robo_human_data.RobotHumanData()
     robot_comment_no = dialogue_algorithm_rulebase(robot_human_series_data)
 
+    print("decide_action_rulebase a")
+
     robot_motion_no=random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
 #    robot_motion_no =　random.randrange(1,4)
     robot_motion_no=0
@@ -291,6 +293,8 @@ def decide_action_rulebase(robot_human_series_data):
 
 
     robot_action = [robot_comment_no,robot_motion_no,robot_led_no]
+
+    print("decide_action_rulebase b")
 
     return robot_action
 

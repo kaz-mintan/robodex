@@ -28,10 +28,15 @@ def predict(face, situation, action, id_number):
     return predicted
 
 def face_predict(input_data, action_candidate):
-    face = input_data.okao_list
-    situation=[input_data.time_stamp,
-        input_data.day_of_week,
-        input_data.weather_data]
+    face = input_data.getOkaoVisionData()#komatsu
+    situation=[input_data.getTimeStamp(),#komatsu
+        input_data.getDayOfWeek(),#komatsu
+        input_data.getWheatherSimpleToday()]#komatsu
+#    face = input_data.okao_list
+#    situation=[input_data.time_stamp,
+#        input_data.day_of_week,
+#        input_data.weather_data]
+
     action = [action_candidate.robot_comment, action_candidate.robot_motion, action_candidate.robot_led]
     id_number = 0 #not be defined
     #predicted_face = predict(face, action, id_number)
@@ -61,7 +66,8 @@ def decide_action_TATsys(robot_human_series_data):
         action_candidate.robot_motion=j
         action_candidate.robot_led=k
 
-        reward[i,j,k]=calc_reward(face_predict(robot_human_series_data,action_candidate))
+        reward[i,j,k]=calc_reward(face_predict(robot_human_series_data[0],action_candidate))#komatsu
+#        reward[i,j,k]=calc_reward(face_predict(robot_human_series_data,action_candidate))
         print(i,j,k,reward[i,j,k])
 
     #argmax
@@ -73,5 +79,9 @@ def decide_action_TATsys(robot_human_series_data):
     return robot_action
 
 if __name__ == "__main__" :
-    robot_human_series_data = robo_human_data.RobotHumanData()
+    robot_human_series_data = []#komatsu
+    tmp_robot_human_data = robo_human_data.RobotHumanData()#komatsu
+    robot_human_series_data.insert(0,tmp_robot_human_data)#komatsu
+#    robot_human_series_data = robo_human_data.RobotHumanData()
+
     print("action_is",decide_action_TATsys(robot_human_series_data))

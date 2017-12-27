@@ -75,15 +75,6 @@ def update_TATreward_table(str_reward_table, str_action_log, tmp_human_face):
     np.savetxt(str_reward_table,tat_reward_table)
 
 def decide_action_TATsys(robot_human_series_data):
-    # initialization
-    comment = tbl_tat_comment.tblRoboComeTAT()
-    motion = tbl_robo_motion.tblRobotSRV()
-    led = tbl_robo_led.tblRobotLED()
-
-    #class tblRoboComeTAT:
-    possible_range_comment=len(comment.DATA)
-    possible_range_motion=len(motion.DATA)
-    possible_range_led=len(led.DATA)
 
     # extract human's comment (copied from rulebase.py)
     values = robot_human_series_data[:config.RESERVE_NUM_ROBOT_HUMAN_DATA]
@@ -130,6 +121,23 @@ def decide_action_TATsys(robot_human_series_data):
     return robot_action
 
 if __name__ == "__main__" :
+
+    # initialization
+    comment = tbl_tat_comment.tblRoboComeTAT()
+    motion = tbl_robo_motion.tblRobotSRV()
+    led = tbl_robo_led.tblRobotLED()
+
+    #class tblRoboComeTAT:
+    possible_range_comment=len(comment.DATA)
+    possible_range_motion=len(motion.DATA)
+    possible_range_led=len(led.DATA)
+
+    print('len',possible_range_comment,possible_range_motion,possible_range_led)
+    reward = np.zeros((possible_range_comment,possible_range_motion,possible_range_led))
+    action = np.zeros((3,1))
+
+    np.savetxt(TAT_REWARD_TBL,reward)
+    np.savetxt(TAT_ACTION_LOG,action)
     robot_human_series_data = [robo_human_data.RobotHumanData(),
             robo_human_data.RobotHumanData()]
     robot_human_series_data[0].human_comment = "こんにちは"

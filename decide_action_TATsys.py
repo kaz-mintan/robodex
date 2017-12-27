@@ -25,6 +25,7 @@ def argmax_ndim(arg_array):
 def calc_reward(face_data):
     weight_array=np.array([0,100,40,-50,-50])
     #[neutral,happy,surprise,angry,sad]
+    print('face_data',face_data)
     reward=np.dot(face_data,weight_array)
     return reward
 
@@ -60,9 +61,6 @@ def jbc2tat_comment_num(jbc_comment_num):
 
     return tat_num
 
-
-
-
 def update_TATreward_table(str_reward_table, selected_action, tmp_human_face):
     # read reward table from csv file
     tat_reward_table = np.load(str_reward_table)
@@ -72,6 +70,7 @@ def update_TATreward_table(str_reward_table, selected_action, tmp_human_face):
 
     # calculate evaluation by human
     level = calc_reward(tmp_human_face)
+    print('level',level)
 
     # update reward table
     tat_reward_table=tat_reward_table-level*np.ones_like(tat_reward_table)
@@ -99,15 +98,14 @@ def decide_action_TATsys(robot_human_series_data):
         (robot_human_data_newest, robot_human_data_before1) = values
 
         tmp_human_comment = robot_human_data_newest.getHumanComment()
-        tmp_human_face = robot_human_data_newest.getOkaoVisionData()
+        eval_human_face = robot_human_data_before1.getOkaoVisionData()
 
-        print('getRobotCommennt()',robot_human_data_before1.getRobotComment())
         selected_action = np.array([jbc2tat_comment_num(robot_human_data_before1.getRobotComment()),
             robot_human_data_before1.getRobotMotion(),
             robot_human_data_before1.getRobotLed()])
 
         # update reward table
-        update_TATreward_table(TAT_REWARD_TBL, selected_action, tmp_human_face)
+        update_TATreward_table(TAT_REWARD_TBL, selected_action, eval_human_face)
 
     # read updated reward table to select action
     tat_reward_table = np.load(TAT_REWARD_TBL)
@@ -149,7 +147,7 @@ if __name__ == "__main__" :
             robo_human_data.RobotHumanData()]
     robot_human_series_data[1].human_comment = "こんにちは"
     robot_human_series_data[1].okao_data = [[0,100,0,0,0]]
-    robot_human_series_data[1].robot_comment = 30101
+    robot_human_series_data[1].robot_comment = 30103
     robot_human_series_data[1].robot_motion = 0
     robot_human_series_data[1].robot_led = 1
 

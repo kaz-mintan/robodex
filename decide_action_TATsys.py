@@ -81,7 +81,6 @@ def decide_action_TATsys(robot_human_series_data):
     led = tbl_robo_led.tblRobotLED()
 
     #class tblRoboComeTAT:
-
     possible_range_comment=len(comment.DATA)
     possible_range_motion=len(motion.DATA)
     possible_range_led=len(led.DATA)
@@ -101,8 +100,9 @@ def decide_action_TATsys(robot_human_series_data):
             robot_human_data_before7,\
             robot_human_data_before8,\
             robot_human_data_before9) = values
+
     tmp_human_comment = robot_human_data_newest.getHumanComment()
-    tmp_human_facce = robot_human_data_newest.getOkaoVisionData()
+    tmp_human_face = robot_human_data_newest.getOkaoVisionData()
 
     # update reward table
     update_TATreward_table(TAT_REWARD_TBL, TAT_ACTION_LOG, tmp_human_face)
@@ -130,10 +130,12 @@ def decide_action_TATsys(robot_human_series_data):
     return robot_action
 
 if __name__ == "__main__" :
-    robot_human_series_data = robo_human_data.RobotHumanData()
-    robot_human_series_data.human_comment = "こんにちは"
-    robot_human_series_data.okao_data = [[100,0,0,0,0]]
+    robot_human_series_data = [robo_human_data.RobotHumanData(),
+            robo_human_data.RobotHumanData()]
+    robot_human_series_data[0].human_comment = "こんにちは"
+    robot_human_series_data[0].okao_data = [[100,0,0,0,0]]
+    robot_human_series_data[1].human_comment = "こんにちは"
+    robot_human_series_data[1].okao_data = [[0,100,0,0,0]]
 
     print("action_is",decide_action_TATsys(robot_human_series_data))
-    robot_human_series_data.okao_data = [[0,100,0,0,0]]
     print("action_is",decide_action_TATsys(robot_human_series_data))

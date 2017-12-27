@@ -42,7 +42,6 @@ def face_predict(input_data, action_candidate):
         input_data.weather_data]
     action = [action_candidate.robot_comment, action_candidate.robot_motion, action_candidate.robot_led]
     id_number = 0 #not be defined
-    #predicted_face = predict(face, action, id_number)
     predicted_face = predict(face, situation, action, id_number)
 
     return predicted_face
@@ -55,8 +54,6 @@ def tat2jbc_comment_num(tat_comment_num):
 
 def jbc2tat_comment_num(jbc_comment_num):
     tat2jbc=tbl_tat_comment.tblRoboComeTAT()
-    print('jbc_comment_num',jbc_comment_num)
-    print('comment',tat2jbc.DATA[0,0])
     for array_num in range(tat2jbc.DATA.shape[0]):
         if jbc_comment_num == tat2jbc.DATA[array_num,1]:
             tat_num = array_num
@@ -68,7 +65,6 @@ def jbc2tat_comment_num(jbc_comment_num):
 
 def update_TATreward_table(str_reward_table, selected_action, tmp_human_face):
     # read reward table from csv file
-    #tat_reward_table = np.load(str_reward_table,delimiter=",")
     tat_reward_table = np.load(str_reward_table)
 
     # devide array of action into num of comment/motion/led
@@ -95,7 +91,6 @@ def decide_action_TATsys(robot_human_series_data):
         tmp_human_comment = robot_human_data_newest.getHumanComment()
         tmp_human_face = robot_human_data_newest.getOkaoVisionData()
 
-
         #skip updating reward table
 
     if data_len >=2:
@@ -115,7 +110,6 @@ def decide_action_TATsys(robot_human_series_data):
         update_TATreward_table(TAT_REWARD_TBL, selected_action, tmp_human_face)
 
     # read updated reward table to select action
-    #tat_reward_table = np.load(TAT_REWARD_TBL,delimiter=",")
     tat_reward_table = np.load(TAT_REWARD_TBL)
 
 
@@ -127,8 +121,6 @@ def decide_action_TATsys(robot_human_series_data):
         #select argmax
         robot_action = argmax_ndim(tat_reward_table)
         robot_comment_no = tat2jbc_comment_num(robot_action[0])
-
-    #robot_action = [robot_comment_no,robot_motion_no,robot_led_no]
 
     return robot_action
 

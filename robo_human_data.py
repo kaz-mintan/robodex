@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #robotHumanData.py
 import config
 

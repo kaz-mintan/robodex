@@ -49,7 +49,7 @@ def decide_action(robot_human_series_data):
         robot_action = decide_action_TATsys.decide_action_TATsys(robot_human_series_data)
     else:
         pass
-    print("decide_action内robot_acton:",robot_acton)
+    print("decide_action内robot_acton:",robot_action)
     return robot_action
 
 def main():

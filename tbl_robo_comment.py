@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 
 #tbl_robo_comment.py
 

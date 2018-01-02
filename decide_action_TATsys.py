@@ -5,11 +5,19 @@ import numpy as np
 from numpy.random import *
 import itertools
 
-#import tbl_robo_comment
-#import tbl_robo_led
-#import tbl_robo_motion
+import tbl_robo_comment
+import tbl_robo_led
+import tbl_robo_motion
+import tbl_tat_comment
 
 import robo_human_data
+
+from decide_action_rulebase import pic_human_term
+import config
+
+#iinoka
+TAT_REWARD_TBL = 'tat_reward_tbl.npy'
+#TAT_ACTION_LOG = 'tat_action_log.csv'
 
 def argmax_ndim(arg_array):
     return np.unravel_index(arg_array.argmax(), arg_array.shape)
@@ -17,6 +25,7 @@ def argmax_ndim(arg_array):
 def calc_reward(face_data):
     weight_array=np.array([0,100,40,-50,-50])
     #[neutral,happy,surprise,angry,sad]
+    print('face_data',face_data)
     reward=np.dot(face_data,weight_array)
     return reward
 
@@ -39,49 +48,115 @@ def face_predict(input_data, action_candidate):
 
     action = [action_candidate.robot_comment, action_candidate.robot_motion, action_candidate.robot_led]
     id_number = 0 #not be defined
-    #predicted_face = predict(face, action, id_number)
     predicted_face = predict(face, situation, action, id_number)
 
     return predicted_face
 
+#convert from tat number to jbc number
+def tat2jbc_comment_num(tat_comment_num):
+    tat2jbc=tbl_tat_comment.tblRoboComeTAT()
+    jbc_num=tat2jbc.DATA[tat_comment_num,1]
+    return str(jbc_num)
+
+def jbc2tat_comment_num(jbc_comment_num):
+    tat2jbc=tbl_tat_comment.tblRoboComeTAT()
+    for array_num in range(tat2jbc.DATA.shape[0]):
+        if jbc_comment_num == tat2jbc.DATA[array_num,1]:
+            tat_num = array_num
+
+    return tat_num
+
+def update_TATreward_table(str_reward_table, selected_action, tmp_human_face):
+    # read reward table from csv file
+    tat_reward_table = np.load(str_reward_table)
+
+    # devide array of action into num of comment/motion/led
+    comment, motion, led = selected_action
+
+    # calculate evaluation by human
+    level = calc_reward(tmp_human_face)
+    print('level',level)
+
+    # update reward table
+    tat_reward_table=tat_reward_table-level*np.ones_like(tat_reward_table)
+    tat_reward_table[comment,motion,led] += level
+
+    # save the updated reward table
+    np.save(str_reward_table,tat_reward_table)
+
 def decide_action_TATsys(robot_human_series_data):
-    action_candidate = robo_human_data.RobotHumanData()
 
-    #TODO: get the possible range from the tbl?
-    possible_range_comment=3
-    possible_range_motion=4
-    possible_range_led=5
+    # extract human's comment (copied from rulebase.py)
+    data_len=len(robot_human_series_data)
 
-    possible_list=[range(possible_range_comment),
-            range(possible_range_motion),
-            range(possible_range_led)]
+    if data_len == 1:
+        robot_human_data_newest = robot_human_series_data[-1]
 
-    prediction=np.zeros((possible_range_comment,possible_range_motion,possible_range_led))
-    reward=np.zeros((possible_range_comment,possible_range_motion,possible_range_led))
+        tmp_human_comment = robot_human_data_newest.getHumanComment()
+        tmp_human_face = robot_human_data_newest.getOkaoVisionData()
 
-    for (i, j, k) in itertools.product(range(possible_range_comment),
-            range(possible_range_motion),
-            range(possible_range_led)):
-        action_candidate.robot_comment=i
-        action_candidate.robot_motion=j
-        action_candidate.robot_led=k
+        #skip updating reward table
 
-        reward[i,j,k]=calc_reward(face_predict(robot_human_series_data[0],action_candidate))#komatsu
-#        reward[i,j,k]=calc_reward(face_predict(robot_human_series_data,action_candidate))
-        print(i,j,k,reward[i,j,k])
+    if data_len >=2:
 
-    #argmax
-    robot_action = argmax_ndim(reward)
-    #print(robot_action)
+        values = robot_human_series_data[:2]
+        (robot_human_data_newest, robot_human_data_before1) = values
 
-    #TATシステムでhogehogeする
+        tmp_human_comment = robot_human_data_newest.getHumanComment()
+        eval_human_face = robot_human_data_before1.getOkaoVisionData()
+
+        selected_action = np.array([jbc2tat_comment_num(robot_human_data_before1.getRobotComment()),
+            robot_human_data_before1.getRobotMotion(),
+            robot_human_data_before1.getRobotLed()])
+
+        # update reward table
+        update_TATreward_table(TAT_REWARD_TBL, selected_action, eval_human_face)
+
+    # read updated reward table to select action
+    tat_reward_table = np.load(TAT_REWARD_TBL)
+
+
+    # check the key of human's comment
+    pic_term_list = pic_human_term(tmp_human_comment)
+
+    # start when the comment of human is konnichiwa
+    if(True == ("こんにちは" in pic_term_list)):
+        #select argmax
+        robot_action = argmax_ndim(tat_reward_table)
+        robot_comment_no = tat2jbc_comment_num(robot_action[0])
 
     return robot_action
 
 if __name__ == "__main__" :
-    robot_human_series_data = []#komatsu
-    tmp_robot_human_data = robo_human_data.RobotHumanData()#komatsu
-    robot_human_series_data.insert(0,tmp_robot_human_data)#komatsu
-#    robot_human_series_data = robo_human_data.RobotHumanData()
+    # initialization
+    comment = tbl_tat_comment.tblRoboComeTAT()
+    motion = tbl_robo_motion.tblRobotSRV()
+    led = tbl_robo_led.tblRobotLED()
+
+    #class tblRoboComeTAT:
+    possible_range_comment=len(comment.DATA)
+    possible_range_motion=len(motion.DATA)
+    possible_range_led=len(led.DATA)
+
+    reward = np.zeros((possible_range_comment,possible_range_motion,possible_range_led))
+
+    np.save(TAT_REWARD_TBL,reward)
+    robot_human_series_data = [robo_human_data.RobotHumanData()]
+
+    robot_human_series_data[0].human_comment = "こんにちは"
+    robot_human_series_data[0].okao_data = [[100,0,0,0,0]]
+
+    print("action_is",decide_action_TATsys(robot_human_series_data))
+
+    robot_human_series_data = [robo_human_data.RobotHumanData(),
+            robo_human_data.RobotHumanData()]
+    robot_human_series_data[1].human_comment = "こんにちは"
+    robot_human_series_data[1].okao_data = [[0,100,0,0,0]]
+    robot_human_series_data[1].robot_comment = 30103
+    robot_human_series_data[1].robot_motion = 0
+    robot_human_series_data[1].robot_led = 1
+
+    robot_human_series_data[0].human_comment = "こんにちは"
+    robot_human_series_data[0].okao_data = [[100,0,0,0,0]]
 
     print("action_is",decide_action_TATsys(robot_human_series_data))

@@ -1,5 +1,5 @@
+##coding: UTF-8
 
-#coding: UTF-8
 #decide_action_rulebase.py
 #関数よりクラスの方が良いのかな？
 

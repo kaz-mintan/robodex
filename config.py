@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 #config.py
 
 #模擬的な定数（大文字、模擬的なのは、実際には変数なので）はここで定義する。
@@ -35,3 +36,5 @@ DEBUG_MODE0 = 0 #0:通常動作 1:debugモード
 NUM_OF_CHOICES_MOTION = 1
 
 NUM_OF_CHOICES_LED = 7
+
+TAT_REWARD_TBL = 'tat_reward_tbl.csv'

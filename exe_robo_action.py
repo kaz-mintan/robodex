@@ -63,6 +63,8 @@ def execute_robot_action(robot_action):
     #話す、首振り動作、LED点灯
     #上3つ、とりあえず順番に動かすようにしているが、並行して動かせるようにしないといけない。
 
+    print("execute_robot_action関数が呼ばれた")
+
     if robot_action == (0,0,0):
         return
     else:
@@ -80,6 +82,10 @@ def execute_robot_action(robot_action):
         speak_message = tbl_robo_comment.dict_robot_term[robot_action[0]]
 
         check = subprocess.getoutput(config.VOICE_TEXT_SETTING % speak_message)
+
+        print("execute_robot_action関数の中のspeak_message:",speak_message)
+
+
     else:
         pass
 

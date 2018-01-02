@@ -1,4 +1,5 @@
 ##coding: UTF-8
+
 #decide_action_rulebase.py
 #関数よりクラスの方が良いのかな？
 
@@ -101,6 +102,14 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
     if (10001 == robot_human_data_newest.getRobotComment()):#10001:"こんにちは、お客様が来ていただけるのを、ずっとお待ちしておりました。本日はどちらからいらっしゃったんですか？",
         robot_comment_no = 10101#10101:"遠いところですか？",
         print("10001です。！！！！！！")
+
+    elif(True == ("なかいい" in pic_term_list)):
+        robot_comment_no = random.choice([60000])
+
+
+    elif(True == ("会長" in pic_term_list) or True == ("お願い" in pic_term_list)):
+        robot_comment_no = random.choice([50000])
+
 #コメント表、アクション表からどう取得するかを考える必要あり。
     elif (10001 == robot_human_data_before1.getRobotComment()):#10001:"こんにちは、お客様が来ていただけるのを、ずっとお待ちしておりました。本日はどちらからいらっしゃったんですか？",
         if(True == ("近い" in pic_term_list)):
@@ -281,16 +290,23 @@ def decide_action_rulebase(robot_human_series_data):
 #    robot_human_data_newest = robo_human_data.RobotHumanData()
     robot_comment_no = dialogue_algorithm_rulebase(robot_human_series_data)
 
-    robot_motion_no=random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
+    print("decide_actionの中で、dialogue_algorithm_rulebase関数終了")
+
+#    robot_motion_no=random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
 #    robot_motion_no =　random.randrange(1,4)
     robot_motion_no=0
 
-    robot_led_no=random.randrange(1,config.NUM_OF_CHOICES_LED+1)
+#    robot_led_no=random.randrange(1,config.NUM_OF_CHOICES_LED+1)
 #    robot_led_no =　random.randrange(1,4)
     robot_led_no=0
 
+#    if(50100 = robot_comment_no):
+#        robot_motion_no = 4
+#        robot_led_no = 8
 
     robot_action = [robot_comment_no,robot_motion_no,robot_led_no]
+
+    print("decide_action_rulebase b")
 
     return robot_action
 

@@ -49,6 +49,7 @@ def decide_action(robot_human_series_data):
         robot_action = decide_action_TATsys.decide_action_TATsys(robot_human_series_data)
     else:
         pass
+    print("decide_action内robot_acton:",robot_action)
     return robot_action
 
 def main():
@@ -66,10 +67,15 @@ def main():
     try:
         while end_flag == False:    #end_flagの設定どうしようかな
 #            if robot_action != "noaction":
+            print("while内robot_action:",robot_action)
             if robot_action != (0,0,0):
                 if 1 == config.DEBUG_PRINT: print("end_flag != False")
                 #ロボットと人間の一連のやり取りデータを取得する。
+
+                print("mainの中で、execute_action_and_get_human_reaction関数開始")
+
                 robot_human_data_tmp = execute_action_and_get_human_reaction(robot_action)
+                print("mainの中で、execute_action_and_get_human_reaction関数終了")
 
                 if 1 == config.DEBUG_PRINT:
                     tmp_human_comment = robot_human_data_tmp.getHumanComment()
@@ -87,6 +93,7 @@ def main():
                     robot_human_series_data.pop()
                 #上で取得した、ロボットと人間の一連のやり取りデータを引数にして、robot_actionを返り値にする。
                 robot_action = decide_action(robot_human_series_data)
+                print("mainの中で、robot_action関数終了")
                 if 1 == config.DEBUG_PRINT:
                     print("robot_action[0]")
                     print(robot_action[0])

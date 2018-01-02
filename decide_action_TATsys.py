@@ -37,10 +37,15 @@ def predict(face, situation, action, id_number):
     return predicted
 
 def face_predict(input_data, action_candidate):
-    face = input_data.okao_list
-    situation=[input_data.time_stamp,
-        input_data.day_of_week,
-        input_data.weather_data]
+    face = input_data.getOkaoVisionData()#komatsu
+    situation=[input_data.getTimeStamp(),#komatsu
+        input_data.getDayOfWeek(),#komatsu
+        input_data.getWheatherSimpleToday()]#komatsu
+#    face = input_data.okao_list
+#    situation=[input_data.time_stamp,
+#        input_data.day_of_week,
+#        input_data.weather_data]
+
     action = [action_candidate.robot_comment, action_candidate.robot_motion, action_candidate.robot_led]
     id_number = 0 #not be defined
     predicted_face = predict(face, situation, action, id_number)

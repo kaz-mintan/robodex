@@ -33,8 +33,8 @@ DEBUG_MODE0 = 0 #0:通常動作 1:debugモード
 
 #VOICETEXTのKEYも、本来ここに書いておきたい
 
-NUM_OF_CHOICES_MOTION = 3
+NUM_OF_CHOICES_MOTION = 1
 
-NUM_OF_CHOICES_LED = 3
+NUM_OF_CHOICES_LED = 7
 
 TAT_REWARD_TBL = 'tat_reward_tbl.csv'

@@ -1,0 +1,39 @@
+20171030
+
+import libokao
+libokao.okao(0, 9600)
+で実行できる？
+
+熊谷さんのファイルの、if 0の中の、二番目のif（シリアルポートをイニシャルする？）
+をコメントアウトから外す
+が、鶴田さんの修正点
+
+20171214
+cd test-hvcp2-v1/
+rm CMakeCache.txt CMakeFiles/ -rf
+cmake .（makeを作るためのmake）
+make（これで、libokao.soができる）
+libokao.soは、動的リンクライブラリなので、他のファイルも参照する
+
+（CMakeLists.txtの中に、コンパイルの設定が書いてある。）
+
+この作業とは別に（前に）、libboostで、python3を対象にしてコンパイルするという、OKAOとは関係なしのlibboostを使うための作業が必要。
+
+
+下記、熊谷さんからのメールによる、ネットの情報
+
+./bootstrap.sh --with-libraries=python --with-python=python3 --with-python-version=3.3
+
+オプションの指定が抜けると、rubyとかも対象になってしまうので、コンパイルに非常に時間がかかる
+
+とすれば設定ファイルproject-config.jamが出力される。--with-librariesで欲しいものだけコンパイルできるようだ。出力されたファイルをみてPython3になっていればよい。
+
+
+OKAOのモジュールプログラム
+
+pythonプラグラムからimportするのは、libokao
+ただし、libokao.soが他のファイルも参照している
+libboost_python3.soと、libboost_python3.so.1.65.1
+の2つかな
+
+Cのコンパイルをする時に、ブーストパイソンを利用したとのこと

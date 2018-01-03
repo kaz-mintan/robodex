@@ -1,0 +1,1 @@
+sudo XAUTHORITY=~/.Xauthority AUDIODEV=hw:2,0 python3 main.py

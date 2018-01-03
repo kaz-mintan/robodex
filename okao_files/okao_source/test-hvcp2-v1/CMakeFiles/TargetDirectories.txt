@@ -1,0 +1,3 @@
+/home/pi/robodex/okao_source/test-hvcp2-v1/CMakeFiles/edit_cache.dir
+/home/pi/robodex/okao_source/test-hvcp2-v1/CMakeFiles/rebuild_cache.dir
+/home/pi/robodex/okao_source/test-hvcp2-v1/CMakeFiles/okao.dir

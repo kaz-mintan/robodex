@@ -1,3 +1,4 @@
+
 # -*- coding: utf-8 -*-
 #tst_dev.py cmd:sudo python3 tst_dev.py
 #ラズパイIOからLED・電源基板へのgreenとblueの線を左右分ともテレコにしている
@@ -46,7 +47,7 @@ pi.pwmSetMode( pi.GPIO.PWM_MODE_MS )
 pi.pwmSetRange( RANGE )
 pi.pwmSetClock( clock )
 
-robot_action = [1,1,7]
+robot_action = [1,1,7,0]
 
 if 0 != robot_action[2]:#LEDアクションを行う。
     ctlLED = get_robo_actdata_led.GetRobotActionDataOfLed()

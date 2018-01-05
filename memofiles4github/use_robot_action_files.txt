@@ -1,0 +1,25 @@
+pi@pi:~/robodex (try_skip_recog_comment)$ grep robot_action -rl
+get_robo_actdata_comment.py
+test_device.py
+decide_action_TATsys.py
+__pycache__/get_robo_actdata_comment.cpython-34.pyc
+__pycache__/exe_robo_action.cpython-35.pyc
+__pycache__/get_robo_actdata_comment.cpython-35.pyc
+__pycache__/decide_action_TATsys.cpython-35.pyc
+__pycache__/decide_action_rulebase.cpython-34.pyc
+__pycache__/exe_robo_action.cpython-34.pyc
+__pycache__/decide_action_TATsys.cpython-34.pyc
+__pycache__/get_robo_actdata_motion.cpython-34.pyc
+__pycache__/get_robo_actdata_led.cpython-35.pyc
+__pycache__/get_robo_actdata_motion.cpython-35.pyc
+__pycache__/decide_action_rulebase.cpython-35.pyc
+__pycache__/get_robo_actdata_led.cpython-34.pyc
+main.py
+get_robo_actdata_motion.py
+exe_robo_action.py
+old_test_files/robotLED/__pycache__/get_robo_actdata_led.cpython-35.pyc
+old_test_files/robotLED/__pycache__/get_robo_actdata_motion.cpython-35.pyc
+old_test_files/robotLED/get_robo_actdata_motion.py
+old_test_files/robotLED/get_robo_actdata_led.py
+decide_action_rulebase.py
+get_robo_actdata_led.py

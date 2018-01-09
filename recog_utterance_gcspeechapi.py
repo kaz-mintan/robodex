@@ -16,10 +16,11 @@ import base64
 #import wiringpi as pi
 
 def execute_recognition():
-    audio = open('/home/pi/robodex/human_comment.wav')
+    audio = open('/home/pi/robodex/human_comment.wav','rb')
     audio_content = audio.read()
     print("type(audio_content): ",type(audio_content))
     audio_encode_file = base64.b64encode(audio_content)
+    audio_encode_file = audio_encode_file.decode("utf-8")
     print("type(audio_encode_file): ",type(audio_encode_file))
 
 #    audio_encode_file = str(audio_encode_file)

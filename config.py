@@ -25,6 +25,9 @@ DEBUG_MODE0 = 0 #0:通常動作 1:debugモード
 NUM_OF_CHOICES_MOTION = 1
 NUM_OF_CHOICES_LED = 7
 
+OKAO_EXEC_CYCLE_SEC = 2
+MAX_MULTI_EXECUTE_WORKERS_NO = 4
+
 TAT_REWARD_TBL = 'tat_reward_tbl.csv'
 
 def debug_print(debug_comment):

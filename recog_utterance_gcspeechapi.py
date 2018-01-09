@@ -14,6 +14,8 @@ import base64
 import exe_robo_action as pin
 import wiringpi as pi
 
+recognizing_utterance_flag = 0
+
 def execute_recognition():
     audio = open(conf.VOICE_REC_PATH,'rb')
     audio_content = audio.read()
@@ -75,6 +77,12 @@ def current_milli_time():
 
 def recognize_utterance():
 
+    recognizing_utterance_flag = 1
+
+    pi.softPwmWrite( pin.right_eye_red_pin, 0)
+    pi.softPwmWrite( pin.left_eye_red_pin, 0)
+    pi.softPwmWrite( pin.right_eye_blue_pin, 0)
+    pi.softPwmWrite( pin.left_eye_blue_pin, 0)
     pi.softPwmWrite( pin.right_eye_green_pin, 100)
     pi.softPwmWrite( pin.left_eye_green_pin, 100)
 
@@ -83,6 +91,8 @@ def recognize_utterance():
 
     pi.softPwmWrite( pin.right_eye_green_pin, 0)
     pi.softPwmWrite( pin.left_eye_green_pin, 0)
+
+    recognizing_utterance_flag = 0
 
     t0 = current_milli_time()
     message = execute_recognition()

@@ -96,19 +96,13 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
         print(pic_term_list)
 
     robot_comment_no = 0
+    recog_commnet_skip_flag = 0
 
     print(robot_human_data_newest.getRobotComment())
 
     if (10001 == robot_human_data_newest.getRobotComment()):#10001:"こんにちは、お客様が来ていただけるのを、ずっとお待ちしておりました。本日はどちらからいらっしゃったんですか？",
         robot_comment_no = 10101#10101:"遠いところですか？",
         print("10001です。！！！！！！")
-
-    elif(True == ("なかいい" in pic_term_list)):
-        robot_comment_no = random.choice([60000])
-
-
-    elif(True == ("会長" in pic_term_list) or True == ("お願い" in pic_term_list)):
-        robot_comment_no = random.choice([50000])
 
 #コメント表、アクション表からどう取得するかを考える必要あり。
     elif (10001 == robot_human_data_before1.getRobotComment()):#10001:"こんにちは、お客様が来ていただけるのを、ずっとお待ちしておりました。本日はどちらからいらっしゃったんですか？",
@@ -163,63 +157,68 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
         else:
             print("オカオ文法エラー")
 
-    elif(True == ("こんにちは" in pic_term_list) or True == ("おはよう" in pic_term_list) or True == ("はじめまして" in pic_term_list) or True == ("お疲れ様" in pic_term_list)):
-        robot_comment_no = random.choice([21])
-
-        if(0 == okao_gen):#読み取り不能
-            robot_comment_no = random.choice([30101,30102,30103,30104,30105,30106,30107,30108,30109,30110,30111,30112,30113,30114,30115,30116,30117,30118])
-
-        elif(1 == okao_gen):#男性
-            robot_comment_no = random.choice([30101,30102,30103,30104,30105,30106,30107,30108,30109,30110,30111,30112,30113,30114,30115,30116,30117,30118])
-
-        elif(2 == okao_gen):#女性
-            robot_comment_no = random.choice([31101,31102,31103,31104,31105,31106,31107,31108,31109])
+    # ストーリー（あいさつ）1回目コメント選択（トリガーと顔判定）
+    elif(True == ("こんにちは" in pic_term_list) or True == ("おはよう" in pic_term_list) or True == ("はじめまして" in pic_term_list) or True == ("お疲れ様" in pic_term_list) or True == ("かわいい" in pic_term_list) or True == ("おもしろ" in pic_term_list)):
+        if(2 == okao_gen):  # 女性
+            robot_comment_no = 101002
+            recog_commnet_skip_flag = 1
+        elif(0 == okao_gen or 1 == okao_gen):  # 男性or読み取り不能
+            robot_comment_no = 101000
+            recog_commnet_skip_flag = 1
         else:
             print("オカオ文法エラー")
-
-    elif ((30101 <= robot_human_data_newest.getRobotComment() <= 30118) or (31101 <= robot_human_data_newest.getRobotComment() <= 31119)):
-        robot_comment_no = random.choice([30201,30501])
-
-    elif (30201 == robot_human_data_newest.getRobotComment()):
-        robot_comment_no = random.choice([30301])
-
-    elif (30301 == robot_human_data_newest.getRobotComment()):
+    # ストーリー（あいさつ）2回目コメント選択（女性以外）
+    elif (101000 == robot_human_data_newest.getRobotComment()):
+        robot_comment_no = random.choice([102000,102010,102020,102030,102040,102050,102060,102070,102080,102090,102100,102110,102120,102130,102140])
+        recog_commnet_skip_flag = 1
+    # ストーリー（あいさつ）2回目コメント選択（女性）
+    elif (101002 == robot_human_data_newest.getRobotComment()):
+        robot_comment_no = random.choice([102002,102012,102022,102032,102042,102052,102062,102072,102082])
+        recog_commnet_skip_flag = 1
+    # ストーリー（あいさつ）3回目コメント選択（2つの質問のどちらかに分岐）
+    elif (101000 == robot_human_data_before1.getRobotComment() or 101002 == robot_human_data_before1.getRobotComment()):
+        robot_comment_no = random.choice([103000,106000])
+    # ストーリー（あいさつ）4回目（6回目）コメント選択
+    elif (103000 == robot_human_data_newest.getRobotComment()):
+        robot_comment_no = 104000
+    # ストーリー（あいさつ）5回目（7回目）コメント選択
+    elif (104000 == robot_human_data_newest.getRobotComment()):
         if(True == ("遠い" in pic_term_list)):
-            robot_comment_no = 30401
+            robot_comment_no = 105000
+            recog_commnet_skip_flag = 1
         elif(True == ("近い" in pic_term_list)):
-            robot_comment_no = 30402
+            robot_comment_no = 105010
+            recog_commnet_skip_flag = 1
         else:
-            robot_comment_no = 30403
-
-    elif (30401 <= robot_human_data_newest.getRobotComment() <=30403):
-        if (30501 == robot_human_data_before4.getRobotComment()):
-            robot_comment_no = 30701
-        else:
-            robot_comment_no = 30501
-
-    elif (30501 == robot_human_data_newest.getRobotComment()):
+            robot_comment_no = 105020
+            recog_commnet_skip_flag = 1
+    # ストーリー（あいさつ）6回目（8回目）コメント選択
+    elif (105000 <= robot_human_data_newest.getRobotComment() <= 105020):
+        if (106000 == robot_human_data_before4.getRobotComment()):  # 2つ目の質問が既に終わっている場合締めへ
+            robot_comment_no = 108000
+        else:                                                       # 終わっていなければ、2つ目の質問へ
+            robot_comment_no = 106000
+    # ストーリー（あいさつ）7回目（4回目）コメント選択
+    elif (106000 == robot_human_data_newest.getRobotComment()):
         if(True == ("秘密" in pic_term_list)):
-            robot_comment_no = 30601
+            robot_comment_no = 107000
+            recog_commnet_skip_flag = 1
         else:
-            robot_comment_no = 30602
+            robot_comment_no = random.choice([107010,107020,107030])
+            recog_commnet_skip_flag = 1
+    # ストーリー（あいさつ）8回目（5回目）コメント選択
+    elif (107000 <= robot_human_data_newest.getRobotComment() <= 107030):
+        if (103000 == robot_human_data_before4.getRobotComment()):  # 1つ目の質問が既に終わっている場合締めへ
+            robot_comment_no = 108000
+        else:                                                       # 終わっていなければ、1回目の質問へ
+            robot_comment_no = 103000
 
-    elif (30601 <= robot_human_data_newest.getRobotComment() <=30602):
-        if (30201 == robot_human_data_before4.getRobotComment()):
-            robot_comment_no = 30701
-        else:
-            robot_comment_no = 30201
 
-#    elif(True == ("こんにちは" in pic_term_list)):
-#        robot_comment_no = random.choice([1,2,3,4,5,6,7])
-#    elif(True == ("おはよう" in pic_term_list)):
-#        robot_comment_no = random.choice([11,12,13,14,15,16,17])
+
     elif(True == ("さようなら" in pic_term_list)):
         robot_comment_no = random.choice([21])
-#    elif(True == ("お疲れ様" in pic_term_list)):
-#        robot_comment_no = random.choice([31,32,33])
     elif(True == ("私は" in pic_term_list)) and (True == ("と言います" in pic_term_list)):
         robot_comment_no = random.choice([41])
-
     elif(True == ("元気" in pic_term_list)):
         robot_comment_no = random.choice([101,102,103,104])
     elif(True == ("本当に" in pic_term_list)):
@@ -256,39 +255,23 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
     elif(True == ("いくつに見える" in pic_term_list)):
         robot_comment_no = 20001
 
-
-#    elif(True == ("今日" in pic_term_list)) and (True == ("天気" in pic_term_list)):
-#        robot_comment_no = 30
-#    if  (True == ("良い" in pic_term_list)) and (True == ("疲れた" in pic_term_list)):
-#        robot_comment_no = 4
-#    elif(True == ("こんにちは" in pic_term_list)):
-#        robot_comment_no = random.choice([6,10,11,12,13,14,15,1003,1004,1010,1011])
-#        robot_comment_no = random.choice([6,10,11,12,13,14,15])
-#    elif(True == ("お疲れ様" in pic_term_list)):
-#        robot_comment_no = random.choice([19,20,21,1005,1006,1007])
-#        robot_comment_no = random.choice([19,20,21])
-#    elif(True == ("私は" in pic_term_list)) and (True == ("と言います" in pic_term_list)):
-#        robot_comment_no = 8
-#    elif(True == ("今日" in pic_term_list)) and (True == ("天気" in pic_term_list)):
-#        robot_comment_no = 30
-
     else:
         pass
 
     print("ダイアログの中のrobot_commnet_no")
     print(robot_comment_no)
 
-    return robot_comment_no
+    return (robot_comment_no, recog_commnet_skip_flag)
 
 
 def decide_action_rulebase(robot_human_series_data):
 
     print("decide_action_rulebaseが呼べてます。")
 
-    robot_action = [0,0,0]#ロボットのコメント、モーション、LEDの、それぞれのテーブルのID
+    robot_action = [0,0,0,0]#ロボットのコメント、モーション、LEDの、それぞれのテーブルのID
 
 #    robot_human_data_newest = robo_human_data.RobotHumanData()
-    robot_comment_no = dialogue_algorithm_rulebase(robot_human_series_data)
+    robot_comment_no, recog_commnet_skip_flag = dialogue_algorithm_rulebase(robot_human_series_data)
 
     print("decide_actionの中で、dialogue_algorithm_rulebase関数終了")
 
@@ -304,7 +287,7 @@ def decide_action_rulebase(robot_human_series_data):
 #        robot_motion_no = 4
 #        robot_led_no = 8
 
-    robot_action = [robot_comment_no,robot_motion_no,robot_led_no]
+    robot_action = [robot_comment_no,robot_motion_no,robot_led_no,recog_commnet_skip_flag]
 
     print("decide_action_rulebase b")
 

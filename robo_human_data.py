@@ -14,6 +14,7 @@ class RobotHumanData:
 		self.robot_comment = ""
 		self.robot_motion = []#中身を入れた方がいいのか？
 		self.robot_led = []#中身を入れた方がいいのか？
+		self.recog_commnet_skip_flag = 0
 		self.human_comment = ""
 		self.time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく。
 		self.day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
@@ -31,6 +32,9 @@ class RobotHumanData:
 
 	def getRobotLed(self):
 		return self.robot_led
+
+	def getRecgCmntSkipFlag(self):
+		return self.recog_commnet_skip_flag
 
 	def getHumanComment(self):
 		return self.human_comment
@@ -59,6 +63,9 @@ class RobotHumanData:
 
 	def setRobotLed(self,RLed):
 		self.robot_led = RLed
+
+	def setRecgCmntSkipFlag(self,Frecogcomn):
+		self.recog_commnet_skip_flag = Frecogcomn
 
 	def setHumanComment(self,HComment):
 		self.human_comment = HComment

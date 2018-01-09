@@ -8,7 +8,8 @@ import robo_human_data
 import decide_action_rulebase
 import decide_action_TATsys
 import exe_robo_action
-import recog_utterance
+# recog_utterance（無料api、リクエスト上限あり）と、recog_utterance_gcspeechapi（有料api）を切り替える
+import recog_utterance_gcspeechapi as recog_utterance
 import libokao
 import random
 import concurrent.futures
@@ -21,8 +22,13 @@ def execute_action_and_get_human_reaction(robot_action):    #関数宣言。
     ret.setRobotComment(robot_action[0])
     ret.setRobotMotion(robot_action[1])
     ret.setRobotLed(robot_action[2])
+    ret.setRecgCmntSkipFlag(robot_action[3])
 
-    recognized_comment = recog_utterance.recognize_utterance()  #ひとまとまりのセリフを認識するまで戻らない関数という想定。
+    if robot_action[3] == 0:
+        recognized_comment = recog_utterance.recognize_utterance()  #ひとまとまりのセリフを認識するまで戻らない関数という想定。
+    else:
+        recognized_comment = ""
+
     ret.setHumanComment(recognized_comment)
     ret.setOkaoVisionData()#本当は、ロボットアクション後、2秒後くらいに実行したいが、sleepすると全体ループに影響してしまう。実現するためにはここも別スレッドか
 
@@ -40,7 +46,7 @@ def decide_action(robot_human_series_data):
     print("decide_actionが呼べてます！！！")
 
     #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
-    robot_action = [0,0,0]#0,0,0は応答なし
+    robot_action = [0,0,0,0]#0,0,0,0は応答なし、認識実行あり
 
     #SW_DIALOGUE_SYSでの切り替え
     if 0 == config.SW_DIALOGUE_SYS:
@@ -54,10 +60,10 @@ def decide_action(robot_human_series_data):
 
 def main():
     robot_human_series_data = []
-    robot_action = [0,0,0]
+    robot_action = [0,0,0,0]
 
-#    robot_action = [10001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
-#    robot_action = [20001,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+#    robot_action = [10001,0,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
+#    robot_action = [20001,0,0,0]  #ロボットコメント、首振り動作、LED点灯のそれぞれテーブルの通し番号
 
 #    execute_action_and_get_human_reaction(robot_action)
 
@@ -68,7 +74,7 @@ def main():
         while end_flag == False:    #end_flagの設定どうしようかな
 #            if robot_action != "noaction":
             print("while内robot_action:",robot_action)
-            if robot_action != (0,0,0):
+            if robot_action != (0,0,0,0):
                 if 1 == config.DEBUG_PRINT: print("end_flag != False")
                 #ロボットと人間の一連のやり取りデータを取得する。
 

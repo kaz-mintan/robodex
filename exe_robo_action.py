@@ -65,7 +65,7 @@ def execute_robot_action(robot_action):
 
     print("execute_robot_action関数が呼ばれた")
 
-    if robot_action == (0,0,0):
+    if robot_action == (0,0,0,0):
         return
     else:
         pass

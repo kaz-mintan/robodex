@@ -1,1 +1,13 @@
 *.pyc
+human_comment.wav
+robot_comment.wav
+memofiles
+old_test_files
+old
+__pycache__
+okao_files/boost_1_65_1.tar.gz
+okao_files/boost_1_65_1/
+okao_files/okao_license.txt
+okao_files/okao_memo.txt
+typescript
+apikey.py

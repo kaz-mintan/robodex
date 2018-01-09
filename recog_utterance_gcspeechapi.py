@@ -4,11 +4,10 @@
 #以下、不要なものもあるはず。
 import requests
 import json
-#import os
 import time
 import subprocess
 #commandsは、python3ではsubprocessに内包された
-import config
+import config as conf
 import apikey
 import base64
 
@@ -16,14 +15,12 @@ import exe_robo_action as pin
 import wiringpi as pi
 
 def execute_recognition():
-    audio = open('/home/pi/robodex/human_comment.wav','rb')
+    audio = open(conf.VOICE_REC_PATH,'rb')
     audio_content = audio.read()
-    print("type(audio_content): ",type(audio_content))
     audio_encode_file = base64.b64encode(audio_content)
-    audio_encode_file = audio_encode_file.decode("utf-8")
-    print("type(audio_encode_file): ",type(audio_encode_file))
+    audio_encode_file_dec = audio_encode_file.decode("utf-8")
 
-    if 1 == config.DEBUG_PRINT:print('recognizing...4')
+    conf.debug_print('recognizing...4')
     hds = {
         "Accept": "application/json",
         "Content-type": "application/json"
@@ -35,36 +32,41 @@ def execute_recognition():
             "languageCode": "ja-JP"
         },
         "audio": {
-            "content": audio_encode_file
+            "content": audio_encode_file_dec
         }
     }
 
-    if 1 == config.DEBUG_PRINT:print('recognizing...5')
+    conf.debug_print('recognizing...5')
     try:
-        if 1 == config.DEBUG_PRINT:print('recognizing...51')
+        conf.debug_print('recognizing...51')
 
         reply = requests.post("https://speech.googleapis.com/v1/speech:recognize?key="+ apikey.GOOGLE_APIKEY,
             data = json.dumps(data),
             headers = hds).text
 
     except IOError:
-        if 1 == config.DEBUG_PRINT:print('recognizing...52')
+        conf.debug_print('recognizing...52')
         return '#CONN_ERR'
     except Exception as err:
         print(err)
-        if 1 == config.DEBUG_PRINT:print('recognizing...53')
+        conf.debug_print('recognizing...53')
         return '#ERROR'
 
-    if 1 == config.DEBUG_PRINT:print('recognizing...6')
+    conf.debug_print('recognizing....6')
 
-    print('results:', reply)
+    conf.debug_print('reply: '+str(reply))
 
     reply_json = json.loads(reply)
-    print("type(reply_json): ",type(reply_json))
-    print(reply_json)
+    conf.debug_print('reply_json: '+str(reply_json))
 
-    transcript = reply_json['results'][0]['alternatives'][0]['transcript']
-    print(transcript)
+    results = reply_json.get('results',"")
+    if not ("" == results):
+        transcript = results[0]['alternatives'][0].get('transcript')
+    else:
+        transcript = ""
+#以下のように書くと、無言の録音データの場合に、KeyError: 'results'が出る。
+#    transcript = reply_json['results'][0]['alternatives'][0]['transcript']
+    conf.debug_print('transcript: '+str(transcript))
 
     return transcript
 
@@ -76,7 +78,7 @@ def recognize_utterance():
     pi.softPwmWrite( pin.right_eye_green_pin, 100)
     pi.softPwmWrite( pin.left_eye_green_pin, 100)
 
-    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 2.5"
+    cmd = ("rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 %s trim 0 %f"%(conf.VOICE_REC_PATH,conf.VOICE_RECORD_SECONDS))
     subprocess.call( cmd.strip().split(" ")  )
 
     pi.softPwmWrite( pin.right_eye_green_pin, 0)
@@ -96,11 +98,9 @@ def recognize_utterance():
     else:
         print('your words:' + message)
 
-    if 1 == config.DEBUG_PRINT:
-        print("message: ", message)
+    conf.debug_print("message: "+str(message))
 
     return message
 
 if __name__ == '__main__':
     message = recognize_utterance()
-    print("message: ",message)

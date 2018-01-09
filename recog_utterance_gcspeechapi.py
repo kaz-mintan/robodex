@@ -4,7 +4,7 @@
 #以下、不要なものもあるはず。
 import requests
 import json
-import os
+#import os
 import time
 import subprocess
 #commandsは、python3ではsubprocessに内包された
@@ -12,8 +12,8 @@ import config
 import apikey
 import base64
 
-#import exe_robo_action as pin
-#import wiringpi as pi
+import exe_robo_action as pin
+import wiringpi as pi
 
 def execute_recognition():
     audio = open('/home/pi/robodex/human_comment.wav','rb')
@@ -22,10 +22,6 @@ def execute_recognition():
     audio_encode_file = base64.b64encode(audio_content)
     audio_encode_file = audio_encode_file.decode("utf-8")
     print("type(audio_encode_file): ",type(audio_encode_file))
-
-#    audio_encode_file = str(audio_encode_file)
-
-#    print("audio_encode_file: ",audio_encode_file)
 
     if 1 == config.DEBUG_PRINT:print('recognizing...4')
     hds = {
@@ -62,7 +58,6 @@ def execute_recognition():
     if 1 == config.DEBUG_PRINT:print('recognizing...6')
 
     print('results:', reply)
-#    print('results:', reply.encode('utf-8'))  # python2???
 
     reply_json = json.loads(reply)
     print("type(reply_json): ",type(reply_json))
@@ -76,24 +71,21 @@ def execute_recognition():
 def current_milli_time():
     return int(round(time.time() * 1000))
 
-#上までは1回やればいい？
 def recognize_utterance():
-    #下記ディレクトリ指定は、本来configファイルで行う。
 
-#    pi.softPwmWrite( pin.right_eye_green_pin, 100)
-#    pi.softPwmWrite( pin.left_eye_green_pin, 100)
+    pi.softPwmWrite( pin.right_eye_green_pin, 100)
+    pi.softPwmWrite( pin.left_eye_green_pin, 100)
 
-#    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 2.5"
-#    subprocess.call( cmd.strip().split(" ")  )
+    cmd = "rec --encoding signed-integer --bits 16 --channels 1 --rate 16000 human_comment.wav trim 0 2.5"
+    subprocess.call( cmd.strip().split(" ")  )
 
-#    pi.softPwmWrite( pin.right_eye_green_pin, 0)
-#    pi.softPwmWrite( pin.left_eye_green_pin, 0)
+    pi.softPwmWrite( pin.right_eye_green_pin, 0)
+    pi.softPwmWrite( pin.left_eye_green_pin, 0)
 
-#    t0 = current_milli_time()
-#    message = execute_recognition().encode('utf-8')#python2
+    t0 = current_milli_time()
     message = execute_recognition()
 
-#    print('recognized:' + str(current_milli_time() - t0) + 'ms')
+    print('recognized:' + str(current_milli_time() - t0) + 'ms')
 
     if (message == '#CONN_ERR'):
         print('internet not available')
@@ -102,17 +94,13 @@ def recognize_utterance():
         print('voice recognizing failed')
         message = ''
     else:
-#        print('your words:' + str(message))#python2?
         print('your words:' + message)
 
     if 1 == config.DEBUG_PRINT:
         print("message: ", message)
-#        print("str message = ")
-#        print(str(message))
 
     return message
 
 if __name__ == '__main__':
-#    recognize_utterance()
     message = recognize_utterance()
     print("message: ",message)

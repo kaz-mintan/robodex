@@ -9,54 +9,47 @@ import time
 import subprocess
 #commandsは、python3ではsubprocessに内包された
 import config
+import apikey
+import base64
 
 #import exe_robo_action as pin
 #import wiringpi as pi
 
-#下記、config.pyへの記載ではダメなのかな？
-#VOICE_REC_PATH = '/home/pi/robodex/human_comment.wav'
-#GOOGLE_APIKEY = 'AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0'
-
 def execute_recognition():
-#    if 1 == config.DEBUG_PRINT:print('recognizing...')
-#    f = open(config.VOICE_REC_PATH, 'rb')
-#    if 1 == config.DEBUG_PRINT:print('recognizing...1')
-#    voice = f.read()
-#    if 1 == config.DEBUG_PRINT:print('recognizing...2')
-#    f.close()
-#    if 1 == config.DEBUG_PRINT:print('recognizing...3')
+    audio = open('/home/pi/robodex/human_comment.wav')
+    audio_content = audio.read()
+    print("type(audio_content): ",type(audio_content))
+    audio_encode_file = base64.b64encode(audio_content)
+    print("type(audio_encode_file): ",type(audio_encode_file))
 
-#    url = 'https://www.google.com/speech-api/v2/recognize?xjerr=1&client=chromium&'\
-#        'lang=ja-JP&maxresults=10&pfilter=0&xjerr=1&key=' + config.GOOGLE_APIKEY
+#    audio_encode_file = str(audio_encode_file)
+
+#    print("audio_encode_file: ",audio_encode_file)
 
     if 1 == config.DEBUG_PRINT:print('recognizing...4')
-#    hds = {'Content-type': 'audio/l16; rate=16000;'}
     hds = {
         "Accept": "application/json",
         "Content-type": "application/json"
     }
     data = {
         "config": {
-            "encoding": "FLAC",
+            "encoding": "LINEAR16",
             "sampleRateHertz": 16000,
-            "languageCode": "en-US"
+            "languageCode": "ja-JP"
         },
         "audio": {
-            "uri": "gs://cloud-samples-tests/speech/brooklyn.flac"
+            "content": audio_encode_file
         }
     }
-
 
     if 1 == config.DEBUG_PRINT:print('recognizing...5')
     try:
         if 1 == config.DEBUG_PRINT:print('recognizing...51')
 
-        reply = requests.post("https://speech.googleapis.com/v1/speech:recognize?key= AIzaSyDSC8btGZn8HsbiP9Fz3t53XzVxJDK9fs0",
-            data=json.dumps(data),
-            headers=hds).text
+        reply = requests.post("https://speech.googleapis.com/v1/speech:recognize?key="+ apikey.GOOGLE_APIKEY,
+            data = json.dumps(data),
+            headers = hds).text
 
-#        reply = requests.post(url, data=voice, headers=hds).text
-#        print (reply)
     except IOError:
         if 1 == config.DEBUG_PRINT:print('recognizing...52')
         return '#CONN_ERR'
@@ -68,17 +61,16 @@ def execute_recognition():
     if 1 == config.DEBUG_PRINT:print('recognizing...6')
 
     print('results:', reply)
+#    print('results:', reply.encode('utf-8'))  # python2???
 
-#    objs = reply.split(os.linesep)
-#    for obj in objs:
-#        if not obj:
-#            continue
-#        alternatives = json.loads(obj)['result']
-#
-#        if len(alternatives) == 0:
-#            continue
-#    return ""
-#    print('recognizing...7')
+    reply_json = json.loads(reply)
+    print("type(reply_json): ",type(reply_json))
+    print(reply_json)
+
+    transcript = reply_json['results'][0]['alternatives'][0]['transcript']
+    print(transcript)
+
+    return transcript
 
 def current_milli_time():
     return int(round(time.time() * 1000))
@@ -109,17 +101,17 @@ def recognize_utterance():
         print('voice recognizing failed')
         message = ''
     else:
-        print('your words:' + str(message))#python2?
-#        print('your words:' + message)
+#        print('your words:' + str(message))#python2?
+        print('your words:' + message)
 
     if 1 == config.DEBUG_PRINT:
-        print("message = ")
-        print(message)
-        print("str message = ")
-        print(str(message))
+        print("message: ", message)
+#        print("str message = ")
+#        print(str(message))
 
     return message
 
 if __name__ == '__main__':
 #    recognize_utterance()
     message = recognize_utterance()
+    print("message: ",message)

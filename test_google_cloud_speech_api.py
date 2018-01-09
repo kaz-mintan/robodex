@@ -7,5 +7,5 @@ def encode_audio(audio):
   return base64.b64encode(audio_content)
 
 if __name__ == '__main__':
-    f = open('/home/pi/robodex/human_comment.wav')
+    f = open('/home/pi/robodex/human_comment.wav','rb')
     print(encode_audio(f))

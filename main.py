@@ -8,7 +8,8 @@ import robo_human_data
 import decide_action_rulebase
 import decide_action_TATsys
 import exe_robo_action
-import recog_utterance
+# recog_utterance（無料api、リクエスト上限あり）と、recog_utterance_gcspeechapi（有料api）を切り替える
+import recog_utterance_gcspeechapi as recog_utterance
 import libokao
 import random
 import concurrent.futures

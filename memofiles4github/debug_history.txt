@@ -1,0 +1,49 @@
+20171117
+----------------------------------------
+LEDモジュールのテスト用プログラムtst_dev.pyを実行させる時、
+pythonコマンドのデフォルトがpython3であるにも関わらず、
+python3コマンドで実行しないと、エラー
+Traceback (most recent call last):
+  File "tst_dev.py", line 6, in <module>
+    import get_robo_actdata_led
+  File "/home/pi/robodex/get_robo_actdata_led.py", line 3
+SyntaxError: Non-ASCII character '\xe3' in file /home/pi/robodex/get_robo_actdata_led.py on line 3, but no encoding declared; see http://python.org/dev/peps/pep-0263/ for details
+----------------------------------------
+sudoをつけて実行しないと、実行後、bashがおかしくなる
+-bash: /home/pi/.pyenv/shims/python3: そのようなファイルやディレクトリはありません
+----------------------------------------
+sudo python3 --versionすると、python2系統
+----------------------------------------
+
+sudoで実行しないとwiringpi使えないが、sudoで実行するとmain.pyがエラー
+X11 connection rejected because of wrong authentication.
+xcb_connection_has_error() returned true
+X11 connection rejected because of wrong authentication.
+xcb_connection_has_error() returned true
+rec FAIL formats: can't open input  `default': snd_pcm_open error: No such file or directory
+
+20171120
+----------------------------------------
+以下で実行を確認
+sudo XAUTHORITY=~/.Xauthority  AUDIODEV=hw:1,0 python3 main.py
+
+sudo -eで環境変数引き継がれるはずだが、上記のように明示的にやらないとダメのようだとのこと。（鶴田さん談）
+
+20171205
+アナログの確認
+/opt/vc/src/hello_pi/hello_audio/hello_audio.bin
+
+USBの場合は、ラズパイのGUIで、設定、AudioDeviceSettingsから選択する
+aplay  /usr/share/sounds/alsa/Rear_Center.wav
+
+OKAO関係のCの、コンパイル方法
+test-hvcp2-v1
+
+libboost_python3.so
+libboost_python3.so.1.65.1
+libokao.so
+
+20171211
+鶴田さんより
+OKAO-表情認識Python呼出対応以下を参考
+http://d.hatena.ne.jp/moriyoshi/20091214/1260779899

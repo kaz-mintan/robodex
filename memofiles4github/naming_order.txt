@@ -1,0 +1,18 @@
+pythonのコードの書き方は、pep8準拠らしい。
+pep8を正確には調べていない。
+まとめサイトを見ると、わかりやすいのが2つ。ただし内容が異なった。
+https://qiita.com/ynakayama/items/8616f4c0c6e372de9a42
+http://noisyobject.blogspot.jp/2011/05/python.html
+上記、上は2017年、下は2011年の記事
+
+何が正しいかよくわからんが、robodexディレクトリ以下では下のルールを採用するように心がける。
+とりあえず2011年の記事ベース
+
+module名	lowercase	hamegg.py
+class名	CapWords	class HamEgg(object):…
+exception名	CapWords	class HamEggException(Exception):…
+関数名	lowercase_with_underscores	def ham_egg():…
+関数名(既存の文脈※)	mixedCase	def hamEgg():…
+メソッド名	lowercase_with_underscores	def ham_egg(self):…
+インスタンス変数名	lowercase_with_underscores	self.ham_egg = None
+定数	UPPER_CASE_WITH_UNDERSCORES	HAM_EGG = "ham_egg"

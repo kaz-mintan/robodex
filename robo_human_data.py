@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
 #robotHumanData.py
 import config
 
 from datetime import datetime
 from datetime import date
 import get_weather
+import recog_okao
 
 class RobotHumanData:
 	'''OkaoVision情報、ロボアクション、ロボコメント、人コメント'''
@@ -12,12 +14,13 @@ class RobotHumanData:
 		self.robot_comment = ""
 		self.robot_motion = []#中身を入れた方がいいのか？
 		self.robot_led = []#中身を入れた方がいいのか？
+		self.recog_commnet_skip_flag = 0
 		self.human_comment = ""
 		self.time_stamp = 0	#時間だけでなく、日時も含まれていることを確認しておく。
 		self.day_of_week = 0 #1:月 2:火 3:水 4:木 5:金 6:土 7:日
-		self.weather_data = {}
-		self.weather_today = [0,0,0,0]#天気と数値との関連付けは、取得先の設定を参考にする。
-		self.okao_list = 0	#human_idも含む、または、別でhuman_idを作る。
+		self.wheather_data = {}
+		self.wheather_today = [0,0,0,0]#天気と数値との関連付けは、取得先の設定を参考にする。
+		self.okao_data = [[]]	#human_idも含む、または、別でhuman_idを作る。idは今回は作れず。
 
 #OKAOのデータの取り込みどうしよう？
 
@@ -29,6 +32,9 @@ class RobotHumanData:
 
 	def getRobotLed(self):
 		return self.robot_led
+
+	def getRecgCmntSkipFlag(self):
+		return self.recog_commnet_skip_flag
 
 	def getHumanComment(self):
 		return self.human_comment
@@ -45,6 +51,10 @@ class RobotHumanData:
 	def getWheatherSimpleToday(self):
 		return self.wheather_today
 
+	def getOkaoVisionData(self):
+		return self.okao_data
+
+
 	def setRobotComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
 
@@ -53,6 +63,9 @@ class RobotHumanData:
 
 	def setRobotLed(self,RLed):
 		self.robot_led = RLed
+
+	def setRecgCmntSkipFlag(self,Frecogcomn):
+		self.recog_commnet_skip_flag = Frecogcomn
 
 	def setHumanComment(self,HComment):
 		self.human_comment = HComment
@@ -81,6 +94,7 @@ class RobotHumanData:
 #		print(self.today_weather_term)
 #		print(self.weather_today)
 
-	def getOkaoVisionList(self,OKAOlist):
-		self.okao_list = OKAOlist
+	def setOkaoVisionData(self):
+		self.okao_data = recog_okao.okao_data
+#		print("setOkaoVisionData",self.okao_data)
 		return 0

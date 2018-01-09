@@ -13,7 +13,10 @@ VOICE_TEXT_KEY = "563fw3j9tnberqyq:"
 
 VOICE_TEXT_SPEAKER = "santa"#"show","haruka","hikari","takeru","santa","bear"
 
-robot_comment = "なまむぎ、生米、生卵。あかまきがみ、あおまきがみ、きまきがみ。隣の客はよく柿食う客だ。"
+#robot_comment = "テストテスト"
+#robot_comment = "なまむぎ、生米、生卵。あかまきがみ、あおまきがみ、きまきがみ。隣の客はよく柿食う客だ。"
+robot_comment = "先輩はやっぱ、かっこいいっすねー、きっとモテモテですよね？何人の女を泣かせて来たんですか？"
+
 voice_text_speed = 135#50-400 default: 100
 voice_text_emotion = "happiness"#"", "happiness", "anger", "sadness"(このパラメータは、haruka、hikari、takeru、santa、bearにのみ使用可。showには使えない)
 voice_text_emotion_level = 3#1-4 default: 2

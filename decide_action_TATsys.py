@@ -325,7 +325,8 @@ def dialogue_algorithm_TATsys(robot_human_series_data):
             robot_comment_no = 107000
             recog_commnet_skip_flag = 1
         else:
-            robot_comment_no = random.choice([107010,107020,107030])
+            #robot_comment_no = random.choice([107010,107020,107030])
+            robot_comment_no = tat_choice([107010,107020,107030],past_rule,past_comment)
             recog_commnet_skip_flag = 1
     # ストーリー（あいさつ）8回目（5回目）コメント選択
     elif (107000 <= robot_human_data_newest.getRobotComment() <= 107030):
@@ -333,8 +334,6 @@ def dialogue_algorithm_TATsys(robot_human_series_data):
             robot_comment_no = 108000
         else:                                                       # 終わっていなければ、1回目の質問へ
             robot_comment_no = 103000
-
-
 
     elif(True == ("さようなら" in pic_term_list)):
         robot_comment_no = random.choice([21])

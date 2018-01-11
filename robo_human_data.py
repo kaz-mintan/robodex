@@ -5,7 +5,7 @@ import config
 from datetime import datetime
 from datetime import date
 import get_weather
-import recog_okao
+#import recog_okao
 
 class RobotHumanData:
 	'''OkaoVision情報、ロボアクション、ロボコメント、人コメント'''

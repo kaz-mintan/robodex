@@ -9,7 +9,7 @@ RESERVE_NUM_ROBOT_HUMAN_DATA = 10  # ここの数値変更したら、decide_act
 
 # 対話システムの選択スイッチ、まずは手動切り替えにする。
 # 0:ルールベースシステム　1:TAT学習システム
-SW_DIALOGUE_SYS = 0
+SW_DIALOGUE_SYS = 1
 
 VOICE_TEXT_SETTING = 'curl "https://api.voicetext.jp/v1/tts" -s -u 563fw3j9tnberqyq: -d speed=135 -d speaker=santa -d "text=%s" | aplay 2> /dev/null '
 
@@ -17,6 +17,7 @@ VOICE_REC_PATH = 'human_comment.wav'
 VOICE_RECORD_SECONDS = 2.5
 
 DEBUG_PRINT = 1 #0:通常動作 1:debugモード、debug用にprintする
+#koko
 
 DEBUG_MODE0 = 0 #0:通常動作 1:debugモード
 # 1の時

@@ -63,7 +63,7 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
 
     for var in range(len(tmp_okao_data)-1):
         config.debug_print("var:" +str(var))
-        config.debug_print("tmp_okao_data[var][0]:" +tmp_okao_data[var][0])
+        config.debug_print("tmp_okao_data[var][0]: " +str(tmp_okao_data[var][0]))
 
         if not (0 == tmp_okao_data[var][0]):
             config.debug_print("dialogue_algorithm_rulebase tmp_okao_data var" +str(var))

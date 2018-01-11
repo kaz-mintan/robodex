@@ -52,8 +52,8 @@ class RobotHumanData:
 		return self.wheather_today
 
 	def getOkaoVisionData(self):
+		print("getOkaoVisionData: ",self.okao_data)
 		return self.okao_data
-
 
 	def setRobotComment(self,RComment):	#setRobotComment()メソッド
 		self.robot_comment = RComment
@@ -94,7 +94,7 @@ class RobotHumanData:
 #		print(self.today_weather_term)
 #		print(self.weather_today)
 
-	def setOkaoVisionData(self):
-		self.okao_data = recog_okao.okao_data
-#		print("setOkaoVisionData",self.okao_data)
-		return 0
+	def setOkaoVisionData(self, okao):
+		self.okao_data = okao
+		print("debug/setOkaoVisionData: ",self.okao_data)
+		return self.okao_data

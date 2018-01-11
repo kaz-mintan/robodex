@@ -23,7 +23,7 @@ def set_okao_vision_data(ret):
     config.debug_print("set_okao_vision_data関数の中1")
     time.sleep(2)
     config.debug_print("set_okao_vision_data関数の中2")
-    ret.setOkaoVisionData()
+    ret.setOkaoVisionData(recog_okao.okao_data)
     config.debug_print("set_okao_vision_data関数の中3")
 
 #ロボットアクションの実行と、人間のリアクションの取得

@@ -473,5 +473,5 @@ if __name__ == "__main__" :
     robot_human_series_data[9].robot_comment = 101002
     robot_human_series_data[9].recogt_commnet_skip_flag = 1
     #101002:"僕は太鼓持ちロボットティーティーエムゼロスリーです。あなたのために生まれてきたロボットです。",
-    #robot_human_series_data[7].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[7].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 

@@ -426,43 +426,56 @@ if __name__ == "__main__" :
             robo_human_data.RobotHumanData(),
             robo_human_data.RobotHumanData(),
             robo_human_data.RobotHumanData(),
+            robo_human_data.RobotHumanData(),
+            robo_human_data.RobotHumanData(),
             robo_human_data.RobotHumanData()]
 
-    robot_human_series_data[0].human_comment = "こんにちは"
+
+    robot_human_series_data[0].human_comment = "カナダ"
     robot_human_series_data[0].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[1].human_comment = ""
-    robot_human_series_data[1].robot_comment = 108000
+    robot_human_series_data[1].robot_comment = 103000 #"今日はどちらからお越しですか？",
+    robot_human_series_data[1].recogt_commnet_skip_flag = 0
     robot_human_series_data[1].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
-    robot_human_series_data[2].human_comment = "くまがいです"
-    robot_human_series_data[2].robot_comment = 107030 #107030:"とても素敵なお名前ですね。あなたの発明で世界は革新するのですね。スティーブジョブスを超えるかたですね。", # その他
+    robot_human_series_data[2].human_comment = "こんにちは"
+    robot_human_series_data[2].robot_comment = 101002
     robot_human_series_data[2].recogt_commnet_skip_flag = 1
     robot_human_series_data[2].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[3].human_comment = ""
-    robot_human_series_data[3].robot_comment = 106000 #106000:"お名前をお聞かせください。",
+    robot_human_series_data[3].robot_comment = 108000
     robot_human_series_data[3].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
-    robot_human_series_data[4].human_comment = "遠い"
-    robot_human_series_data[4].robot_comment = 105000 #105000:"わざわざ遠くからせんぱいに来てもらえるなんて、ぼくはなんて幸せものなんでしょう。アールツーディーツーにも負けません。", # 遠い
+    robot_human_series_data[4].human_comment = "くまがいです"
+    robot_human_series_data[4].robot_comment = 107030 #107030:"とても素敵なお名前ですね。あなたの発明で世界は革新するのですね。スティーブジョブスを超えるかたですね。", # その他
     robot_human_series_data[4].recogt_commnet_skip_flag = 1
     robot_human_series_data[4].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
-    robot_human_series_data[5].human_comment = "カナダ"
-    robot_human_series_data[5].robot_comment = 10101 #10101:"遠いところですか？",
+    robot_human_series_data[5].human_comment = ""
+    robot_human_series_data[5].robot_comment = 106000 #106000:"お名前をお聞かせください。",
     robot_human_series_data[5].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
-    robot_human_series_data[6].human_comment = ""
-    robot_human_series_data[6].robot_comment = 103000 #"今日はどちらからお越しですか？",
-    robot_human_series_data[6].recogt_commnet_skip_flag = 0
+    robot_human_series_data[6].human_comment = "遠い"
+    robot_human_series_data[6].robot_comment = 105000 #105000:"わざわざ遠くからせんぱいに来てもらえるなんて、ぼくはなんて幸せものなんでしょう。アールツーディーツーにも負けません。", # 遠い
+    robot_human_series_data[6].recogt_commnet_skip_flag = 1
     robot_human_series_data[6].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
-    robot_human_series_data[7].human_comment = "こんにちは"
-    robot_human_series_data[7].robot_comment = 101002
-    robot_human_series_data[7].recogt_commnet_skip_flag = 1
+    robot_human_series_data[7].human_comment = "カナダ"
+    robot_human_series_data[7].robot_comment = 10101 #10101:"遠いところですか？",
+    robot_human_series_data[7].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+
+    robot_human_series_data[8].human_comment = ""
+    robot_human_series_data[8].robot_comment = 103000 #"今日はどちらからお越しですか？",
+    robot_human_series_data[8].recogt_commnet_skip_flag = 0
+    robot_human_series_data[8].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+
+    robot_human_series_data[9].human_comment = "こんにちは"
+    robot_human_series_data[9].robot_comment = 101002
+    robot_human_series_data[9].recogt_commnet_skip_flag = 1
     #101002:"僕は太鼓持ちロボットティーティーエムゼロスリーです。あなたのために生まれてきたロボットです。",
     #robot_human_series_data[7].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
-    robot_human_series_data[7].okao_data = [[20,2,0,0,80,0,0],[20,2,0,0,90,0,0],[20,2,0,0,0,70,0],[20,2,0,0,100,0,0]]
+    robot_human_series_data[9].okao_data = [[20,2,0,0,80,0,0],[20,2,0,0,90,0,0],[20,2,0,0,0,70,0],[20,2,0,0,100,0,0]]
 
     dialogue_algorithm_TATsys(robot_human_series_data)

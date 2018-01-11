@@ -1,0 +1,16 @@
+スクリプトは 2018年01月10日 13時59分32秒
+ に開始しました[1;32mpi@pi[00m:[1;34m~/robodex[00m[1;31m (try_tat_sys)[00m$ exitgit diff robo_human_data.pyll -tr[Kar[K sudo XAUTHORITY=~/.Xauthority AUDIODEV=hw:2,0 python3 main.py
+Traceback (most recent call last):
+  File "main.py", line 9, in <module>
+    import decide_action_TATsys
+  File "/home/pi/robodex/decide_action_TATsys.py", line 271
+    elif(2 == okao_gen):#女性
+    ^
+IndentationError: expected an indented block
+[1;32mpi@pi[00m:[1;34m~/robodex[00m[1;31m (try_tat_sys)[00m$ fg
+bash: fg: カレント: そのようなジョブはありません
+[1;32mpi@pi[00m:[1;34m~/robodex[00m[1;31m (try_tat_sys)[00m$ exit
+exit
+
+スクリプトは 2018年01月10日 13時59分55秒
+ に終了しました

@@ -18,7 +18,10 @@ import get_robo_actdata_comment
 import get_robo_actdata_motion
 import get_robo_actdata_led
 import tbl_robo_comment
+import multi_exe_ctrl
 import config
+
+import recog_utterance_gcspeechapi
 
 servo_pin = 18#raspPi 12pin
 
@@ -58,69 +61,51 @@ pi.pwmSetMode( pi.GPIO.PWM_MODE_MS )
 pi.pwmSetRange( RANGE )
 pi.pwmSetClock( clock )
 
-def execute_robot_action(robot_action):
-    #robot_actionを通し番号として、テーブルに書かれた動作をする。
-    #話す、首振り動作、LED点灯
-    #上3つ、とりあえず順番に動かすようにしているが、並行して動かせるようにしないといけない。
+execute_robot_motion_end_flag = 1
+execute_robot_led_end_flag = 1
 
-    print("execute_robot_action関数が呼ばれた")
+def execute_robot_motion_action(robot_motion_action_no):
 
-    if robot_action == (0,0,0,0):
-        return
-    else:
-        pass
+    execute_robot_motion_end_flag = 0
 
-    if 0 != robot_action[0]:#コメントアクションを行う。
-
-        #テーブルファイルから取得するクラスを呼ぶ
-        #speak_message = テーブルファイルから取得したメッセージ
-
-#        if(50 == robot_motion[0]):
-
-#        speak_message = '何か伺いましょうか？'
-#        speak_message = tbl_robo_comment.list_robot_term[robot_action[0]][1]
-        speak_message = tbl_robo_comment.dict_robot_term[robot_action[0]]
-
-        check = subprocess.getoutput(config.VOICE_TEXT_SETTING % speak_message)
-
-        print("execute_robot_action関数の中のspeak_message:",speak_message)
-
-
-    else:
-        pass
-
-    if 0 != robot_action[2]:#LEDアクションを行う。
-        ctlLED = get_robo_actdata_led.GetRobotActionDataOfLed()
-        setLED = ctlLED.getRobotLed(robot_action[2])
-
-    if 0 != robot_action[1]:#モーションを行う。
+    if 0 != robot_motion_action_no:#モーションを行う。
 
         ctlSRV = get_robo_actdata_motion.GetRobotActionDataOfMotion()
-        setSRV = ctlSRV.getRobotMotion(robot_action[1])
+        setSRV = ctlSRV.getRobotMotion(robot_motion_action_no)
 
         target = int( float( SERVO_MAX_VALUE - SERVO_MIN_VALUE ) / 180.0 * float( setSRV[1]  + 90 ) ) + SERVO_MIN_VALUE
-    #    print(target)
+        config.debug_print("motion targetting 1")
         pi.pwmWrite( servo_pin, target )
         time.sleep(setSRV[2]*6 / 1000)
 
         target = int( float( SERVO_MAX_VALUE - SERVO_MIN_VALUE ) / 180.0 * float( setSRV[3]  + 90 ) ) + SERVO_MIN_VALUE
-    #    print(target)
+        config.debug_print("motion targetting 2")
         pi.pwmWrite( servo_pin, target )
         time.sleep(setSRV[4]*6 / 1000)
 
         target = int( float( SERVO_MAX_VALUE - SERVO_MIN_VALUE ) / 180.0 * float( setSRV[5]  + 90 ) ) + SERVO_MIN_VALUE
-    #    print(target)
+        config.debug_print("motion targetting 3")
         pi.pwmWrite( servo_pin, target )
         time.sleep(setSRV[6]*6 / 1000)
+
     else:
         pass
 
-    if 0 != robot_action[2]:#LEDアクションを行う。
+    execute_robot_motion_end_flag = 1
+
+def execute_robot_led_action(robot_led_action_no):
+
+    execute_robot_led_end_flag = 0
+
+#    while 1 == recog_utterance_gcspeechapi.recognizing_utterance_flag:
+#        time.sleep(0.1)
+
+    if 0 != robot_led_action_no:#LEDアクションを行う。
         ctlLED = get_robo_actdata_led.GetRobotActionDataOfLed()
-        setLED = ctlLED.getRobotLed(robot_action[2])
+        setLED = ctlLED.getRobotLed(robot_led_action_no)
 
         if(0 != (len(setLED)-1)%7):
-            print("robot_action[2]="+robot_action[2])
+            print("robot_led_action_no="+str(robot_led_action_no))
             print("テーブルの要素数に誤りあり。")
 
         else:
@@ -148,6 +133,32 @@ def execute_robot_action(robot_action):
     else:
         pass
 
-#---execute_robot_action確認用---
-#robot_action = [0,0,1]
-#execute_robot_action(robot_action)
+    execute_robot_led_end_flag = 1
+
+def execute_robot_action(robot_action):
+    #robot_actionを通し番号として、テーブルに書かれた動作をする。
+    #話す、首振り動作、LED点灯
+
+    config.debug_print("execute_robot_action関数が呼ばれた")
+
+    if robot_action == (0,0,0,0):
+        return
+    else:
+        pass
+
+    multi_exe_ctrl.executor.submit(execute_robot_motion_action, robot_action[1])
+    multi_exe_ctrl.executor.submit(execute_robot_led_action, robot_action[2])
+
+    if 0 != robot_action[0]:  # コメントアクションを行う。
+        speak_message = tbl_robo_comment.dict_robot_term[robot_action[0]]
+        check = subprocess.getoutput(config.VOICE_TEXT_SETTING % speak_message)
+        config.debug_print("speak_message: "+str(speak_message))
+    else:
+        pass
+
+#    while 1 != (execute_robot_motion_end_flag * execute_robot_led_end_flag):
+#        time.sleep(0.1)
+
+if __name__ == '__main__':
+    robot_action = [1,1,1,0]
+    execute_robot_action(robot_action)

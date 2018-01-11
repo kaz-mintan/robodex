@@ -6,6 +6,7 @@ import concurrent.futures#debug用
 
 import libokao
 import robo_human_data
+import config
 
 okao_data = [[]]
 
@@ -40,5 +41,5 @@ def recognize_okao():
         if len(okao_data) > 10:
             okao_data.pop()
 
-        time.sleep(2)#1秒以下にすると、他のスレッドの回りが悪くなる
+        time.sleep(config.OKAO_EXEC_CYCLE_SEC)#1秒以下にすると、他のスレッドの回りが悪くなる
     libokao.okao_close()

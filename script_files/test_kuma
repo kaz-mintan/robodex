@@ -1,0 +1,2893 @@
+スクリプトは 2018年01月10日 14時05分17秒
+ に開始しました[1;32mpi@pi[00m:[1;34m~/robodex[00m[1;31m (try_tat_sys)[00m$ exit[2Pfgexit[2Pfgexitgit diff robo_human_data.pyll -tr[K[K sudo XAUTHORITY=~/.Xauthority AUDIODEV=hw:2,0 python3 main.py
+call com_init
+hCom = 12
+end com_init
+call HVC_SendCommand
+end HVC_SendCommand
+call HVC_ReceiveHeader
+end HVC_ReceiveHeader
+
+HVCApi(HVC_GetVersion) Error : -20
+
+HVC_GetVersion : `ľl��0.148.173.482668711
+HVC_GetCameraAngle : 0x00
+HVC_GetThreshold : Body= 500 Hand= 500 Face= 500 Recognition= 500
+HVC_GetSizeRange : Body=(  30,8192) Hand=(  40,8192) Face=(  64,8192)
+HVC_GetFaceDetectionAngle : Pose = 0x00 Angle = 0x00
+False
+
+ Body result count:3
+      Index:0 		X:893 Y:666 Size:178 Confidence:801
+      Index:1 		X:690 Y:655 Size:68 Confidence:939
+      Index:2 		X:410 Y:746 Size:48 Confidence:526
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:74
+      Index:0 		X:896 Y:655 Size:86 Confidence:533
+      Face Direction	LR:21 UD:-6 Roll:-9 Confidence:1
+      Age		Age:31 Confidence:500
+      Gender		Gender:Male Confidence:498
+      Gaze		LR:21 UD:249
+      Blink		Left:580 Right:549
+      Expression	Expression:Happiness Score:0, 44, 33, 2, 21 Degree:247
+while内robot_action: [0, 0, 0, 0]
+okao age            : 31
+end_flag != False
+okao gendre(1:m,2:f): 1
+mainの中で、execute_action_and_get_human_reaction関数開始
+okao surprise(%) : 33
+execute_robot_action関数が呼ばれた
+okao anger(%)    : 2
+okao sadness(%)  : 21
+okao happiness(%): 44
+okao neutral(%)  : 0
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:4
+      Index:0 		X:1392 Y:848 Size:384 Confidence:599
+      Index:1 		X:889 Y:664 Size:165 Confidence:810
+      Index:2 		X:690 Y:652 Size:68 Confidence:926
+      Index:3 		X:308 Y:665 Size:43 Confidence:603
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:208
+      Index:0 		X:895 Y:653 Size:76 Confidence:652
+      Face Direction	LR:9 UD:4 Roll:-10 Confidence:1
+      Age		Age:37 Confidence:400
+      Gender		Gender:Male Confidence:395
+      Gaze		LR:12 UD:254
+      Blink		Left:561 Right:508
+      Expression	Expression:Happiness Score:1, 48, 39, 2, 10 Degree:8
+okao age            : 37
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 39
+okao anger(%)    : 2
+okao sadness(%)  : 10
+okao happiness(%): 48
+okao neutral(%)  : 1
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "こんにちは",
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': 'こんにちは', 'confidence': 1}]}]}
+transcript: こんにちは
+recognized:958ms
+your words:こんにちは
+message: こんにちは
+set_okao_vision_data関数の中1
+recognized comment = こんにちは
+ret.getHumanComment() = こんにちは
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():こんにちは
+len(robot_human_series_data)1
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+debug/tmp_okao_data [[37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+tmp_okao_data: [[37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 3
+var: 0
+tmp_okao_data[var][0]: 37
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: こんにちは
+pic_human_term関数内のpic_term_listこんにちは
+['こんにちは']
+0
+ダイアログの中のrobot_commnet_no
+101000
+decide_action関数内robot_acton:[101000, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [101000, 0, 0, 1]
+while内robot_action: [101000, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:893 Y:664 Size:178 Confidence:725
+      Index:1 		X:370 Y:148 Size:76 Confidence:662
+      Index:2 		X:690 Y:653 Size:68 Confidence:932
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:149
+      Index:0 		X:895 Y:653 Size:76 Confidence:682
+      Face Direction	LR:10 UD:-3 Roll:-11 Confidence:1
+      Age		Age:31 Confidence:666
+      Gender		Gender:Male Confidence:707
+      Gaze		LR:15 UD:252
+      Blink		Left:513 Right:594
+      Expression	Expression:Happiness Score:2, 44, 44, 4, 6 Degree:248
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+set_okao_vision_data関数の中3
+okao age            : 31
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 44
+okao anger(%)    : 4
+okao sadness(%)  : 6
+okao happiness(%): 44
+okao neutral(%)  : 2
+
+ Body result count:4
+      Index:0 		X:1423 Y:777 Size:344 Confidence:666
+      Index:1 		X:889 Y:664 Size:165 Confidence:942
+      Index:2 		X:690 Y:653 Size:65 Confidence:959
+      Index:3 		X:308 Y:663 Size:38 Confidence:700
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:158
+      Index:0 		X:895 Y:657 Size:84 Confidence:666
+      Face Direction	LR:13 UD:-3 Roll:-11 Confidence:1
+      Age		Age:35 Confidence:666
+      Gender		Gender:Male Confidence:604
+      Gaze		LR:27 UD:249
+      Blink		Left:503 Right:401
+      Expression	Expression:Happiness Score:3, 54, 23, 7, 13 Degree:15
+okao age            : 35
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 23
+okao anger(%)    : 7
+okao sadness(%)  : 13
+okao happiness(%): 54
+okao neutral(%)  : 3
+speak_message: 僕は太鼓持ちロボットティーティーエムゼロスリーです。せんぱいのために生まれてきたロボットです。
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)2
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+debug/tmp_okao_data [[35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+tmp_okao_data: [[35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 5
+var: 0
+tmp_okao_data[var][0]: 35
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+101000
+ダイアログの中のrobot_commnet_no
+102070
+decide_action関数内robot_acton:[102070, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [102070, 0, 0, 1]
+while内robot_action: [102070, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:4
+      Index:0 		X:1448 Y:770 Size:304 Confidence:547
+      Index:1 		X:889 Y:667 Size:172 Confidence:870
+      Index:2 		X:690 Y:653 Size:68 Confidence:921
+      Index:3 		X:602 Y:647 Size:60 Confidence:513
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:187
+      Index:0 		X:895 Y:653 Size:76 Confidence:674
+      Face Direction	LR:10 UD:-8 Roll:-11 Confidence:1
+      Age		Age:36 Confidence:500
+      Gender		Gender:Male Confidence:623
+      Gaze		LR:20 UD:246
+      Blink		Left:525 Right:466
+      Expression	Expression:Surprise Score:0, 43, 55, 0, 2 Degree:248
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+set_okao_vision_data関数の中3
+okao age            : 36
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 55
+okao anger(%)    : 0
+okao sadness(%)  : 2
+okao happiness(%): 43
+okao neutral(%)  : 0
+
+ Body result count:5
+      Index:0 		X:1421 Y:770 Size:344 Confidence:534
+      Index:1 		X:591 Y:746 Size:216 Confidence:549
+      Index:2 		X:888 Y:672 Size:192 Confidence:714
+      Index:3 		X:690 Y:653 Size:70 Confidence:908
+      Index:4 		X:308 Y:665 Size:41 Confidence:782
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:183
+      Index:0 		X:895 Y:653 Size:76 Confidence:654
+      Face Direction	LR:10 UD:-3 Roll:-11 Confidence:1
+      Age		Age:33 Confidence:500
+      Gender		Gender:Male Confidence:620
+      Gaze		LR:24 UD:245
+      Blink		Left:573 Right:492
+      Expression	Expression:Surprise Score:2, 39, 46, 4, 9 Degree:237
+okao age            : 33
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 46
+okao anger(%)    : 4
+okao sadness(%)  : 9
+okao happiness(%): 39
+okao neutral(%)  : 2
+speak_message: 声を聞いただけでぼくの彼女よりも元気をもらえそうです。せんぱいの声は世界を救っちゃいますね。
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+set_okao_vision_data関数の中1
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)3
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+debug/tmp_okao_data [[33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+tmp_okao_data: [[33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 7
+var: 0
+tmp_okao_data[var][0]: 33
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+102070
+ダイアログの中のrobot_commnet_no
+103000
+decide_action関数内robot_acton:[103000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [103000, 0, 0, 0]
+while内robot_action: [103000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:4
+      Index:0 		X:1427 Y:773 Size:330 Confidence:756
+      Index:1 		X:888 Y:672 Size:192 Confidence:881
+      Index:2 		X:690 Y:652 Size:68 Confidence:913
+      Index:3 		X:308 Y:665 Size:43 Confidence:816
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:96
+      Index:0 		X:895 Y:653 Size:76 Confidence:603
+      Face Direction	LR:8 UD:-3 Roll:-12 Confidence:1
+      Age		Age:32 Confidence:666
+      Gender		Gender:Male Confidence:741
+      Gaze		LR:19 UD:247
+      Blink		Left:515 Right:538
+      Expression	Expression:Surprise Score:2, 19, 71, 5, 3 Degree:204
+set_okao_vision_data関数の中2
+okao age            : 32
+okao gendre(1:m,2:f): 1
+debug/setOkaoVisionData:  [[32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+okao surprise(%) : 71
+set_okao_vision_data関数の中3
+okao anger(%)    : 5
+okao sadness(%)  : 3
+okao happiness(%): 19
+okao neutral(%)  : 2
+speak_message: 今日はどちらからお越しですか？
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:2
+      Index:0 		X:888 Y:672 Size:192 Confidence:737
+      Index:1 		X:690 Y:653 Size:68 Confidence:887
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:207
+      Index:0 		X:895 Y:653 Size:76 Confidence:604
+      Face Direction	LR:10 UD:-2 Roll:-11 Confidence:1
+      Age		Age:36 Confidence:500
+      Gender		Gender:Male Confidence:698
+      Gaze		LR:18 UD:244
+      Blink		Left:477 Right:596
+      Expression	Expression:Surprise Score:2, 16, 63, 12, 7 Degree:190
+recognizing...4
+okao age            : 36
+recognizing...5
+okao gendre(1:m,2:f): 1
+recognizing...51
+okao surprise(%) : 63
+okao anger(%)    : 12
+okao sadness(%)  : 7
+okao happiness(%): 16
+okao neutral(%)  : 2
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "東京です",
+          "confidence": 0.9914967
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': '東京です', 'confidence': 0.9914967}]}]}
+transcript: 東京です
+recognized:943ms
+your words:東京です
+message: 東京です
+recognized comment = 東京です
+ret.getHumanComment() = 東京です
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():東京です
+set_okao_vision_data関数の中1
+len(robot_human_series_data)4
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+debug/tmp_okao_data [[36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+tmp_okao_data: [[36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 9
+var: 0
+tmp_okao_data[var][0]: 36
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 東京です
+pic_human_term関数内のpic_term_listと言います
+['と言います']
+103000
+ダイアログの中のrobot_commnet_no
+104000
+decide_action関数内robot_acton:[104000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [104000, 0, 0, 0]
+while内robot_action: [104000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:915
+      Index:1 		X:690 Y:652 Size:65 Confidence:823
+      Index:2 		X:308 Y:662 Size:38 Confidence:648
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:93
+      Index:0 		X:897 Y:657 Size:84 Confidence:638
+      Face Direction	LR:35 UD:-2 Roll:-7 Confidence:1
+      Age		Age:29 Confidence:400
+      Gender		Gender:Male Confidence:343
+      Gaze		LR:255 UD:4
+      Blink		Left:419 Right:516
+      Expression	Expression:Happiness Score:2, 56, 37, 0, 5 Degree:26
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0], []]
+okao age            : 29
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 37
+okao anger(%)    : 0
+okao sadness(%)  : 5
+set_okao_vision_data関数の中3
+okao happiness(%): 56
+okao neutral(%)  : 2
+speak_message: そこはここから遠いのですか？近いのですか？
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:775
+      Index:1 		X:691 Y:653 Size:68 Confidence:815
+      Index:2 		X:308 Y:664 Size:38 Confidence:811
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:160
+      Index:0 		X:895 Y:653 Size:76 Confidence:600
+      Face Direction	LR:4 UD:-5 Roll:-11 Confidence:1
+      Age		Age:31 Confidence:500
+      Gender		Gender:Male Confidence:630
+      Gaze		LR:19 UD:248
+      Blink		Left:464 Right:531
+      Expression	Expression:Surprise Score:0, 23, 67, 1, 9 Degree:210
+okao age            : 31
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 67
+okao anger(%)    : 1
+okao sadness(%)  : 9
+okao happiness(%): 23
+okao neutral(%)  : 0
+In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "普通です",
+          "confidence": 0.9914967
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': '普通です', 'confidence': 0.9914967}]}]}
+transcript: 普通です
+recognized:939ms
+your words:普通です
+message: 普通です
+recognized comment = 普通です
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 普通です
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():普通です
+len(robot_human_series_data)5
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0]]
+debug/tmp_okao_data [[31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0]]
+tmp_okao_data: [[31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 31
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 普通です
+pic_human_term関数内のpic_term_listと言います
+['と言います']
+104000
+ダイアログの中のrobot_commnet_no
+105020
+decide_action関数内robot_acton:[105020, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [105020, 0, 0, 1]
+while内robot_action: [105020, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:2
+      Index:0 		X:894 Y:668 Size:192 Confidence:899
+      Index:1 		X:690 Y:653 Size:68 Confidence:813
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:158
+      Index:0 		X:899 Y:659 Size:84 Confidence:621
+      Face Direction	LR:25 UD:-1 Roll:-7 Confidence:1
+      Age		Age:29 Confidence:500
+      Gender		Gender:Male Confidence:533
+      Gaze		LR:16 UD:248
+      Blink		Left:528 Right:471
+      Expression	Expression:Surprise Score:1, 38, 57, 0, 4 Degree:244
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2], [37, 1, 39, 2, 10, 48, 1], [31, 1, 33, 2, 21, 44, 0]]
+okao age            : 29
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 57
+okao anger(%)    : 0
+okao sadness(%)  : 4
+okao happiness(%): 38
+okao neutral(%)  : 1
+
+ Body result count:3
+      Index:0 		X:889 Y:665 Size:172 Confidence:827
+      Index:1 		X:690 Y:650 Size:60 Confidence:926
+      Index:2 		X:308 Y:662 Size:38 Confidence:830
+ Hand result count:0
+ Face result count:1
+      Recognition	Recognition not possible
+      Index:0 		X:897 Y:658 Size:84 Confidence:604
+      Face Direction	LR:49 UD:-2 Roll:-3 Confidence:1
+      Age		Age:128 Confidence:-128
+      Gender		Gender:Female Confidence:-128
+      Gaze		LR:128 UD:128
+      Blink		Estimation not possible
+      Expression	Expression:Neutral Score:128, 128, 128, 128, 128 Degree:128
+okao age            : 128
+okao gendre(1:m,2:f): 2
+okao surprise(%) : 128
+okao anger(%)    : 128
+okao sadness(%)  : 128
+okao happiness(%): 128
+okao neutral(%)  : 128
+
+ Body result count:3
+      Index:0 		X:889 Y:665 Size:172 Confidence:777
+      Index:1 		X:691 Y:653 Size:68 Confidence:685
+      Index:2 		X:308 Y:661 Size:38 Confidence:743
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:63
+      Index:0 		X:895 Y:653 Size:76 Confidence:646
+      Face Direction	LR:10 UD:-3 Roll:-11 Confidence:1
+      Age		Age:32 Confidence:500
+      Gender		Gender:Male Confidence:662
+      Gaze		LR:16 UD:250
+      Blink		Left:629 Right:516
+      Expression	Expression:Surprise Score:1, 14, 44, 30, 11 Degree:187
+okao age            : 32
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 44
+speak_message: そうですか。わざわざぼくに会いに来てもらえるなんて日本一の幸せものです。シースリーピーオーにも負けません。
+okao anger(%)    : 30
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+okao sadness(%)  : 11
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)6
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3], [31, 1, 44, 4, 6, 44, 2]]
+okao happiness(%): 14
+okao neutral(%)  : 1
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3]]
+debug/tmp_okao_data [[32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3]]
+tmp_okao_data: [[32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 32
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+105020
+ダイアログの中のrobot_commnet_no
+106000
+decide_action関数内robot_acton:[106000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [106000, 0, 0, 0]
+while内robot_action: [106000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2], [36, 1, 55, 0, 2, 43, 0], [35, 1, 23, 7, 13, 54, 3]]
+set_okao_vision_data関数の中3
+
+ Body result count:4
+      Index:0 		X:888 Y:672 Size:192 Confidence:813
+      Index:1 		X:1488 Y:608 Size:192 Confidence:739
+      Index:2 		X:690 Y:653 Size:68 Confidence:963
+      Index:3 		X:308 Y:665 Size:43 Confidence:748
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:167
+      Index:0 		X:897 Y:657 Size:84 Confidence:634
+      Face Direction	LR:38 UD:1 Roll:-6 Confidence:1
+      Age		Age:26 Confidence:333
+      Gender		Gender:Male Confidence:388
+      Gaze		LR:7 UD:0
+      Blink		Left:496 Right:498
+      Expression	Expression:Happiness Score:0, 67, 31, 2, 0 Degree:36
+okao age            : 26
+okao gendre(1:m,2:f): 1
+speak_message: お名前をお聞かせください。
+okao surprise(%) : 31
+okao anger(%)    : 2
+okao sadness(%)  : 0
+okao happiness(%): 67
+okao neutral(%)  : 0
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [     =|=     ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:3
+      Index:0 		X:1274 Y:713 Size:208 Confidence:684
+      Index:1 		X:889 Y:665 Size:172 Confidence:841
+      Index:2 		X:691 Y:653 Size:68 Confidence:880
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:177
+      Index:0 		X:897 Y:658 Size:84 Confidence:604
+      Face Direction	LR:38 UD:-7 Roll:-5 Confidence:1
+      Age		Age:27 Confidence:500
+      Gender		Gender:Male Confidence:291
+      Gaze		LR:6 UD:253
+      Blink		Left:493 Right:576
+      Expression	Expression:Happiness Score:1, 63, 35, 1, 0 Degree:49
+okao age            : 27
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 35
+okao anger(%)    : 1
+okao sadness(%)  : 0
+okao happiness(%): 63
+okao neutral(%)  : 1
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "熊谷です",
+          "confidence": 0.9914967
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': '熊谷です', 'confidence': 0.9914967}]}]}
+transcript: 熊谷です
+recognized:969ms
+your words:熊谷です
+message: 熊谷です
+recognized comment = 熊谷です
+ret.getHumanComment() = 熊谷です
+mainの中で、execute_action_and_get_human_reaction関数終了
+set_okao_vision_data関数の中1
+robot_human_data_tmp.getHumanComment():熊谷です
+len(robot_human_series_data)7
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2]]
+debug/tmp_okao_data [[27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2]]
+tmp_okao_data: [[27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 27
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 熊谷です
+pic_human_term関数内のpic_term_listと言います
+['と言います']
+106000
+ダイアログの中のrobot_commnet_no
+107030
+decide_action関数内robot_acton:[107030, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [107030, 0, 0, 1]
+while内robot_action: [107030, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:2
+      Index:0 		X:889 Y:664 Size:172 Confidence:904
+      Index:1 		X:690 Y:652 Size:68 Confidence:690
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:91
+      Index:0 		X:895 Y:653 Size:76 Confidence:631
+      Face Direction	LR:10 UD:-7 Roll:-12 Confidence:1
+      Age		Age:33 Confidence:400
+      Gender		Gender:Male Confidence:572
+      Gaze		LR:28 UD:246
+      Blink		Left:565 Right:501
+      Expression	Expression:Surprise Score:0, 22, 65, 2, 11 Degree:204
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2], [36, 1, 63, 12, 7, 16, 2], [32, 1, 71, 5, 3, 19, 2], [33, 1, 46, 4, 9, 39, 2]]
+okao age            : 33
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 65
+okao anger(%)    : 2
+okao sadness(%)  : 11
+okao happiness(%): 22
+okao neutral(%)  : 0
+
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:942
+      Index:1 		X:690 Y:652 Size:65 Confidence:944
+      Index:2 		X:308 Y:664 Size:41 Confidence:967
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:257
+      Index:0 		X:897 Y:658 Size:84 Confidence:635
+      Face Direction	LR:35 UD:5 Roll:-5 Confidence:1
+      Age		Age:26 Confidence:500
+      Gender		Gender:Male Confidence:224
+      Gaze		LR:13 UD:254
+      Blink		Left:545 Right:504
+      Expression	Expression:Happiness Score:0, 56, 32, 0, 12 Degree:12
+okao age            : 26
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 32
+okao anger(%)    : 0
+okao sadness(%)  : 12
+okao happiness(%): 56
+okao neutral(%)  : 0
+
+ Body result count:3
+      Index:0 		X:891 Y:666 Size:172 Confidence:962
+      Index:1 		X:690 Y:653 Size:68 Confidence:930
+      Index:2 		X:308 Y:665 Size:43 Confidence:837
+ Hand result count:0
+ Face result count:1
+      Recognition	Recognition not possible
+      Index:0 		X:897 Y:658 Size:84 Confidence:596
+      Face Direction	LR:50 UD:-1 Roll:-3 Confidence:1
+      Age		Age:128 Confidence:-128
+      Gender		Gender:Female Confidence:-128
+      Gaze		LR:128 UD:128
+      Blink		Estimation not possible
+      Expression	Expression:Neutral Score:128, 128, 128, 128, 128 Degree:128
+okao age            : 128
+okao gendre(1:m,2:f): 2
+okao surprise(%) : 128
+okao anger(%)    : 128
+okao sadness(%)  : 128
+okao happiness(%): 128
+okao neutral(%)  : 128
+speak_message: とても素敵なお名前ですね。あなたの発明で世界は革新するのですね。スティーブジョブスを超えるかたですね。
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+set_okao_vision_data関数の中1
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)8
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2]]
+debug/tmp_okao_data [[128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2]]
+tmp_okao_data: [[128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 128
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+107030
+ダイアログの中のrobot_commnet_no
+108000
+decide_action関数内robot_acton:[108000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [108000, 0, 0, 0]
+while内robot_action: [108000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:893 Y:664 Size:178 Confidence:797
+      Index:1 		X:690 Y:652 Size:65 Confidence:962
+      Index:2 		X:308 Y:663 Size:38 Confidence:821
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:184
+      Index:0 		X:897 Y:657 Size:84 Confidence:644
+      Face Direction	LR:32 UD:1 Roll:-5 Confidence:1
+      Age		Age:32 Confidence:200
+      Gender		Gender:Male Confidence:445
+      Gaze		LR:254 UD:4
+      Blink		Left:404 Right:526
+      Expression	Expression:Happiness Score:5, 70, 21, 0, 4 Degree:54
+set_okao_vision_data関数の中2
+okao age            : 32
+debug/setOkaoVisionData:  [[32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 57, 0, 4, 38, 1], [31, 1, 67, 1, 9, 23, 0], [29, 1, 37, 0, 5, 56, 2]]
+okao gendre(1:m,2:f): 1
+set_okao_vision_data関数の中3
+okao surprise(%) : 21
+okao anger(%)    : 0
+okao sadness(%)  : 4
+okao happiness(%): 70
+okao neutral(%)  : 5
+
+ Body result count:2
+      Index:0 		X:889 Y:664 Size:172 Confidence:754
+      Index:1 		X:690 Y:653 Size:65 Confidence:873
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:203
+      Index:0 		X:895 Y:653 Size:76 Confidence:599
+      Face Direction	LR:9 UD:-4 Roll:-12 Confidence:1
+      Age		Age:33 Confidence:666
+      Gender		Gender:Male Confidence:710
+      Gaze		LR:29 UD:243
+      Blink		Left:456 Right:562
+      Expression	Expression:Surprise Score:1, 18, 56, 14, 11 Degree:193
+okao age            : 33
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 56
+okao anger(%)    : 14
+okao sadness(%)  : 11
+okao happiness(%): 18
+okao neutral(%)  : 1
+
+ Body result count:2
+      Index:0 		X:889 Y:665 Size:172 Confidence:897
+      Index:1 		X:691 Y:650 Size:68 Confidence:634
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:177
+      Index:0 		X:897 Y:657 Size:84 Confidence:655
+      Face Direction	LR:21 UD:1 Roll:-8 Confidence:1
+      Age		Age:29 Confidence:500
+      Gender		Gender:Male Confidence:308
+      Gaze		LR:15 UD:251
+      Blink		Left:601 Right:508
+      Expression	Expression:Surprise Score:0, 31, 67, 0, 2 Degree:231
+okao age            : 29
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 67
+okao anger(%)    : 0
+okao sadness(%)  : 2
+okao happiness(%): 31
+okao neutral(%)  : 0
+speak_message: 伝わらないかもしれませんが興奮してまだ胸がドキドキしてます。本日はとても素晴らしい方にごらいせき頂き、どうもありがとうございました。
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:2
+      Index:0 		X:889 Y:665 Size:172 Confidence:922
+      Index:1 		X:690 Y:651 Size:60 Confidence:801
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:205
+      Index:0 		X:896 Y:659 Size:88 Confidence:675
+      Face Direction	LR:23 UD:-6 Roll:-9 Confidence:1
+      Age		Age:34 Confidence:400
+      Gender		Gender:Male Confidence:565
+      Gaze		LR:25 UD:247
+      Blink		Left:436 Right:617
+      Expression	Expression:Happiness Score:0, 42, 40, 13, 5 Degree:241
+recognizing...4
+recognizing...5
+recognizing...51
+okao age            : 34
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 40
+okao anger(%)    : 13
+okao sadness(%)  : 5
+okao happiness(%): 42
+okao neutral(%)  : 0
+recognizing....6
+reply: {}
+
+reply_json: {}
+transcript: 
+recognized:979ms
+your words:
+message: 
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)9
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1]]
+debug/tmp_okao_data [[34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1]]
+tmp_okao_data: [[34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 34
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+108000
+ダイアログの中のrobot_commnet_no
+0
+decide_action関数内robot_acton:[0, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [0, 0, 0, 0]
+while内robot_action: [0, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:4
+      Index:0 		X:592 Y:744 Size:192 Confidence:609
+      Index:1 		X:889 Y:665 Size:172 Confidence:881
+      Index:2 		X:690 Y:653 Size:68 Confidence:811
+      Index:3 		X:308 Y:664 Size:41 Confidence:891
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:162
+      Index:0 		X:897 Y:657 Size:84 Confidence:687
+      Face Direction	LR:25 UD:-3 Roll:-8 Confidence:1
+      Age		Age:31 Confidence:500
+      Gender		Gender:Male Confidence:487
+      Gaze		LR:21 UD:248
+      Blink		Left:520 Right:593
+      Expression	Expression:Happiness Score:0, 46, 45, 8, 1 Degree:250
+recognizing...4
+set_okao_vision_data関数の中2
+recognizing...5
+debug/setOkaoVisionData:  [[31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0], [32, 1, 44, 30, 11, 14, 1]]
+recognizing...51
+set_okao_vision_data関数の中3
+okao age            : 31
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 45
+okao anger(%)    : 8
+okao sadness(%)  : 1
+okao happiness(%): 46
+okao neutral(%)  : 0
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "こんにちは",
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': 'こんにちは', 'confidence': 1}]}]}
+transcript: こんにちは
+recognized:908ms
+your words:こんにちは
+message: こんにちは
+recognized comment = こんにちは
+set_okao_vision_data関数の中1
+ret.getHumanComment() = こんにちは
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():こんにちは
+len(robot_human_series_data)10
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0]]
+debug/tmp_okao_data [[31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0]]
+tmp_okao_data: [[31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 31
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: こんにちは
+pic_human_term関数内のpic_term_listこんにちは
+['こんにちは']
+0
+ダイアログの中のrobot_commnet_no
+101000
+decide_action関数内robot_acton:[101000, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [101000, 0, 0, 1]
+while内robot_action: [101000, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:4
+      Index:0 		X:892 Y:664 Size:172 Confidence:713
+      Index:1 		X:370 Y:148 Size:76 Confidence:686
+      Index:2 		X:690 Y:653 Size:65 Confidence:749
+      Index:3 		X:308 Y:664 Size:41 Confidence:741
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:168
+      Index:0 		X:895 Y:653 Size:76 Confidence:656
+      Face Direction	LR:7 UD:-3 Roll:-10 Confidence:1
+      Age		Age:30 Confidence:666
+      Gender		Gender:Male Confidence:602
+      Gaze		LR:23 UD:247
+      Blink		Left:513 Right:608
+      Expression	Expression:Surprise Score:0, 28, 62, 1, 9 Degree:212
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0], [27, 1, 35, 1, 0, 63, 1], [26, 1, 31, 2, 0, 67, 0]]
+okao age            : 30
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 62
+okao anger(%)    : 1
+okao sadness(%)  : 9
+okao happiness(%): 28
+okao neutral(%)  : 0
+
+ Body result count:5
+      Index:0 		X:1436 Y:757 Size:304 Confidence:819
+      Index:1 		X:891 Y:665 Size:172 Confidence:843
+      Index:2 		X:690 Y:653 Size:68 Confidence:813
+      Index:3 		X:602 Y:647 Size:60 Confidence:666
+      Index:4 		X:308 Y:664 Size:41 Confidence:882
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:158
+      Index:0 		X:897 Y:657 Size:84 Confidence:637
+      Face Direction	LR:22 UD:-6 Roll:-9 Confidence:1
+      Age		Age:36 Confidence:285
+      Gender		Gender:Male Confidence:784
+      Gaze		LR:27 UD:247
+      Blink		Left:432 Right:565
+      Expression	Expression:Happiness Score:1, 47, 34, 11, 7 Degree:253
+okao age            : 36
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 34
+okao anger(%)    : 11
+okao sadness(%)  : 7
+okao happiness(%): 47
+okao neutral(%)  : 1
+speak_message: 僕は太鼓持ちロボットティーティーエムゼロスリーです。せんぱいのために生まれてきたロボットです。
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0]]
+debug/tmp_okao_data [[36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0]]
+tmp_okao_data: [[36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 36
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+101000
+ダイアログの中のrobot_commnet_no
+102010
+decide_action関数内robot_acton:[102010, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [102010, 0, 0, 1]
+while内robot_action: [102010, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:2
+      Index:0 		X:888 Y:672 Size:192 Confidence:751
+      Index:1 		X:690 Y:653 Size:68 Confidence:833
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:87
+      Index:0 		X:896 Y:659 Size:88 Confidence:642
+      Face Direction	LR:22 UD:-5 Roll:-8 Confidence:1
+      Age		Age:33 Confidence:400
+      Gender		Gender:Male Confidence:695
+      Gaze		LR:23 UD:246
+      Blink		Left:474 Right:514
+      Expression	Expression:Surprise Score:0, 30, 61, 1, 8 Degree:223
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5], [128, 2, 128, 128, 128, 128, 128], [26, 1, 32, 0, 12, 56, 0], [33, 1, 65, 2, 11, 22, 0]]
+okao age            : 33
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 61
+okao anger(%)    : 1
+okao sadness(%)  : 8
+okao happiness(%): 30
+okao neutral(%)  : 0
+
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:939
+      Index:1 		X:690 Y:652 Size:65 Confidence:906
+      Index:2 		X:308 Y:662 Size:38 Confidence:811
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:162
+      Index:0 		X:896 Y:651 Size:86 Confidence:585
+      Face Direction	LR:9 UD:2 Roll:-10 Confidence:1
+      Age		Age:31 Confidence:400
+      Gender		Gender:Male Confidence:411
+      Gaze		LR:4 UD:0
+      Blink		Left:565 Right:520
+      Expression	Expression:Surprise Score:0, 31, 46, 0, 23 Degree:220
+okao age            : 31
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 46
+okao anger(%)    : 0
+okao sadness(%)  : 23
+okao happiness(%): 31
+okao neutral(%)  : 0
+
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:900
+      Index:1 		X:690 Y:650 Size:60 Confidence:849
+      Index:2 		X:308 Y:662 Size:38 Confidence:779
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:198
+      Index:0 		X:895 Y:653 Size:76 Confidence:629
+      Face Direction	LR:11 UD:-6 Roll:-11 Confidence:1
+      Age		Age:35 Confidence:400
+      Gender		Gender:Male Confidence:634
+      Gaze		LR:25 UD:246
+      Blink		Left:511 Right:549
+      Expression	Expression:Surprise Score:0, 38, 42, 3, 17 Degree:247
+okao age            : 35
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 42
+okao anger(%)    : 3
+okao sadness(%)  : 17
+okao happiness(%): 38
+okao neutral(%)  : 0
+speak_message: せんぱーい、とても素敵な笑顔ですね。せんぱいの笑顔に世界はだまされてますよ。ドナルドトランプもいちころですね。
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+set_okao_vision_data関数の中1
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5]]
+debug/tmp_okao_data [[35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5]]
+tmp_okao_data: [[35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 35
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+102010
+ダイアログの中のrobot_commnet_no
+106000
+decide_action関数内robot_acton:[106000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [106000, 0, 0, 0]
+while内robot_action: [106000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:4
+      Index:0 		X:1408 Y:784 Size:384 Confidence:552
+      Index:1 		X:889 Y:664 Size:172 Confidence:649
+      Index:2 		X:691 Y:654 Size:70 Confidence:911
+      Index:3 		X:308 Y:661 Size:35 Confidence:676
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:181
+      Index:0 		X:893 Y:650 Size:76 Confidence:660
+      Face Direction	LR:-9 UD:2 Roll:-6 Confidence:1
+      Age		Age:26 Confidence:333
+      Gender		Gender:Male Confidence:312
+      Gaze		LR:255 UD:1
+      Blink		Left:399 Right:535
+      Expression	Expression:Happiness Score:1, 72, 19, 0, 8 Degree:45
+set_okao_vision_data関数の中2
+okao age            : 26
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 19
+debug/setOkaoVisionData:  [[26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0], [33, 1, 56, 14, 11, 18, 1], [32, 1, 21, 0, 4, 70, 5]]
+okao anger(%)    : 0
+speak_message: お名前をお聞かせください。
+set_okao_vision_data関数の中3
+okao sadness(%)  : 8
+okao happiness(%): 72
+okao neutral(%)  : 1
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [     -|-     ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:840
+      Index:1 		X:690 Y:652 Size:65 Confidence:885
+      Index:2 		X:308 Y:661 Size:38 Confidence:668
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:149
+      Index:0 		X:895 Y:653 Size:76 Confidence:627
+      Face Direction	LR:11 UD:-6 Roll:-11 Confidence:1
+      Age		Age:31 Confidence:666
+      Gender		Gender:Male Confidence:757
+      Gaze		LR:30 UD:247
+      Blink		Left:478 Right:505
+      Expression	Expression:Surprise Score:0, 26, 68, 1, 5 Degree:208
+okao age            : 31
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 68
+okao anger(%)    : 1
+okao sadness(%)  : 5
+recognizing...4
+recognizing...5
+recognizing...51
+okao happiness(%): 26
+okao neutral(%)  : 0
+recognizing....6
+reply: {}
+
+reply_json: {}
+transcript: 
+recognized:917ms
+your words:
+message: 
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+set_okao_vision_data関数の中1
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0]]
+debug/tmp_okao_data [[31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0]]
+tmp_okao_data: [[31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 31
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+106000
+ダイアログの中のrobot_commnet_no
+107010
+decide_action関数内robot_acton:[107010, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [107010, 0, 0, 1]
+while内robot_action: [107010, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:4
+      Index:0 		X:1414 Y:776 Size:344 Confidence:718
+      Index:1 		X:888 Y:672 Size:192 Confidence:736
+      Index:2 		X:690 Y:651 Size:65 Confidence:943
+      Index:3 		X:308 Y:665 Size:43 Confidence:627
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:174
+      Index:0 		X:897 Y:658 Size:84 Confidence:601
+      Face Direction	LR:44 UD:-1 Roll:-5 Confidence:1
+      Age		Age:28 Confidence:400
+      Gender		Gender:Male Confidence:608
+      Gaze		LR:0 UD:4
+      Blink		Left:435 Right:560
+      Expression	Expression:Happiness Score:5, 52, 38, 0, 5 Degree:14
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0], [34, 1, 40, 13, 5, 42, 0], [29, 1, 67, 0, 2, 31, 0]]
+okao age            : 28
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 38
+okao anger(%)    : 0
+okao sadness(%)  : 5
+okao happiness(%): 52
+okao neutral(%)  : 5
+
+ Body result count:5
+      Index:0 		X:1332 Y:891 Size:432 Confidence:827
+      Index:1 		X:888 Y:672 Size:192 Confidence:817
+      Index:2 		X:690 Y:652 Size:65 Confidence:840
+      Index:3 		X:602 Y:647 Size:60 Confidence:556
+      Index:4 		X:410 Y:746 Size:48 Confidence:565
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:100
+      Index:0 		X:895 Y:653 Size:76 Confidence:591
+      Face Direction	LR:7 UD:3 Roll:-11 Confidence:1
+      Age		Age:36 Confidence:400
+      Gender		Gender:Male Confidence:528
+      Gaze		LR:19 UD:1
+      Blink		Left:446 Right:566
+      Expression	Expression:Surprise Score:0, 25, 35, 8, 32 Degree:207
+okao age            : 36
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 35
+okao anger(%)    : 8
+okao sadness(%)  : 32
+okao happiness(%): 25
+okao neutral(%)  : 0
+
+ Body result count:5
+      Index:0 		X:1330 Y:895 Size:432 Confidence:784
+      Index:1 		X:888 Y:672 Size:192 Confidence:724
+      Index:2 		X:592 Y:752 Size:192 Confidence:545
+      Index:3 		X:691 Y:653 Size:68 Confidence:919
+      Index:4 		X:308 Y:663 Size:38 Confidence:928
+ Hand result count:0
+ Face result count:1
+      Recognition	Recognition not possible
+      Index:0 		X:897 Y:658 Size:84 Confidence:601
+      Face Direction	LR:48 UD:0 Roll:-4 Confidence:1
+      Age		Age:128 Confidence:-128
+      Gender		Gender:Female Confidence:-128
+      Gaze		LR:128 UD:128
+      Blink		Estimation not possible
+      Expression	Expression:Neutral Score:128, 128, 128, 128, 128 Degree:128
+speak_message: とても素敵なお名前ですね。きっと歴史に名を残すお名前ですね。ノーベル賞にノミネートされてましたか。
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+okao age            : 128
+mainの中で、execute_action_and_get_human_reaction関数終了
+okao gendre(1:m,2:f): 2
+robot_human_data_tmp.getHumanComment():
+okao surprise(%) : 128
+len(robot_human_series_data)11
+okao anger(%)    : 128
+decide_actionが呼べてます！！！
+okao sadness(%)  : 128
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0], [31, 1, 45, 8, 1, 46, 0]]
+okao happiness(%): 128
+debig/evaluation bad
+okao neutral(%)  : 128
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0]]
+debug/tmp_okao_data [[128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0]]
+tmp_okao_data: [[128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 128
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+107010
+ダイアログの中のrobot_commnet_no
+103000
+decide_action関数内robot_acton:[103000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [103000, 0, 0, 0]
+while内robot_action: [103000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0], [36, 1, 34, 11, 7, 47, 1], [30, 1, 62, 1, 9, 28, 0]]
+set_okao_vision_data関数の中3
+
+ Body result count:4
+      Index:0 		X:1330 Y:894 Size:432 Confidence:891
+      Index:1 		X:888 Y:672 Size:192 Confidence:953
+      Index:2 		X:690 Y:654 Size:68 Confidence:953
+      Index:3 		X:602 Y:645 Size:60 Confidence:665
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:250
+      Index:0 		X:897 Y:654 Size:84 Confidence:605
+      Face Direction	LR:14 UD:7 Roll:-8 Confidence:1
+      Age		Age:29 Confidence:222
+      Gender		Gender:Male Confidence:354
+      Gaze		LR:7 UD:254
+      Blink		Left:414 Right:391
+      Expression	Expression:Surprise Score:0, 33, 66, 0, 1 Degree:230
+okao age            : 29
+okao gendre(1:m,2:f): 1
+speak_message: 今日はどちらからお越しですか？
+okao surprise(%) : 66
+okao anger(%)    : 0
+okao sadness(%)  : 1
+okao happiness(%): 33
+okao neutral(%)  : 0
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:4
+      Index:0 		X:1330 Y:885 Size:416 Confidence:838
+      Index:1 		X:888 Y:672 Size:192 Confidence:813
+      Index:2 		X:690 Y:654 Size:68 Confidence:873
+      Index:3 		X:308 Y:664 Size:41 Confidence:833
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:152
+      Index:0 		X:897 Y:657 Size:84 Confidence:661
+      Face Direction	LR:41 UD:-2 Roll:-7 Confidence:1
+      Age		Age:29 Confidence:666
+      Gender		Gender:Male Confidence:305
+      Gaze		LR:13 UD:246
+      Blink		Left:483 Right:574
+      Expression	Expression:Happiness Score:0, 48, 43, 9, 0 Degree:4
+okao age            : 29
+recognizing...4
+recognizing...5
+recognizing...51
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 43
+okao anger(%)    : 9
+okao sadness(%)  : 0
+okao happiness(%): 48
+okao neutral(%)  : 0
+recognizing....6
+reply: {}
+
+reply_json: {}
+transcript: 
+recognized:936ms
+your words:
+message: 
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+set_okao_vision_data関数の中1
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0]]
+debug/tmp_okao_data [[29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0]]
+tmp_okao_data: [[29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 29
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+103000
+ダイアログの中のrobot_commnet_no
+104000
+decide_action関数内robot_acton:[104000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [104000, 0, 0, 0]
+while内robot_action: [104000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:1331 Y:887 Size:416 Confidence:835
+      Index:1 		X:888 Y:672 Size:192 Confidence:855
+      Index:2 		X:690 Y:653 Size:65 Confidence:856
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:191
+      Index:0 		X:897 Y:657 Size:84 Confidence:623
+      Face Direction	LR:39 UD:3 Roll:-6 Confidence:1
+      Age		Age:28 Confidence:400
+      Gender		Gender:Male Confidence:437
+      Gaze		LR:0 UD:251
+      Blink		Left:388 Right:639
+      Expression	Expression:Happiness Score:3, 67, 27, 1, 2 Degree:37
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0], [31, 1, 46, 0, 23, 31, 0], [33, 1, 61, 1, 8, 30, 0]]
+set_okao_vision_data関数の中3
+okao age            : 28
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 27
+okao anger(%)    : 1
+okao sadness(%)  : 2
+okao happiness(%): 67
+okao neutral(%)  : 3
+speak_message: そこはここから遠いのですか？近いのですか？
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    
+ Body result count:5
+      Index:0 		X:1332 Y:887 Size:416 Confidence:859
+      Index:1 		X:889 Y:665 Size:172 Confidence:940
+      Index:2 		X:691 Y:652 Size:65 Confidence:704
+      Index:3 		X:602 Y:647 Size:60 Confidence:696
+      Index:4 		X:308 Y:664 Size:43 Confidence:682
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:174
+      Index:0 		X:895 Y:653 Size:76 Confidence:656
+      Face Direction	LR:8 UD:-5 Roll:-12 Confidence:1
+      Age		Age:33 Confidence:500
+      Gender		Gender:Male Confidence:591
+      Gaze		LR:26 UD:252
+      Blink		Left:413 Right:472
+      Expression	Expression:Surprise Score:7, 18, 70, 2, 3 Degree:201
+okao age            : 33
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 70
+okao anger(%)    : 2
+okao sadness(%)  : 3
+okao happiness(%): 18
+okao neutral(%)  : 7
+In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {}
+
+reply_json: {}
+transcript: 
+recognized:925ms
+your words:
+message: 
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0]]
+debug/tmp_okao_data [[33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0]]
+tmp_okao_data: [[33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 33
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+104000
+ダイアログの中のrobot_commnet_no
+105020
+decide_action関数内robot_acton:[105020, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [105020, 0, 0, 1]
+while内robot_action: [105020, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:1328 Y:880 Size:384 Confidence:874
+      Index:1 		X:888 Y:672 Size:192 Confidence:915
+      Index:2 		X:690 Y:652 Size:65 Confidence:747
+ Hand result count:0
+ Face result count:0
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0], [26, 1, 19, 0, 8, 72, 1], [35, 1, 42, 3, 17, 38, 0]]
+okao age            : 0
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 0
+okao surprise(%) : 0
+okao anger(%)    : 0
+okao sadness(%)  : 0
+okao happiness(%): 0
+okao neutral(%)  : 0
+
+ Body result count:4
+      Index:0 		X:1329 Y:890 Size:416 Confidence:843
+      Index:1 		X:889 Y:664 Size:172 Confidence:861
+      Index:2 		X:690 Y:653 Size:68 Confidence:861
+      Index:3 		X:308 Y:664 Size:41 Confidence:709
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:173
+      Index:0 		X:895 Y:653 Size:76 Confidence:668
+      Face Direction	LR:6 UD:-5 Roll:-12 Confidence:1
+      Age		Age:32 Confidence:400
+      Gender		Gender:Male Confidence:598
+      Gaze		LR:16 UD:246
+      Blink		Left:468 Right:477
+      Expression	Expression:Surprise Score:0, 38, 52, 3, 7 Degree:233
+okao age            : 32
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 52
+okao anger(%)    : 3
+okao sadness(%)  : 7
+okao happiness(%): 38
+okao neutral(%)  : 0
+
+ Body result count:4
+      Index:0 		X:1336 Y:872 Size:384 Confidence:646
+      Index:1 		X:891 Y:665 Size:172 Confidence:776
+      Index:2 		X:690 Y:652 Size:65 Confidence:953
+      Index:3 		X:410 Y:746 Size:48 Confidence:579
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:165
+      Index:0 		X:900 Y:656 Size:96 Confidence:594
+      Face Direction	LR:35 UD:-4 Roll:-4 Confidence:1
+      Age		Age:27 Confidence:285
+      Gender		Gender:Male Confidence:212
+      Gaze		LR:1 UD:1
+      Blink		Left:432 Right:525
+      Expression	Expression:Happiness Score:0, 69, 23, 0, 8 Degree:38
+speak_message: そうですか。わざわざぼくに会いに来てもらえるなんて日本一の幸せものです。シースリーピーオーにも負けません。
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+set_okao_vision_data関数の中1
+debug/setOkaoVisionData:  [[32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0]]
+debug/tmp_okao_data [[27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0]]
+tmp_okao_data: [[27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5], [31, 1, 68, 1, 5, 26, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 11
+var: 0
+tmp_okao_data[var][0]: 27
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+105020
+ダイアログの中のrobot_commnet_no
+108000
+decide_action関数内robot_acton:[108000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [108000, 0, 0, 0]
+while内robot_action: [108000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+okao age            : 27
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 23
+okao anger(%)    : 0
+okao sadness(%)  : 8
+okao happiness(%): 69
+okao neutral(%)  : 0
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0], [29, 1, 66, 0, 1, 33, 0], [128, 2, 128, 128, 128, 128, 128], [36, 1, 35, 8, 32, 25, 0], [28, 1, 38, 0, 5, 52, 5]]
+set_okao_vision_data関数の中3
+
+ Body result count:4
+      Index:0 		X:888 Y:672 Size:192 Confidence:767
+      Index:1 		X:690 Y:652 Size:65 Confidence:920
+      Index:2 		X:602 Y:645 Size:60 Confidence:560
+      Index:3 		X:308 Y:662 Size:38 Confidence:612
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:168
+      Index:0 		X:895 Y:653 Size:76 Confidence:638
+      Face Direction	LR:8 UD:-3 Roll:-12 Confidence:1
+      Age		Age:30 Confidence:1000
+      Gender		Gender:Male Confidence:728
+      Gaze		LR:22 UD:248
+      Blink		Left:362 Right:492
+      Expression	Expression:Surprise Score:1, 15, 47, 19, 18 Degree:194
+okao age            : 30
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 47
+okao anger(%)    : 19
+okao sadness(%)  : 18
+okao happiness(%): 15
+okao neutral(%)  : 1
+
+ Body result count:5
+      Index:0 		X:889 Y:665 Size:172 Confidence:851
+      Index:1 		X:367 Y:150 Size:70 Confidence:618
+      Index:2 		X:690 Y:653 Size:68 Confidence:967
+      Index:3 		X:602 Y:647 Size:60 Confidence:667
+      Index:4 		X:308 Y:665 Size:43 Confidence:725
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:100
+      Index:0 		X:897 Y:657 Size:84 Confidence:677
+      Face Direction	LR:30 UD:-1 Roll:-7 Confidence:1
+      Age		Age:29 Confidence:400
+      Gender		Gender:Male Confidence:380
+      Gaze		LR:11 UD:253
+      Blink		Left:502 Right:574
+      Expression	Expression:Happiness Score:0, 60, 33, 0, 7 Degree:34
+okao age            : 29
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 33
+okao anger(%)    : 0
+okao sadness(%)  : 7
+okao happiness(%): 60
+okao neutral(%)  : 0
+
+ Body result count:4
+      Index:0 		X:1408 Y:800 Size:384 Confidence:517
+      Index:1 		X:889 Y:663 Size:172 Confidence:587
+      Index:2 		X:690 Y:653 Size:68 Confidence:895
+      Index:3 		X:308 Y:663 Size:38 Confidence:863
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:173
+      Index:0 		X:897 Y:657 Size:84 Confidence:661
+      Face Direction	LR:31 UD:-2 Roll:-6 Confidence:1
+      Age		Age:27 Confidence:500
+      Gender		Gender:Male Confidence:462
+      Gaze		LR:13 UD:252
+      Blink		Left:510 Right:550
+      Expression	Expression:Happiness Score:0, 67, 27, 3, 3 Degree:38
+speak_message: 伝わらないかもしれませんが興奮してまだ胸がドキドキしてます。本日はとても素晴らしい方にごらいせき頂き、どうもありがとうございました。
+okao age            : 27
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 27
+okao anger(%)    : 3
+okao sadness(%)  : 3
+okao happiness(%): 67
+okao neutral(%)  : 0
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [     =|=     ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [     =|=     ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [   -==|==-   ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [    -=|=-    ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:4
+      Index:0 		X:888 Y:672 Size:192 Confidence:725
+      Index:1 		X:690 Y:653 Size:65 Confidence:842
+      Index:2 		X:602 Y:647 Size:60 Confidence:769
+      Index:3 		X:308 Y:666 Size:43 Confidence:563
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:208
+      Index:0 		X:895 Y:654 Size:82 Confidence:655
+      Face Direction	LR:17 UD:-7 Roll:-12 Confidence:1
+      Age		Age:33 Confidence:666
+      Gender		Gender:Male Confidence:629
+      Gaze		LR:27 UD:254
+      Blink		Left:414 Right:480
+      Expression	Expression:Surprise Score:7, 23, 49, 16, 5 Degree:218
+okao age            : 33
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 49
+okao anger(%)    : 16
+okao sadness(%)  : 5
+okao happiness(%): 23
+okao neutral(%)  : 7
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "こんにちは",
+          "confidence": 1
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': 'こんにちは', 'confidence': 1}]}]}
+transcript: こんにちは
+recognized:922ms
+your words:こんにちは
+message: こんにちは
+recognized comment = こんにちは
+ret.getHumanComment() = こんにちは
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():こんにちは
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0]]
+set_okao_vision_data関数の中1
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0]]
+debug/tmp_okao_data [[33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0]]
+tmp_okao_data: [[33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 33
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: こんにちは
+pic_human_term関数内のpic_term_listこんにちは
+['こんにちは']
+108000
+ダイアログの中のrobot_commnet_no
+101000
+decide_action関数内robot_acton:[101000, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [101000, 0, 0, 1]
+while内robot_action: [101000, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:1392 Y:800 Size:384 Confidence:532
+      Index:1 		X:892 Y:664 Size:172 Confidence:760
+      Index:2 		X:690 Y:652 Size:65 Confidence:899
+ Hand result count:0
+ Face result count:1
+      Recognition	Recognition not possible
+      Index:0 		X:897 Y:657 Size:84 Confidence:625
+      Face Direction	LR:50 UD:-4 Roll:-3 Confidence:1
+      Age		Age:128 Confidence:-128
+      Gender		Gender:Female Confidence:-128
+      Gaze		LR:128 UD:128
+      Blink		Estimation not possible
+      Expression	Expression:Neutral Score:128, 128, 128, 128, 128 Degree:128
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7], [28, 1, 27, 1, 2, 67, 3], [29, 1, 43, 9, 0, 48, 0]]
+okao age            : 128
+set_okao_vision_data関数の中3
+okao gendre(1:m,2:f): 2
+okao surprise(%) : 128
+okao anger(%)    : 128
+okao sadness(%)  : 128
+okao happiness(%): 128
+okao neutral(%)  : 128
+
+ Body result count:5
+      Index:0 		X:1408 Y:784 Size:384 Confidence:635
+      Index:1 		X:888 Y:672 Size:192 Confidence:846
+      Index:2 		X:370 Y:151 Size:76 Confidence:655
+      Index:3 		X:690 Y:652 Size:68 Confidence:973
+      Index:4 		X:308 Y:664 Size:38 Confidence:707
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:152
+      Index:0 		X:895 Y:653 Size:76 Confidence:642
+      Face Direction	LR:7 UD:-2 Roll:-11 Confidence:1
+      Age		Age:36 Confidence:285
+      Gender		Gender:Male Confidence:569
+      Gaze		LR:21 UD:254
+      Blink		Left:537 Right:468
+      Expression	Expression:Happiness Score:0, 52, 24, 1, 23 Degree:4
+okao age            : 36
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 24
+okao anger(%)    : 1
+okao sadness(%)  : 23
+okao happiness(%): 52
+okao neutral(%)  : 0
+speak_message: 僕は太鼓持ちロボットティーティーエムゼロスリーです。せんぱいのために生まれてきたロボットです。
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7]]
+debug/tmp_okao_data [[36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7]]
+tmp_okao_data: [[36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 36
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+101000
+ダイアログの中のrobot_commnet_no
+102010
+decide_action関数内robot_acton:[102010, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [102010, 0, 0, 1]
+while内robot_action: [102010, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:2
+      Index:0 		X:888 Y:672 Size:192 Confidence:842
+      Index:1 		X:690 Y:652 Size:68 Confidence:777
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:168
+      Index:0 		X:895 Y:653 Size:76 Confidence:628
+      Face Direction	LR:10 UD:-5 Roll:-11 Confidence:1
+      Age		Age:33 Confidence:500
+      Gender		Gender:Male Confidence:719
+      Gaze		LR:12 UD:251
+      Blink		Left:528 Right:623
+      Expression	Expression:Surprise Score:0, 43, 49, 4, 4 Degree:249
+set_okao_vision_data関数の中2
+okao age            : 33
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 49
+okao anger(%)    : 4
+okao sadness(%)  : 4
+okao happiness(%): 43
+okao neutral(%)  : 0
+debug/setOkaoVisionData:  [[33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0], [32, 1, 52, 3, 7, 38, 0], [0, 0, 0, 0, 0, 0, 0], [33, 1, 70, 2, 3, 18, 7]]
+set_okao_vision_data関数の中3
+
+ Body result count:3
+      Index:0 		X:889 Y:665 Size:172 Confidence:862
+      Index:1 		X:690 Y:653 Size:68 Confidence:933
+      Index:2 		X:602 Y:647 Size:60 Confidence:708
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:166
+      Index:0 		X:897 Y:657 Size:84 Confidence:656
+      Face Direction	LR:22 UD:-5 Roll:-8 Confidence:1
+      Age		Age:28 Confidence:666
+      Gender		Gender:Male Confidence:467
+      Gaze		LR:23 UD:250
+      Blink		Left:398 Right:586
+      Expression	Expression:Surprise Score:0, 47, 50, 1, 2 Degree:10
+okao age            : 28
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 50
+okao anger(%)    : 1
+okao sadness(%)  : 2
+okao happiness(%): 47
+okao neutral(%)  : 0
+
+ Body result count:4
+      Index:0 		X:888 Y:672 Size:192 Confidence:760
+      Index:1 		X:690 Y:653 Size:68 Confidence:909
+      Index:2 		X:602 Y:647 Size:60 Confidence:529
+      Index:3 		X:308 Y:662 Size:38 Confidence:752
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:84
+      Index:0 		X:898 Y:657 Size:84 Confidence:665
+      Face Direction	LR:44 UD:-2 Roll:-4 Confidence:1
+      Age		Age:32 Confidence:250
+      Gender		Gender:Male Confidence:287
+      Gaze		LR:252 UD:1
+      Blink		Left:276 Right:586
+      Expression	Expression:Happiness Score:2, 66, 24, 1, 7 Degree:41
+okao age            : 32
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 24
+okao anger(%)    : 1
+speak_message: せんぱーい、とても素敵な笑顔ですね。せんぱいの笑顔に世界はだまされてますよ。ドナルドトランプもいちころですね。
+okao sadness(%)  : 7
+recognized comment = 
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+okao happiness(%): 66
+okao neutral(%)  : 2
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+set_okao_vision_data関数の中1
+getOkaoVisionData:  [[32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0]]
+debug/tmp_okao_data [[32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0]]
+tmp_okao_data: [[32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 32
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+102010
+ダイアログの中のrobot_commnet_no
+103000
+decide_action関数内robot_acton:[103000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [103000, 0, 0, 0]
+while内robot_action: [103000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:5
+      Index:0 		X:1424 Y:799 Size:384 Confidence:542
+      Index:1 		X:888 Y:672 Size:192 Confidence:911
+      Index:2 		X:690 Y:652 Size:68 Confidence:870
+      Index:3 		X:602 Y:647 Size:60 Confidence:562
+      Index:4 		X:308 Y:664 Size:41 Confidence:794
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:96
+      Index:0 		X:897 Y:657 Size:84 Confidence:633
+      Face Direction	LR:28 UD:-5 Roll:-8 Confidence:1
+      Age		Age:28 Confidence:333
+      Gender		Gender:Male Confidence:527
+      Gaze		LR:22 UD:251
+      Blink		Left:533 Right:462
+      Expression	Expression:Surprise Score:0, 45, 53, 0, 2 Degree:251
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0], [30, 1, 47, 19, 18, 15, 1], [27, 1, 23, 0, 8, 69, 0]]
+okao age            : 28
+set_okao_vision_data関数の中3
+speak_message: 今日はどちらからお越しですか？
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 53
+okao anger(%)    : 0
+okao sadness(%)  : 2
+okao happiness(%): 45
+okao neutral(%)  : 0
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [     -|-     ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:2
+      Index:0 		X:888 Y:672 Size:192 Confidence:839
+      Index:1 		X:690 Y:653 Size:68 Confidence:918
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:199
+      Index:0 		X:897 Y:657 Size:84 Confidence:651
+      Face Direction	LR:34 UD:-2 Roll:-6 Confidence:1
+      Age		Age:27 Confidence:250
+      Gender		Gender:Male Confidence:256
+      Gaze		LR:254 UD:1
+      Blink		Left:410 Right:489
+      Expression	Expression:Surprise Score:0, 43, 55, 0, 2 Degree:10
+okao age            : 27
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 55
+okao anger(%)    : 0
+okao sadness(%)  : 2
+okao happiness(%): 43
+okao neutral(%)  : 0
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "お金ちょうだい",
+          "confidence": 0.98866224
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': 'お金ちょうだい', 'confidence': 0.98866224}]}]}
+transcript: お金ちょうだい
+recognized:995ms
+your words:お金ちょうだい
+message: お金ちょうだい
+recognized comment = お金ちょうだい
+set_okao_vision_data関数の中1
+ret.getHumanComment() = お金ちょうだい
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():お金ちょうだい
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0]]
+debug/tmp_okao_data [[27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0]]
+tmp_okao_data: [[27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 27
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: お金ちょうだい
+[]
+103000
+ダイアログの中のrobot_commnet_no
+104000
+decide_action関数内robot_acton:[104000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [104000, 0, 0, 0]
+while内robot_action: [104000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:4
+      Index:0 		X:1436 Y:795 Size:304 Confidence:810
+      Index:1 		X:888 Y:672 Size:192 Confidence:873
+      Index:2 		X:690 Y:653 Size:68 Confidence:790
+      Index:3 		X:308 Y:665 Size:41 Confidence:616
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:167
+      Index:0 		X:897 Y:658 Size:84 Confidence:611
+      Face Direction	LR:24 UD:-3 Roll:-7 Confidence:1
+      Age		Age:29 Confidence:400
+      Gender		Gender:Male Confidence:412
+      Gaze		LR:2 UD:251
+      Blink		Left:539 Right:523
+      Expression	Expression:Happiness Score:0, 61, 24, 1, 14 Degree:25
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7], [27, 1, 27, 3, 3, 67, 0], [29, 1, 33, 0, 7, 60, 0]]
+set_okao_vision_data関数の中3
+okao age            : 29
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 24
+okao anger(%)    : 1
+okao sadness(%)  : 14
+okao happiness(%): 61
+okao neutral(%)  : 0
+speak_message: そこはここから遠いのですか？近いのですか？
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    
+ Body result count:4
+      Index:0 		X:889 Y:665 Size:172 Confidence:901
+      Index:1 		X:691 Y:654 Size:70 Confidence:788
+      Index:2 		X:602 Y:647 Size:60 Confidence:842
+      Index:3 		X:308 Y:664 Size:41 Confidence:867
+ Hand result count:0
+ Face result count:1
+      Recognition	Recognition not possible
+      Index:0 		X:900 Y:664 Size:96 Confidence:536
+      Face Direction	LR:52 UD:17 Roll:1 Confidence:1
+      Age		Age:128 Confidence:-128
+      Gender		Gender:Female Confidence:-128
+      Gaze		LR:128 UD:128
+      Blink		Estimation not possible
+      Expression	Expression:Neutral Score:128, 128, 128, 128, 128 Degree:128
+okao age            : 128
+okao gendre(1:m,2:f): 2
+okao surprise(%) : 128
+okao anger(%)    : 128
+okao sadness(%)  : 128
+okao happiness(%): 128
+okao neutral(%)  : 128
+In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {
+  "results": [
+    {
+      "alternatives": [
+        {
+          "transcript": "お金ちょうだい",
+          "confidence": 0.98866224
+        }
+      ]
+    }
+  ]
+}
+
+reply_json: {'results': [{'alternatives': [{'transcript': 'お金ちょうだい', 'confidence': 0.98866224}]}]}
+transcript: お金ちょうだい
+recognized:995ms
+your words:お金ちょうだい
+message: お金ちょうだい
+recognized comment = お金ちょうだい
+ret.getHumanComment() = お金ちょうだい
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():お金ちょうだい
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7]]
+set_okao_vision_data関数の中1
+debug/tmp_okao_data [[128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7]]
+tmp_okao_data: [[128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 128
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: お金ちょうだい
+[]
+104000
+ダイアログの中のrobot_commnet_no
+105020
+decide_action関数内robot_acton:[105020, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [105020, 0, 0, 1]
+while内robot_action: [105020, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:889 Y:664 Size:165 Confidence:929
+      Index:1 		X:690 Y:653 Size:68 Confidence:935
+      Index:2 		X:309 Y:665 Size:43 Confidence:707
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:99
+      Index:0 		X:897 Y:657 Size:84 Confidence:641
+      Face Direction	LR:37 UD:-1 Roll:-7 Confidence:1
+      Age		Age:35 Confidence:200
+      Gender		Gender:Male Confidence:226
+      Gaze		LR:3 UD:250
+      Blink		Left:519 Right:546
+      Expression	Expression:Happiness Score:1, 50, 40, 0, 9 Degree:7
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0], [36, 1, 24, 1, 23, 52, 0], [128, 2, 128, 128, 128, 128, 128], [33, 1, 49, 16, 5, 23, 7]]
+okao age            : 35
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 40
+okao anger(%)    : 0
+okao sadness(%)  : 9
+set_okao_vision_data関数の中3
+okao happiness(%): 50
+okao neutral(%)  : 1
+
+ Body result count:3
+      Index:0 		X:888 Y:672 Size:192 Confidence:760
+      Index:1 		X:690 Y:652 Size:68 Confidence:914
+      Index:2 		X:602 Y:647 Size:60 Confidence:509
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:172
+      Index:0 		X:895 Y:653 Size:76 Confidence:637
+      Face Direction	LR:8 UD:-3 Roll:-10 Confidence:1
+      Age		Age:37 Confidence:500
+      Gender		Gender:Male Confidence:694
+      Gaze		LR:21 UD:250
+      Blink		Left:548 Right:516
+      Expression	Expression:Happiness Score:1, 65, 29, 0, 5 Degree:34
+okao age            : 37
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 29
+okao anger(%)    : 0
+okao sadness(%)  : 5
+okao happiness(%): 65
+okao neutral(%)  : 1
+
+ Body result count:4
+      Index:0 		X:889 Y:668 Size:172 Confidence:937
+      Index:1 		X:1437 Y:851 Size:165 Confidence:725
+      Index:2 		X:690 Y:654 Size:68 Confidence:944
+      Index:3 		X:307 Y:666 Size:43 Confidence:528
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:99
+      Index:0 		X:899 Y:658 Size:84 Confidence:615
+      Face Direction	LR:33 UD:-6 Roll:-7 Confidence:1
+      Age		Age:31 Confidence:250
+      Gender		Gender:Male Confidence:453
+      Gaze		LR:22 UD:250
+      Blink		Left:489 Right:558
+      Expression	Expression:Happiness Score:0, 62, 31, 6, 1 Degree:30
+okao age            : 31
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 31
+speak_message: そうですか。わざわざぼくに会いに来てもらえるなんて日本一の幸せものです。シースリーピーオーにも負けません。
+okao anger(%)    : 6
+recognized comment = 
+okao sadness(%)  : 1
+ret.getHumanComment() = 
+set_okao_vision_data関数の中1
+mainの中で、execute_action_and_get_human_reaction関数終了
+okao happiness(%): 62
+robot_human_data_tmp.getHumanComment():
+okao neutral(%)  : 0
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0]]
+debug/tmp_okao_data [[31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0]]
+tmp_okao_data: [[31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 31
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+105020
+ダイアログの中のrobot_commnet_no
+106000
+decide_action関数内robot_acton:[106000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [106000, 0, 0, 0]
+while内robot_action: [106000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2], [28, 1, 50, 1, 2, 47, 0], [33, 1, 49, 4, 4, 43, 0]]
+set_okao_vision_data関数の中3
+
+ Body result count:5
+      Index:0 		X:1176 Y:716 Size:194 Confidence:833
+      Index:1 		X:889 Y:665 Size:165 Confidence:907
+      Index:2 		X:1309 Y:720 Size:152 Confidence:597
+      Index:3 		X:690 Y:653 Size:68 Confidence:933
+      Index:4 		X:600 Y:645 Size:60 Confidence:602
+ Hand result count:0
+ Face result count:3
+      Recognition	ID:-1 Confidence:61
+      Index:0 		X:1346 Y:707 Size:76 Confidence:572
+      Face Direction	LR:3 UD:-10 Roll:-3 Confidence:1
+      Age		Age:30 Confidence:166
+      Gender		Gender:Male Confidence:417
+      Gaze		LR:20 UD:10
+      Blink		Left:592 Right:593
+      Expression	Expression:Happiness Score:11, 60, 3, 3, 23 Degree:31
+      Recognition	ID:-1 Confidence:163
+      Index:1 		X:1190 Y:695 Size:76 Confidence:528
+      Face Direction	LR:3 UD:2 Roll:-15 Confidence:1
+      Age		Age:40 Confidence:250
+      Gender		Gender:Female Confidence:334
+      Gaze		LR:0 UD:1
+      Blink		Left:344 Right:309
+      Expression	Expression:Happiness Score:2, 71, 21, 1, 5 Degree:44
+      Recognition	ID:-1 Confidence:167
+      Index:2 		X:895 Y:653 Size:76 Confidence:639
+      Face Direction	LR:13 UD:-2 Roll:-8 Confidence:1
+      Age		Age:34 Confidence:200
+      Gender		Gender:Male Confidence:390
+      Gaze		LR:13 UD:250
+      Blink		Left:523 Right:532
+      Expression	Expression:Happiness Score:0, 64, 31, 5, 0 Degree:41
+okao age            : 34
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 31
+okao anger(%)    : 5
+okao sadness(%)  : 0
+okao happiness(%): 64
+okao neutral(%)  : 0
+speak_message: お名前をお聞かせください。
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+
+ Body result count:4
+      Index:0 		X:889 Y:667 Size:172 Confidence:881
+      Index:1 		X:1277 Y:702 Size:120 Confidence:651
+      Index:2 		X:690 Y:654 Size:70 Confidence:757
+      Index:3 		X:602 Y:647 Size:60 Confidence:652
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:190
+      Index:0 		X:891 Y:653 Size:76 Confidence:647
+      Face Direction	LR:6 UD:-7 Roll:-13 Confidence:1
+      Age		Age:32 Confidence:1000
+      Gender		Gender:Male Confidence:722
+      Gaze		LR:26 UD:247
+      Blink		Left:493 Right:551
+      Expression	Expression:Surprise Score:1, 21, 50, 0, 28 Degree:207
+okao age            : 32
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 50
+okao anger(%)    : 0
+okao sadness(%)  : 28
+okao happiness(%): 21
+okao neutral(%)  : 1
+recognizing...4
+recognizing...5
+recognizing...51
+recognizing....6
+reply: {}
+
+reply_json: {}
+transcript: 
+recognized:907ms
+your words:
+message: 
+recognized comment = 
+set_okao_vision_data関数の中1
+ret.getHumanComment() = 
+mainの中で、execute_action_and_get_human_reaction関数終了
+robot_human_data_tmp.getHumanComment():
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2]]
+debug/tmp_okao_data [[32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2]]
+tmp_okao_data: [[32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 32
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+106000
+ダイアログの中のrobot_commnet_no
+107010
+decide_action関数内robot_acton:[107010, 0, 0, 1]
+mainの中で、decide_action関数終了
+robot_action: [107010, 0, 0, 1]
+while内robot_action: [107010, 0, 0, 1]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:2
+      Index:0 		X:890 Y:663 Size:165 Confidence:938
+      Index:1 		X:690 Y:653 Size:68 Confidence:922
+ Hand result count:0
+ Face result count:3
+      Recognition	ID:-1 Confidence:200
+      Index:0 		X:1440 Y:785 Size:134 Confidence:544
+      Face Direction	LR:-19 UD:14 Roll:-21 Confidence:1
+      Age		Age:13 Confidence:666
+      Gender		Gender:Female Confidence:297
+      Gaze		LR:253 UD:9
+      Blink		Left:552 Right:397
+      Expression	Expression:Sadness Score:9, 1, 33, 16, 41 Degree:167
+      Recognition	ID:-1 Confidence:174
+      Index:1 		X:1274 Y:666 Size:82 Confidence:560
+      Face Direction	LR:2 UD:9 Roll:-12 Confidence:1
+      Age		Age:29 Confidence:222
+      Gender		Gender:Female Confidence:502
+      Gaze		LR:254 UD:245
+      Blink		Left:417 Right:543
+      Expression	Expression:Happiness Score:7, 74, 2, 0, 17 Degree:55
+      Recognition	ID:-1 Confidence:182
+      Index:2 		X:895 Y:653 Size:76 Confidence:603
+      Face Direction	LR:17 UD:1 Roll:-8 Confidence:1
+      Age		Age:30 Confidence:500
+      Gender		Gender:Male Confidence:441
+      Gaze		LR:11 UD:250
+      Blink		Left:513 Right:613
+      Expression	Expression:Surprise Score:0, 47, 52, 0, 1 Degree:3
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0], [27, 1, 55, 0, 2, 43, 0], [28, 1, 53, 0, 2, 45, 0], [32, 1, 24, 1, 7, 66, 2]]
+okao age            : 30
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 52
+okao anger(%)    : 0
+okao sadness(%)  : 1
+okao happiness(%): 47
+okao neutral(%)  : 0
+set_okao_vision_data関数の中3
+
+ Body result count:4
+      Index:0 		X:1317 Y:713 Size:172 Confidence:653
+      Index:1 		X:889 Y:664 Size:165 Confidence:915
+      Index:2 		X:691 Y:652 Size:65 Confidence:969
+      Index:3 		X:306 Y:664 Size:41 Confidence:801
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:236
+      Index:0 		X:895 Y:653 Size:76 Confidence:596
+      Face Direction	LR:13 UD:2 Roll:-9 Confidence:1
+      Age		Age:30 Confidence:666
+      Gender		Gender:Male Confidence:449
+      Gaze		LR:21 UD:253
+      Blink		Left:533 Right:610
+      Expression	Expression:Surprise Score:0, 45, 48, 4, 3 Degree:250
+okao age            : 30
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 48
+okao anger(%)    : 4
+okao sadness(%)  : 3
+okao happiness(%): 45
+okao neutral(%)  : 0
+
+ Body result count:4
+      Index:0 		X:889 Y:668 Size:172 Confidence:896
+      Index:1 		X:1292 Y:720 Size:172 Confidence:802
+      Index:2 		X:690 Y:651 Size:65 Confidence:957
+      Index:3 		X:306 Y:665 Size:43 Confidence:649
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:91
+      Index:0 		X:897 Y:658 Size:84 Confidence:605
+      Face Direction	LR:19 UD:-3 Roll:-7 Confidence:1
+      Age		Age:29 Confidence:500
+      Gender		Gender:Male Confidence:425
+      Gaze		LR:18 UD:250
+      Blink		Left:499 Right:643
+      Expression	Expression:Surprise Score:0, 35, 62, 3, 0 Degree:228
+okao age            : 29
+okao gendre(1:m,2:f): 1
+speak_message: とても素敵なお名前ですね。きっと歴史に名を残すお名前ですね。ノーベル賞にノミネートされてましたか。
+okao surprise(%) : 62
+recognized comment = 
+okao anger(%)    : 3
+ret.getHumanComment() = 
+okao sadness(%)  : 0
+mainの中で、execute_action_and_get_human_reaction関数終了
+okao happiness(%): 35
+robot_human_data_tmp.getHumanComment():
+okao neutral(%)  : 0
+len(robot_human_series_data)11
+decide_actionが呼べてます！！！
+set_okao_vision_data関数の中1
+dialogue_algorithm_TATsysが呼べてます。
+getOkaoVisionData:  [[29, 1, 62, 3, 0, 35, 0], [30, 1, 48, 4, 3, 45, 0], [30, 1, 52, 0, 1, 47, 0], [32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0]]
+debig/evaluation bad
+debug/rule,comment_num random None
+debug/past_comment random None
+dialogue_algorithm_rulebase a
+debug/setOkaoVisionData:  [[29, 1, 62, 3, 0, 35, 0], [30, 1, 48, 4, 3, 45, 0], [30, 1, 52, 0, 1, 47, 0], [32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0]]
+debug/tmp_okao_data [[29, 1, 62, 3, 0, 35, 0], [30, 1, 48, 4, 3, 45, 0], [30, 1, 52, 0, 1, 47, 0], [32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0]]
+tmp_okao_data: [[29, 1, 62, 3, 0, 35, 0], [30, 1, 48, 4, 3, 45, 0], [30, 1, 52, 0, 1, 47, 0], [32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0]]
+dialogue_algorithm_rulebase b
+len(tmp_okao_data): 10
+var: 0
+tmp_okao_data[var][0]: 29
+dialogue_algorithm_rulebase tmp_okao_data 0
+dialogue_algorithm_rulebase c
+human_comment: 
+[]
+107010
+ダイアログの中のrobot_commnet_no
+108000
+decide_action関数内robot_acton:[108000, 0, 0, 0]
+mainの中で、decide_action関数終了
+robot_action: [108000, 0, 0, 0]
+while内robot_action: [108000, 0, 0, 0]
+end_flag != False
+mainの中で、execute_action_and_get_human_reaction関数開始
+execute_robot_action関数が呼ばれた
+
+ Body result count:3
+      Index:0 		X:889 Y:667 Size:172 Confidence:864
+      Index:1 		X:1282 Y:726 Size:152 Confidence:736
+      Index:2 		X:691 Y:653 Size:68 Confidence:918
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:97
+      Index:0 		X:895 Y:653 Size:76 Confidence:646
+      Face Direction	LR:11 UD:5 Roll:-9 Confidence:1
+      Age		Age:30 Confidence:400
+      Gender		Gender:Male Confidence:507
+      Gaze		LR:15 UD:2
+      Blink		Left:467 Right:519
+      Expression	Expression:Happiness Score:5, 60, 29, 1, 5 Degree:34
+set_okao_vision_data関数の中2
+debug/setOkaoVisionData:  [[29, 1, 62, 3, 0, 35, 0], [30, 1, 48, 4, 3, 45, 0], [30, 1, 52, 0, 1, 47, 0], [32, 1, 50, 0, 28, 21, 1], [34, 1, 31, 5, 0, 64, 0], [31, 1, 31, 6, 1, 62, 0], [37, 1, 29, 0, 5, 65, 1], [35, 1, 40, 0, 9, 50, 1], [128, 2, 128, 128, 128, 128, 128], [29, 1, 24, 1, 14, 61, 0]]
+okao age            : 30
+okao gendre(1:m,2:f): 1
+set_okao_vision_data関数の中3
+okao surprise(%) : 29
+okao anger(%)    : 1
+okao sadness(%)  : 5
+okao happiness(%): 60
+okao neutral(%)  : 5
+
+ Body result count:3
+      Index:0 		X:889 Y:667 Size:172 Confidence:957
+      Index:1 		X:1284 Y:722 Size:141 Confidence:784
+      Index:2 		X:690 Y:653 Size:68 Confidence:916
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:195
+      Index:0 		X:895 Y:653 Size:76 Confidence:642
+      Face Direction	LR:16 UD:-2 Roll:-10 Confidence:1
+      Age		Age:36 Confidence:250
+      Gender		Gender:Male Confidence:730
+      Gaze		LR:31 UD:253
+      Blink		Left:574 Right:479
+      Expression	Expression:Happiness Score:0, 53, 31, 0, 16 Degree:7
+okao age            : 36
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 31
+okao anger(%)    : 0
+okao sadness(%)  : 16
+okao happiness(%): 53
+okao neutral(%)  : 0
+
+ Body result count:2
+      Index:0 		X:889 Y:667 Size:172 Confidence:861
+      Index:1 		X:690 Y:653 Size:68 Confidence:873
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:76
+      Index:0 		X:896 Y:659 Size:88 Confidence:626
+      Face Direction	LR:22 UD:-6 Roll:-7 Confidence:1
+      Age		Age:33 Confidence:222
+      Gender		Gender:Male Confidence:357
+      Gaze		LR:4 UD:248
+      Blink		Left:508 Right:518
+      Expression	Expression:Happiness Score:0, 86, 10, 4, 0 Degree:74
+okao age            : 33
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 10
+okao anger(%)    : 4
+okao sadness(%)  : 0
+okao happiness(%): 86
+okao neutral(%)  : 0
+speak_message: 伝わらないかもしれませんが興奮してまだ胸がドキドキしてます。本日はとても素晴らしい方にごらいせき頂き、どうもありがとうございました。
+Home directory not accessible: Permission denied
+Home directory not accessible: Permission denied
+rec WARN formats: can't set sample rate 16000; using 44100
+
+Input File     : 'hw:2,0' (alsa)
+Channels       : 1
+Sample Rate    : 44100
+Precision      : 16-bit
+Sample Encoding: 16-bit Signed Integer PCM
+
+In:0.00% 00:00:00.00 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.19 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.37 [00:00:00.00] Out:0     [      |      ]        Clip:0    In:0.00% 00:00:00.56 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.74 [00:00:00.00] Out:5.53k [      |      ]        Clip:0    In:0.00% 00:00:00.93 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.11 [00:00:00.00] Out:11.1k [      |      ]        Clip:0    In:0.00% 00:00:01.30 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.49 [00:00:00.00] Out:16.6k [      |      ]        Clip:0    In:0.00% 00:00:01.67 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:01.86 [00:00:00.00] Out:22.1k [      |      ]        Clip:0    In:0.00% 00:00:02.04 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.23 [00:00:00.00] Out:27.7k [      |      ]        Clip:0    In:0.00% 00:00:02.41 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:33.2k [      |      ]        Clip:0    In:0.00% 00:00:02.60 [00:00:00.00] Out:40.0k [      |      ]        Clip:0    
+Done.
+^C
+ Body result count:4
+      Index:0 		X:889 Y:667 Size:172 Confidence:875
+      Index:1 		X:371 Y:149 Size:76 Confidence:582
+      Index:2 		X:689 Y:652 Size:65 Confidence:910
+      Index:3 		X:307 Y:664 Size:43 Confidence:760
+ Hand result count:0
+ Face result count:1
+      Recognition	ID:-1 Confidence:95
+      Index:0 		X:895 Y:653 Size:76 Confidence:621
+      Face Direction	LR:8 UD:3 Roll:-10 Confidence:1
+      Age		Age:41 Confidence:400
+      Gender		Gender:Male Confidence:489
+      Gaze		LR:13 UD:255
+      Blink		Left:335 Right:513
+      Expression	Expression:Happiness Score:0, 60, 34, 4, 2 Degree:21
+okao age            : 41
+okao gendre(1:m,2:f): 1
+okao surprise(%) : 34
+okao anger(%)    : 4
+okao sadness(%)  : 2
+okao happiness(%): 60
+okao neutral(%)  : 0
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/subprocess.py", line 559, in call
+    return p.wait(timeout=timeout)
+  File "/usr/lib/python3.5/subprocess.py", line 1658, in wait
+    (pid, sts) = self._try_wait(0)
+  File "/usr/lib/python3.5/subprocess.py", line 1608, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "main.py", line 119, in <module>
+    main()
+  File "main.py", line 95, in main
+    robot_human_data_tmp = execute_action_and_get_human_reaction(robot_action)
+  File "main.py", line 43, in execute_action_and_get_human_reaction
+    recognized_comment = recog_utterance_gcspeechapi.recognize_utterance()  #ひとまとまりのセリフを認識するまで戻らない関数という想定。
+  File "/home/pi/robodex/recog_utterance_gcspeechapi.py", line 90, in recognize_utterance
+    subprocess.call( cmd.strip().split(" ")  )
+  File "/usr/lib/python3.5/subprocess.py", line 561, in call
+    p.kill()
+  File "/usr/lib/python3.5/subprocess.py", line 1787, in kill
+    self.send_signal(signal.SIGKILL)
+  File "/usr/lib/python3.5/subprocess.py", line 1777, in send_signal
+    os.kill(self.pid, sig)
+ProcessLookupError: [Errno 3] No such process
+^CError in atexit._run_exitfuncs:
+Traceback (most recent call last):
+  File "/usr/lib/python3.5/concurrent/futures/thread.py", line 39, in _python_exit
+    t.join()
+  File "/usr/lib/python3.5/threading.py", line 1054, in join
+    self._wait_for_tstate_lock()
+  File "/usr/lib/python3.5/threading.py", line 1070, in _wait_for_tstate_lock
+    elif lock.acquire(block, timeout):
+KeyboardInterrupt
+^C
+[1;32mpi@pi[00m:[1;34m~/robodex[00m[1;31m (try_tat_sys)[00m$ exit
+exit
+
+スクリプトは 2018年01月10日 14時10分02秒
+ に終了しました

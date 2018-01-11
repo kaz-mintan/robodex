@@ -11,19 +11,13 @@ import robo_human_data
 import random
 
 def pic_human_term(human_comment):
-
-#    human_comment = "あいうえお"
-
     pic_term_list = []
-    if 1 == config.DEBUG_PRINT: print(human_comment)
+    config.debug_print("human_comment: "+human_comment)
 
     #dict_human_termは、一旦取り込んだ方がいいか？
     for key in tbl_human_comment.dict_human_term:
-
         list = tbl_human_comment.dict_human_term[key]
-
         for number in range(len(list)):
-#            print (list[number])
             if human_comment.find(list[number]) > -1:
 #               if True == list[number] in human_comment:　これだとうまくいかない
 #               print(msg.find(list[number]))
@@ -32,17 +26,15 @@ def pic_human_term(human_comment):
             else:
                 pass
 
-    if (1 == config.DEBUG_PRINT):
-        for number in range(len(pic_term_list)):
-            print ("pic_human_term関数内のpic_term_list" + pic_term_list[number])
+    for number in range(len(pic_term_list)):
+        config.debug_print("pic_human_term関数内のpic_term_list" + pic_term_list[number])
 
     return pic_term_list
 
 
 def dialogue_algorithm_rulebase(robot_human_series_data):
 #tbl_robo_commentの中を参照して、robot_commentを返す。
-    print("dialogue_algorithm_rulebaseが呼べてます。")
-
+    config.debug_print("dialogue_algorithm_rulebaseが呼べてます。")
 
     values = robot_human_series_data[:config.RESERVE_NUM_ROBOT_HUMAN_DATA]#下の書き方でも良いが、robot_human_series_dataの大きさがRESERVE_NUM_ROBOT_HUMAN_DATAより大きくなってしまった時（バグ）の保険のため
 #    values = series_data
@@ -59,28 +51,29 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
 
     tmp_human_comment = robot_human_data_newest.getHumanComment()
 
-    print("dialogue_algorithm_rulebase a")
+    config.debug_print("dialogue_algorithm_rulebase a")
 
     tmp_okao_data = robot_human_data_newest.getOkaoVisionData()
 
-    print("tmp_okao_data:",tmp_okao_data)
-    print("dialogue_algorithm_rulebase b")
-    print("len(tmp_okao_data):",len(tmp_okao_data))
+    config.debug_print("tmp_okao_data: " +str(tmp_okao_data))
+    config.debug_print("dialogue_algorithm_rulebase b")
+    config.debug_print("len(tmp_okao_data): " +str(len(tmp_okao_data)))
+
+    tmp_okao_exist_data = [0,0,0,0,0,0,0]
 
     for var in range(len(tmp_okao_data)-1):
-        print("var:",var)
-        print("tmp_okao_data[var][0]:",tmp_okao_data[var][0])
+        config.debug_print("var:" +str(var))
+        config.debug_print("tmp_okao_data[var][0]: " +str(tmp_okao_data[var][0]))
 
         if not (0 == tmp_okao_data[var][0]):
-            print("dialogue_algorithm_rulebase tmp_okao_data",var)
+            config.debug_print("dialogue_algorithm_rulebase tmp_okao_data var" +str(var))
 
             tmp_okao_exist_data = tmp_okao_data[var]
             break
         else:
-            tmp_okao_exist_data = [0,0,0,0,0,0,0]
-            print("decide_action_rulebase内、OKAOの読み取り値なし")
+            config.debug_print("decide_action_rulebase内、OKAOの読み取り値なし")
 
-    print("dialogue_algorithm_rulebase c")
+    config.debug_print("dialogue_algorithm_rulebase c")
 
     okao_age  = tmp_okao_exist_data[0]
     okao_gen  = tmp_okao_exist_data[1]
@@ -92,13 +85,15 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
 
     pic_term_list = pic_human_term(tmp_human_comment)
 
-    if (1 == config.DEBUG_PRINT):
-        print(pic_term_list)
+    config.debug_print("pic_term_list: " +str(pic_term_list))
 
     robot_comment_no = 0
     recog_commnet_skip_flag = 0
 
     print(robot_human_data_newest.getRobotComment())
+
+    config.debug_print("robot_human_data_newest.getRobotComment(): " +str(robot_human_data_newest.getRobotComment()))
+    config.debug_print("type(robot_human_data_newest.getRobotComment()): " + str(type(robot_human_data_newest.getRobotComment())))
 
     if (10001 == robot_human_data_newest.getRobotComment()):#10001:"こんにちは、お客様が来ていただけるのを、ずっとお待ちしておりました。本日はどちらからいらっしゃったんですか？",
         robot_comment_no = 10101#10101:"遠いところですか？",
@@ -258,56 +253,49 @@ def dialogue_algorithm_rulebase(robot_human_series_data):
     else:
         pass
 
-    print("ダイアログの中のrobot_commnet_no")
-    print(robot_comment_no)
+    config.debug_print("dialogue_algorithm_rulebase関数の中の最後でのrobot_comment_no: " +str(robot_comment_no))
 
     return (robot_comment_no, recog_commnet_skip_flag)
 
 
 def decide_action_rulebase(robot_human_series_data):
 
-    print("decide_action_rulebaseが呼べてます。")
+    config.debug_print("decide_action_rulebaseが呼べてます。")
 
     robot_action = [0,0,0,0]#ロボットのコメント、モーション、LEDの、それぞれのテーブルのID
 
-#    robot_human_data_newest = robo_human_data.RobotHumanData()
     robot_comment_no, recog_commnet_skip_flag = dialogue_algorithm_rulebase(robot_human_series_data)
+    config.debug_print("decide_actionの中で、dialogue_algorithm_rulebase関数終了")
 
-    print("decide_actionの中で、dialogue_algorithm_rulebase関数終了")
+    robot_motion_no = random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
+    robot_motion_no = random.randrange(1,4)
 
-#    robot_motion_no=random.randrange(1,config.NUM_OF_CHOICES_MOTION+1)
-#    robot_motion_no =　random.randrange(1,4)
-    robot_motion_no=0
-
-#    robot_led_no=random.randrange(1,config.NUM_OF_CHOICES_LED+1)
-#    robot_led_no =　random.randrange(1,4)
-    robot_led_no=0
-
-#    if(50100 = robot_comment_no):
-#        robot_motion_no = 4
-#        robot_led_no = 8
+    robot_led_no = random.randrange(1,config.NUM_OF_CHOICES_LED+1)
+    robot_led_no = random.randrange(1,4)
 
     robot_action = [robot_comment_no,robot_motion_no,robot_led_no,recog_commnet_skip_flag]
 
-    print("decide_action_rulebase b")
+    config.debug_print("decide_action_rulebase b")
 
     return robot_action
 
-#以下、関数別debug用
+if __name__ == '__main__':
+    tmp_term = "寒いね"
+    tmp_robo_term = "ロボットロボロボ"
 
-#---dialogue_algorithm_rulebase確認用---
-#tmp_term = "良いけど疲れた"
-#print(dialogue_algorithm_rulebase(tmp_term))
+    print("tmp_term: ", tmp_term)
 
-#---pic_term_list確認用---
-#h_comment = "良いけど疲れた。"
-#print(pic_term_list(h_comment))
+    print("pic_human_term(tmp_term)", pic_human_term(tmp_term))
 
-#---decide_action_rulebase確認用---
-#h_comment = "良いけど疲れた。"
-#tmp_robo_h_s_data = []
-#tmp = robo_human_data.RobotHumanData()
-#tmp.setHumanComment(h_comment)
-#tmp_robo_h_s_data.append(tmp)
-#ret = decide_action_rulebase(tmp_robo_h_s_data)
-#print (ret)
+    tmp_robo_h_s_data = []
+    tmp = robo_human_data.RobotHumanData()
+    tmp.setHumanComment(tmp_term)
+    tmp_robo_h_s_data.append(tmp)
+
+    tmp.setRobotComment(tmp_robo_term)
+
+    reta,retb = dialogue_algorithm_rulebase(tmp_robo_h_s_data)
+    print("dialogue_algorithm_rulebaseの返り値", reta,retb)
+
+    ret = decide_action_rulebase(tmp_robo_h_s_data)
+    print ("decide_action_rulebase関数の返り値" ,ret)

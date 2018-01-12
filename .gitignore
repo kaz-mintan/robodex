@@ -1,3 +1,4 @@
+*.pyc
 human_comment.wav
 robot_comment.wav
 memofiles

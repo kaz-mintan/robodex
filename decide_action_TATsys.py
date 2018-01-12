@@ -23,8 +23,8 @@ import random
 
 #iinoka
 TAT_REWARD_TBL = 'tat_reward_tbl.npy'
-HAPPY_THRESHOLD = 60
-HAPPY_RATE = 50 #%
+HAPPY_THRESHOLD = 40 #60
+HAPPY_RATE = 35 #%
 #TAT_ACTION_LOG = 'tat_action_log.csv'
 
 def argmax_ndim(arg_array):
@@ -114,27 +114,36 @@ def eval_face(face):
 ## returns the number of same comment which was selected before
 def return_past_num(robot_human_data_newest,robot_human_data_before,before_num):
     #any past data
-    if robot_human_data_newest.getHumanComment() == robot_human_data_before.getHumanComment():
+    #if robot_human_data_newest.getRobotComment() == robot_human_data_before.getRobotComment():
+    #pic_term_list = pic_human_term(tmp_human_comment)
+    if pic_human_term(robot_human_data_newest.getHumanComment()) == pic_human_term(robot_human_data_before.getHumanComment()):
         past_num = before_num
     else:
         # if there is NO COMMENT which was selected before
         past_num = 0
 
     #past_num is the number which contains the same robot comment of the robot_human_data_newest
+    print('tat_debug/return_post_num/past_num',past_num)
     return past_num
 
 ## returns the number of comment which was selected before OR random
 def ret_comment_num(values):
+    global comment_num
+    global rule
+    global face
+
     robot_human_data_newest = values[0]
     n = len(values)
 
     #for i in reversed(range(1,n)):
     for i in range(1,n):
-        past_num=return_past_num(robot_human_data_newest,values[i],i)
+        #past_num=return_past_num(robot_human_data_newest,values[i],i)
+        past_num=return_past_num(values[0],values[i],i)
+        print('tat_debug/ret_comment_num/values',values[i].getRobotComment())
 
         if past_num!=0:
             rule = 'past'
-            past_number = past_num
+            past_number = past_num-1
             break
             #the number could be the latest number
         else:
@@ -143,6 +152,7 @@ def ret_comment_num(values):
 
     if rule != 'random':
         face = values[past_number].getOkaoVisionData()
+        #face = values[past_number].setOkaoVisionData(recog_okao.okao_data)
         if eval_face(face)=='good':
             rule = 'past'
             comment_num = values[past_number].getRobotComment()
@@ -473,5 +483,6 @@ if __name__ == "__main__" :
     robot_human_series_data[9].robot_comment = 101002
     robot_human_series_data[9].recogt_commnet_skip_flag = 1
     #101002:"僕は太鼓持ちロボットティーティーエムゼロスリーです。あなたのために生まれてきたロボットです。",
-    robot_human_series_data[7].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[9].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
+    decide_action_TATsys(robot_human_series_data)

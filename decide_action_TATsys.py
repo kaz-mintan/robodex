@@ -21,6 +21,10 @@ import config
 import recog_okao
 import random
 
+## to debug by kuma
+import csv
+from datetime import datetime
+
 #iinoka
 TAT_REWARD_TBL = 'tat_reward_tbl.npy'
 HAPPY_THRESHOLD = 40 #60
@@ -131,6 +135,7 @@ def ret_comment_num(values):
     global comment_num
     global rule
     global face
+    #global writer_face
 
     robot_human_data_newest = values[0]
     n = len(values)
@@ -139,7 +144,12 @@ def ret_comment_num(values):
     for i in range(1,n):
         #past_num=return_past_num(robot_human_data_newest,values[i],i)
         past_num=return_past_num(values[0],values[i],i)
-        print('tat_debug/ret_comment_num/values',values[i].getRobotComment())
+        #print('tat_debug/ret_comment_num/values',values[i].getRobotComment())
+
+        with open('past_selected_number.csv','a') as f:
+            writer = csv.writer(f)
+            writer.writerow(['past_num','comment_number',datetime.now()])
+            writer.writerow([past_num-1, values[past_num-1].getRobotComment()])
 
         if past_num!=0:
             rule = 'past'
@@ -152,6 +162,13 @@ def ret_comment_num(values):
 
     if rule != 'random':
         face = values[past_number].getOkaoVisionData()
+
+        with open('refered_face.csv','a') as f_face:
+            writer_face = csv.writer(f_face)
+            writer_face.writerow(['okao_age','okao_gen','okao_surp','okao_anger','okao_sadn','okao_happ','okao_neut]',datetime.now()])
+            #writer_facce.writerow([face[0],face[1],face[2],face[3],face[4],face[5],face[6]])
+            writer_face.writerow(face)
+
         #face = values[past_number].setOkaoVisionData(recog_okao.okao_data)
         if eval_face(face)=='good':
             rule = 'past'
@@ -199,7 +216,7 @@ def dialogue_algorithm_TATsys(robot_human_series_data):
 
     print("dialogue_algorithm_rulebase a")
 
-    tmp_okao_data = robot_human_data_newest.setOkaoVisionData(recog_okao.okao_data)
+    #tmp_okao_data = robot_human_data_newest.setOkaoVisionData(recog_okao.okao_data)
 
     #print("tmp_okao_data:",tmp_okao_data)
     print("dialogue_algorithm_rulebase b")
@@ -424,6 +441,11 @@ def decide_action_TATsys(robot_human_series_data):
 
     robot_action = [robot_comment_no,robot_motion_no,robot_led_no,recog_commnet_skip_flag]
 
+    with open('selected_action.csv','a') as f_action:
+            writer_act = csv.writer(f_action)
+            writer_act.writerow(['comment','motion','led','skip_flg',datetime.now()])
+            writer_act.writerow(robot_action)
+
     return robot_action
 
 if __name__ == "__main__" :
@@ -439,50 +461,54 @@ if __name__ == "__main__" :
             robo_human_data.RobotHumanData(),
             robo_human_data.RobotHumanData()]
 
-    robot_human_series_data[0].human_comment = "カナダ"
-    robot_human_series_data[0].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[0].human_comment = "すごい"
+    robot_human_series_data[0].okao_data = [[20,2,0,0,0,94,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[0].robot_comment = 109
+    #robot_human_series_data[0].robot_comment = 103000 #"今日はどちらからお越しですか？",
 
-    robot_human_series_data[1].human_comment = ""
-    robot_human_series_data[1].robot_comment = 103000 #"今日はどちらからお越しですか？",
+    robot_human_series_data[1].human_comment = "すごい"
+    robot_human_series_data[1].robot_comment = 203
     robot_human_series_data[1].recogt_commnet_skip_flag = 0
-    robot_human_series_data[1].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[1].okao_data = [[20,2,0,0,0,20,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
-    robot_human_series_data[2].human_comment = "こんにちは"
-    robot_human_series_data[2].robot_comment = 101002
+    robot_human_series_data[2].human_comment = "すごい"
+    #robot_human_series_data[2].human_comment = "こんにちは"
+    robot_human_series_data[2].robot_comment = 0
     robot_human_series_data[2].recogt_commnet_skip_flag = 1
-    robot_human_series_data[2].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[2].okao_data = [[20,2,0,0,0,30,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[3].human_comment = ""
+    robot_human_series_data[3].robot_comment = 107030 #107030:"とても素敵なお名前ですね。あなたの発明で世界は革新するのですね。スティーブジョブスを超えるかたですね。", # その他
     robot_human_series_data[3].robot_comment = 108000
-    robot_human_series_data[3].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[3].okao_data = [[20,2,0,0,0,40,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[4].human_comment = "くまがいです"
-    robot_human_series_data[4].robot_comment = 107030 #107030:"とても素敵なお名前ですね。あなたの発明で世界は革新するのですね。スティーブジョブスを超えるかたですね。", # その他
+    robot_human_series_data[4].robot_comment = 106000 #106000:"お名前をお聞かせください。",
     robot_human_series_data[4].recogt_commnet_skip_flag = 1
-    robot_human_series_data[4].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[4].okao_data = [[20,2,0,0,0,50,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[5].human_comment = ""
-    robot_human_series_data[5].robot_comment = 106000 #106000:"お名前をお聞かせください。",
-    robot_human_series_data[5].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[5].robot_comment = 105000 #105000:"わざわざ遠くからせんぱいに来てもらえるなんて、ぼくはなんて幸せものなんでしょう。アールツーディーツーにも負けません。", # 遠い
+    robot_human_series_data[5].okao_data = [[20,2,0,0,0,60,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[6].human_comment = "遠い"
-    robot_human_series_data[6].robot_comment = 105000 #105000:"わざわざ遠くからせんぱいに来てもらえるなんて、ぼくはなんて幸せものなんでしょう。アールツーディーツーにも負けません。", # 遠い
+    robot_human_series_data[6].robot_comment = 10101 #10101:"遠いところですか？",
     robot_human_series_data[6].recogt_commnet_skip_flag = 1
-    robot_human_series_data[6].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
+    robot_human_series_data[6].okao_data = [[20,2,0,0,0,70,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[7].human_comment = "カナダ"
-    robot_human_series_data[7].robot_comment = 10101 #10101:"遠いところですか？",
+    robot_human_series_data[7].robot_comment = 103000 #"今日はどちらからお越しですか？",
+    robot_human_series_data[7].recogt_commnet_skip_flag = 0
     robot_human_series_data[7].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[8].human_comment = ""
-    robot_human_series_data[8].robot_comment = 103000 #"今日はどちらからお越しですか？",
-    robot_human_series_data[8].recogt_commnet_skip_flag = 0
+    robot_human_series_data[8].robot_comment = 101002
+    #101002:"僕は太鼓持ちロボットティーティーエムゼロスリーです。あなたのために生まれてきたロボットです。",
     robot_human_series_data[8].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     robot_human_series_data[9].human_comment = "こんにちは"
-    robot_human_series_data[9].robot_comment = 101002
+    #robot_human_series_data[9].robot_comment = 101002
     robot_human_series_data[9].recogt_commnet_skip_flag = 1
-    #101002:"僕は太鼓持ちロボットティーティーエムゼロスリーです。あなたのために生まれてきたロボットです。",
     robot_human_series_data[9].okao_data = [[20,2,0,0,0,80,0],[20,2,0,0,0,90,0],[20,2,0,0,0,70,0],[20,2,0,0,0,100,0]]
 
     decide_action_TATsys(robot_human_series_data)
